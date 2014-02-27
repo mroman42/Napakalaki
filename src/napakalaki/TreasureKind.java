@@ -5,5 +5,5 @@ package napakalaki;
  * @author Mario Román
  */
 public enum TreasureKind {
-    ARMOR, ONEHAND, BOTHHANDS, HELMET, SHOE,NECKLACE
+    ARMOR, ONEHAND, BOTHHANDS, HELMET, SHOE, NECKLACE
 }

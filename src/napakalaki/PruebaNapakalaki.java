@@ -1,8 +1,9 @@
 package napakalaki;
 
 /**
- * @date 21/02/2014
+ * @date 27/02/2014
  * @author Mario Román
+ * @author José Carlos Entrena
  */
 public class PruebaNapakalaki {
 
@@ -11,11 +12,9 @@ public class PruebaNapakalaki {
      */
     public static void main(String[] args) {
          Prize ejemplo = new Prize(2,3);
-         System.out.print("Ejemplo: Levels: ");
-         System.out.print(ejemplo.getLevels());
-         System.out.print(" Treasures: ");
-         System.out.print(ejemplo.getTreasures());
-         System.out.print("\n");
+         BadConsequence nueva = new BadConsequence("Lo mando como ejercicio", true);  
+         Monster calculo = new Monster("Paco Polo", 28, nueva, ejemplo);
+         System.out.print(calculo.toString());
     }
     
 }
