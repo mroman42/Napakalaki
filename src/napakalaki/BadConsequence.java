@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author José Carlos Entrena
  */
 public class BadConsequence {
-    private String text;
+    private final String text;
     private int levels;
     private int nVisibleTreasures;
     private int nHiddenTreasures;

@@ -6,10 +6,10 @@ package napakalaki;
  * @author José Carlos Entrena
  */
 public class Monster {
-    private String name;
-    private int level;
-    private BadConsequence bad; 
-    private Prize price; 
+    private final String name;
+    private final int level;
+    private final BadConsequence bad; 
+    private final Prize price; 
     
     // Constructores
     public Monster(String name, int level, BadConsequence bad, Prize price){

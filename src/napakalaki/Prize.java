@@ -6,8 +6,8 @@ package napakalaki;
  * @author José Carlos Entrena
  */
 public class Prize {
-    private int treasures;
-    private int levels;
+    private final int treasures;
+    private final int levels;
     
     // Constructores
     public Prize (int treasures, int levels) {

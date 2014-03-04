@@ -15,6 +15,8 @@ public class PruebaNapakalaki {
     public static void main(String[] args) {
         // Declaración de los monstruos. 
         ArrayList<Monster> monsters = new ArrayList();
+        ArrayList<TreasureKind> tvp = new ArrayList(); 
+        ArrayList<TreasureKind> thp = new ArrayList(); 
         
         // Ejemplos del guión. 
         
@@ -25,9 +27,7 @@ public class PruebaNapakalaki {
         monsters.add(new Monster("El rey de rosa", 13, bad, price)); 
         
         // Ángeles de la noche ibicenca
-        ArrayList<TreasureKind> tvp = new ArrayList(); 
         tvp.add(TreasureKind.ONEHAND);
-        ArrayList<TreasureKind> thp = new ArrayList(); 
         thp.add(TreasureKind.ONEHAND);
         BadConsequence bad2 = new BadConsequence("Te atrapan para llevarte de "
                 + "fiesta y te dejan caer en mitad del vuelo. "
