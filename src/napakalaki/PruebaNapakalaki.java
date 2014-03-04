@@ -181,10 +181,6 @@ public class PruebaNapakalaki {
         Prize price19 = new Prize(1,1); 
         monsters.add(new Monster("Bicéfalo", 20, bad19, price19)); 
        
-        
-       
-                 
-         
     }
     
 }
