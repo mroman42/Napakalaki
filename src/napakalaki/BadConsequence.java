@@ -65,10 +65,9 @@ public class BadConsequence {
     @Override
     public String toString() {
         return text +
-               "\n\t" + Integer.toString(levels) + " levels, " +
+               "\n\t" + (death? " DEATH." : (Integer.toString(levels) + " levels, " +
                Integer.toString(nHiddenTreasures) + " hidden treasures, " +
-               Integer.toString(nVisibleTreasures) + " visible treasures." +
-               "\n\tDeath: " + String.valueOf(death) + ".\n"; 
+               Integer.toString(nVisibleTreasures) + " visible treasures.")) + "\n"; 
     }
 }
     
