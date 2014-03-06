@@ -118,6 +118,68 @@ public class PruebaNapakalaki {
         
         // Dameargo 
         
+        tvp.clear(); 
+        tvp.add(TreasureKind.ONEHAND); 
+        BadConsequence bad12 = new BadConsequence("Te intentas escapar. "
+                + "Pierdes una mano visible.", 0, tvp, thp); 
+        Prize price12 = new Prize(2,1); 
+        monsters.add(new Monster("Dameargo", 1, bad12, price12)); 
+        
+        // Pollipólipo volante
+        
+        BadConsequence bad13 = new BadConsequence("Da mucho asquito. Pierdes "
+                + "3 niveles.", 3, 0, 0); 
+        Prize price13 = new Prize(1,1); 
+        monsters.add(new Monster("Pollipólipo volante", 3, bad13, price13)); 
+        
+        // Yskhtihyssg-Goth
+        
+        BadConsequence bad14 = new BadConsequence("No le hace gracia que pronuncien "
+                + "mal su nombre. Estás muerto.", true); 
+        Prize price14 = new Prize(3,1); 
+        monsters.add(new Monster("Yskhtihyssg-Goth", 12, bad14, price14)); 
+        
+        // Familia feliz. 
+        
+        BadConsequence bad15 = new BadConsequence("La familia te atrapa. Estás muerto."
+                , true); 
+        Prize price15 = new Prize(4,1); 
+        monsters.add(new Monster("Familia feliz", 1, bad15, price15)); 
+        
+        // Roboggoth
+        
+        tvp.clear(); 
+        tvp.add(TreasureKind.BOTHHANDS); 
+        BadConsequence bad16 = new BadConsequence("La quinta directiva primaria "
+                + "te obliga a perder 2 niveles y un tesoro 2 manos visible.", 2
+                , tvp, thp); 
+        Prize price16 = new Prize(2,1); 
+        monsters.add(new Monster("Roboggoth", 8, bad16, price16)); 
+        
+        // El espía ciego. 
+        
+        tvp.clear(); 
+        tvp.add(TreasureKind.HELMET); 
+        BadConsequence bad17 = new BadConsequence("Te asusta en la noche. "
+                + "Pierdes un casco visible.", 0, tvp, thp); 
+        Prize price17 = new Prize(1,1); 
+        monsters.add(new Monster("El espía ciego", 4, bad17, price17)); 
+        
+        // El Lenguas
+        
+        BadConsequence bad18 = new BadConsequence("Menudo susto te llevas. Pierdes "
+                + "2 niveles y 5 tesoros visibles.", 2, 5, 0); 
+        Prize price18 = new Prize(1,1); 
+        monsters.add(new Monster("El Lenguas", 20, bad18, price18)); 
+        
+        // Bicéfalo
+        
+        tvp.clear(); 
+        tvp.add(TreasureKind.BOTHHANDS); 
+        BadConsequence bad19 = new BadConsequence("Te faltan manos para tanta cabeza."
+                + " Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, tvp, thp);
+        Prize price19 = new Prize(1,1); 
+        monsters.add(new Monster("Bicéfalo", 20, bad19, price19)); 
         
         ////
         // Filtros sobre los monstruos.
