@@ -188,6 +188,8 @@ public class PruebaNapakalaki {
         ////
         System.out.println("Monstruos de nivel mayor a 10:");
         System.out.println(nivelSuperior(monsters, 10).toString());
+        System.out.println("Monstruos que sólo quitan niveles:");
+        System.out.println(pierdenSoloNiveles(monsters).toString());
     }
     
     public static ArrayList<Monster> nivelSuperior (ArrayList<Monster> listado, int nivel) {
@@ -204,8 +206,12 @@ public class PruebaNapakalaki {
     public static ArrayList<Monster> pierdenSoloNiveles (ArrayList<Monster> listado) {
         ArrayList<Monster> filtrados = new ArrayList();
         
-        for (Monster actual : listado) {  
-            if (actual.getBadConsequence().getLevels() >= 0)
+        for (Monster actual : listado) {
+            BadConsequence bad = actual.getBadConsequence();
+            
+            if ((bad.getLevels() >= 0) && (bad.getDeath() == false) &&
+                    (bad.getnVisibleTreasures() == 0) && 
+                    (bad.getnHiddenTreasures() == 0))
                 filtrados.add(actual);
         }
         
