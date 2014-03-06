@@ -64,10 +64,11 @@ public class BadConsequence {
     // Métodos 
     @Override
     public String toString() {
-        return "\n\tText = " + text + "\n\tLevels = " + Integer.toString(levels) + 
-                "\n\tTreasures: \n\t\tHidden: " + Integer.toString(nHiddenTreasures) +
-                "\n\t\tVisible: " + Integer.toString(nVisibleTreasures) + 
-                "\n\tDeath: " + String.valueOf(death) + ".\n"; 
+        return text +
+               "\n\t" + Integer.toString(levels) + " levels, " +
+               Integer.toString(nHiddenTreasures) + " hidden treasures, " +
+               Integer.toString(nVisibleTreasures) + " visible treasures." +
+               "\n\tDeath: " + String.valueOf(death) + ".\n"; 
     }
 }
     

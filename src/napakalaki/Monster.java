@@ -39,7 +39,7 @@ public class Monster {
     // Métodos
     @Override
     public String toString() {
-        return name + "(lv." + Integer.toString(level) + ")" + 
+        return name + " (lv. " + Integer.toString(level) + ")" + 
                "\nPrize: " + prize.toString() + 
                "\nBad: " + bad.toString() + 
                "\n";
