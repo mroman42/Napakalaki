@@ -1,7 +1,6 @@
 package napakalaki;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * @date 27/02/2014
@@ -188,23 +187,11 @@ public class PruebaNapakalaki {
         // Filtros sobre los monstruos.
         ////
         System.out.println("Monstruos de nivel mayor a 10:");
-        //System.out.println(nivelSuperior(monsters, 10).toString());
+        System.out.println(nivelSuperior(monsters, 10).toString());
         System.out.println("Monstruos que sólo quitan niveles:");
-       // System.out.println(pierdenSoloNiveles(monsters).toString());
+        System.out.println(pierdenSoloNiveles(monsters).toString());
         System.out.println("Monstruos con ganancia de un nivel o más:");
-        System.out.println(ganaMasDeUnNivel(monsters).toString());
-        System.out.println("Monstruos que quitan un determinado objeto:");
-        
-        TreasureKind objeto;
-        
-        do{
-            System.out.println("¿Qué objeto?");
-            Scanner capt = new Scanner(System.in);
-
-            objeto = TreasureKind.valueOf(capt.nextLine());
-        }while(objeto != TreasureKind.ARMOR || objeto != TreasureKind.ONEHAND || objeto != TreasureKind.BOTHHANDS || objeto != TreasureKind.HELMET || objeto != TreasureKind.SHOE || objeto != TreasureKind.NECKLACE);
-        System.out.println(quitanObjeto(monsters, objeto).toString());
-    
+        System.out.println(ganaMasDeUnNivel(monsters).toString());    
     }
     
     public static ArrayList<Monster> nivelSuperior (ArrayList<Monster> listado, int nivel) {
@@ -246,16 +233,14 @@ public class PruebaNapakalaki {
         return filtrados; 
     }
     
-    public static ArrayList<Monster> quitanObjeto (ArrayList<Monster> listado, TreasureKind objeto) {
+    public static ArrayList<Monster> pierdeTesoros (ArrayList<Monster> listado, 
+            ArrayList<TreasureKind> tesoros){
         ArrayList<Monster> filtrados = new ArrayList(); 
+        ArrayList<TreasureKind> tPerdidos = new ArrayList(); 
         
         for (Monster actual : listado) {
-            ArrayList<TreasureKind> treasures = actual.getBadConsequence().getSpecificHiddenTreasures();
-            treasures.addAll(actual.getBadConsequence().getSpecificVisibleTreasures());
-            
-            if ((treasures.contains(objeto)))
-                 filtrados.add(actual);
-           
+            if (tesoros.containsAll(tPerdidos))
+                filtrados.add(actual); 
         }
         return filtrados; 
     }
