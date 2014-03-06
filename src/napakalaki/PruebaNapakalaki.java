@@ -114,12 +114,33 @@ public class PruebaNapakalaki {
         BadConsequence bad11 = new BadConsequence("Pierdes 2 niveles y 2 tesoros "
                 + "ocultos.", 2, 0, 2); 
         Prize price11 = new Prize(2,1); 
-        monsters.add(new Monster("Semillas Cthulhu", 4, bad11, price11)); 
+        monsters.add(new Monster("Semillas Cthulhu", 4, bad11, price11));
         
         
-       
-                 
-         
+        
+        ////
+        // Filtros sobre los monstruos.
+        ////
+        
+        System.out.println("Monstruos de nivel mayor a 10:");
+        System.out.println(nivelSuperior(monsters, 5).toString());
     }
     
+    public static ArrayList<Monster> nivelSuperior (ArrayList<Monster> listado, int nivel) {
+        ArrayList<Monster> filtrados = new ArrayList();
+        
+        for (Monster actual : listado) {
+            if (actual.getLevel() >= nivel)
+                filtrados.add(actual);
+        }
+        
+        return filtrados;
+    }
+    
+    public static ArrayList<Monster> pierdenNiveles () {
+        ArrayList<Monster> filtrados = new ArrayList();
+        
+        
+        return filtrados;
+    }
 }
