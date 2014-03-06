@@ -181,12 +181,13 @@ public class PruebaNapakalaki {
         Prize price19 = new Prize(1,1); 
         monsters.add(new Monster("Bicéfalo", 20, bad19, price19)); 
         
+        
+        
         ////
         // Filtros sobre los monstruos.
         ////
-        
         System.out.println("Monstruos de nivel mayor a 10:");
-        System.out.println(nivelSuperior(monsters, 5).toString());
+        System.out.println(nivelSuperior(monsters, 10).toString());
     }
     
     public static ArrayList<Monster> nivelSuperior (ArrayList<Monster> listado, int nivel) {
@@ -200,9 +201,13 @@ public class PruebaNapakalaki {
         return filtrados;
     }
     
-    public static ArrayList<Monster> pierdenNiveles () {
+    public static ArrayList<Monster> pierdenSoloNiveles (ArrayList<Monster> listado) {
         ArrayList<Monster> filtrados = new ArrayList();
         
+        for (Monster actual : listado) {  
+            if (actual.getBadConsequence().getLevels() >= 0)
+                filtrados.add(actual);
+        }
         
         return filtrados;
     }

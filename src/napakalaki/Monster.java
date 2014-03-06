@@ -9,14 +9,14 @@ public class Monster {
     private final String name;
     private final int level;
     private final BadConsequence bad; 
-    private final Prize price; 
+    private final Prize prize; 
     
     // Constructores
-    public Monster(String name, int level, BadConsequence bad, Prize price){
+    public Monster(String name, int level, BadConsequence bad, Prize prize){
         this.name = name; 
         this.level = level; 
         this.bad = bad; 
-        this.price = price; 
+        this.prize = prize; 
     }
     
     // Consultores
@@ -28,11 +28,19 @@ public class Monster {
         return level; 
     }
     
+    public Prize getPrize() {
+        return prize;
+    }
+    
+    public BadConsequence getBadConsequence() {
+        return bad;
+    }
+    
     // Métodos
     @Override
     public String toString() {
         return "Name = " + name + "\nLevel = " + Integer.toString(level) + 
-                "\nPrize: " + price.toString() + "\nBad: " + bad.toString() + 
+                "\nPrize: " + prize.toString() + "\nBad: " + bad.toString() + 
                  "\n\n";
     }
     
