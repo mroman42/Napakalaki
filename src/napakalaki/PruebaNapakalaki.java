@@ -116,6 +116,7 @@ public class PruebaNapakalaki {
         Prize price11 = new Prize(2,1); 
         monsters.add(new Monster("Semillas Cthulhu", 4, bad11, price11));
         
+        // Dameargo 
         
         
         ////

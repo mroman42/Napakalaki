@@ -32,8 +32,8 @@ public class Monster {
     @Override
     public String toString() {
         return "Name = " + name + "\nLevel = " + Integer.toString(level) + 
-                "\nBad: " + bad.toString() + "\nPrize: " + price.toString()
-                + ".\n";
+                "\nPrize: " + price.toString() + "\nBad: " + bad.toString() + 
+                 "\n\n";
     }
     
 }
