@@ -31,12 +31,13 @@ public class BadConsequence {
     }
     
     public BadConsequence (String text, int levels, ArrayList<TreasureKind>
-            tHidden, ArrayList<TreasureKind> tVisible) {
+            tVisible, ArrayList<TreasureKind> tHidden) {
         this.text = text; 
         this.levels = levels; 
         this.specificHiddenTreasures = (ArrayList<TreasureKind>) tHidden.clone();
         this.specificVisibleTreasures = (ArrayList<TreasureKind>) tVisible.clone(); 
-        
+        this.nVisibleTreasures = tVisible.size();
+        this.nHiddenTreasures = tHidden.size();         
     }
     
     // Consultores
