@@ -187,9 +187,9 @@ public class PruebaNapakalaki {
         // Filtros sobre los monstruos.
         ////
         System.out.println("Monstruos de nivel mayor a 10:");
-        //System.out.println(nivelSuperior(monsters, 10).toString());
+        System.out.println(nivelSuperior(monsters, 10).toString());
         System.out.println("Monstruos que sólo quitan niveles:");
-       // System.out.println(pierdenSoloNiveles(monsters).toString());
+        System.out.println(pierdenSoloNiveles(monsters).toString());
         System.out.println("Monstruos con ganancia de un nivel o más:");
         System.out.println(ganaMasDeUnNivel(monsters).toString());
     
@@ -230,6 +230,18 @@ public class PruebaNapakalaki {
             if ((prize.getLevels() > 1))
                  filtrados.add(actual);
            
+        }
+        return filtrados; 
+    }
+    
+    public static ArrayList<Monster> pierdeTesoros (ArrayList<Monster> listado, 
+            ArrayList<TreasureKind> tesoros){
+        ArrayList<Monster> filtrados = new ArrayList(); 
+        ArrayList<TreasureKind> tPerdidos = new ArrayList(); 
+        
+        for (Monster actual : listado) {
+            if (tesoros.containsAll(tPerdidos))
+                filtrados.add(actual); 
         }
         return filtrados; 
     }
