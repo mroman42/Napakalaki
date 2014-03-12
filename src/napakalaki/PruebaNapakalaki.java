@@ -1,6 +1,6 @@
 package napakalaki;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * @date 27/02/2014
@@ -235,12 +235,20 @@ public class PruebaNapakalaki {
     
     public static ArrayList<Monster> pierdeTesoros (ArrayList<Monster> listado, 
             ArrayList<TreasureKind> tesoros){
-        ArrayList<Monster> filtrados = new ArrayList(); 
-        ArrayList<TreasureKind> tPerdidos = new ArrayList(); 
+        ArrayList<Monster> filtrados = new ArrayList();
+        HashSet<TreasureKind> hs = new HashSet(); 
         
         for (Monster actual : listado) {
-            if (tesoros.containsAll(tPerdidos))
+            // Añadimos los tesoros a una tabla Hash (evita duplicados). 
+            hs.addAll(actual.getBadConsequence().
+                                    getSpecificVisibleTreasures());
+            hs.addAll(actual.getBadConsequence().
+                                    getSpecificHiddenTreasures()); 
+            
+            if (tesoros.containsAll(hs))
                 filtrados.add(actual); 
+            // Limpiamos la lista. 
+            hs.clear(); 
         }
         return filtrados; 
     }
