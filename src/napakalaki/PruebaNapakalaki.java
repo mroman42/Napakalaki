@@ -190,17 +190,27 @@ public class PruebaNapakalaki {
         System.out.println(ganaMasDeUnNivel(monsters).toString());    
     }
     
+    /**
+     * Monstruos a partir de un nivel.
+     * @param listado Listado de monstruos sobre los que se filtrará.
+     * @param nivel Nivel a partir del cual se filtran.
+     * @return Listado de mounstruos superiores al nivel dado.
+     */
     public static ArrayList<Monster> nivelSuperior (ArrayList<Monster> listado, int nivel) {
         ArrayList<Monster> filtrados = new ArrayList();
         
-        for (Monster actual : listado) {
+        for (Monster actual : listado)
             if (actual.getLevel() >= nivel)
-                filtrados.add(actual);
-        }
+                filtrados.add(actual);       
         
         return filtrados;
     }
     
+    /**
+     * Mnstruos que sólo quitan niveles.
+     * @param listado Lista completa de monstruos.
+     * @return Lista de monstruos que sólo quitan niveles.
+     */
     public static ArrayList<Monster> pierdenSoloNiveles (ArrayList<Monster> listado) {
         ArrayList<Monster> filtrados = new ArrayList();
         
@@ -216,6 +226,11 @@ public class PruebaNapakalaki {
         return filtrados;
     }
     
+    /**
+     * Monstruos que permiten ganar niveles.
+     * @param listado Listado completo de monstruos.
+     * @return Lista de monstruos que permiten ganar niveles.
+     */
     public static ArrayList<Monster> ganaMasDeUnNivel (ArrayList<Monster> listado) {
         ArrayList<Monster> filtrados = new ArrayList(); 
         
@@ -229,22 +244,26 @@ public class PruebaNapakalaki {
         return filtrados; 
     }
     
+    /**
+     * Devuelve los monstruos que quitan tesoros específicos.
+     * @param listado Listado total de monstruos.
+     * @param tesoros Tesoros específicos.
+     * @return Monstruos que quitan los tesoros dados.
+     */
     public static ArrayList<Monster> pierdeTesoros (ArrayList<Monster> listado, 
             ArrayList<TreasureKind> tesoros){
         ArrayList<Monster> filtrados = new ArrayList();
-        HashSet<TreasureKind> hs = new HashSet(); 
-        
+         
         for (Monster actual : listado) {
-            // Añadimos los tesoros a una tabla Hash (evita duplicados). 
-            hs.addAll(actual.getBadConsequence().getSpecificVisibleTreasures());
-            hs.addAll(actual.getBadConsequence().getSpecificHiddenTreasures()); 
+            // Añadimos los tesoros que pueden perderse a una lista.
+            ArrayList<TreasureKind> quitados = new ArrayList();
+            quitados.addAll(actual.getBadConsequence().getSpecificVisibleTreasures());
+            quitados.addAll(actual.getBadConsequence().getSpecificHiddenTreasures()); 
             
-            if (tesoros.containsAll(hs))
+            if (quitados.containsAll(tesoros))
                 filtrados.add(actual);
-            
-            // Limpiamos la lista. 
-            hs.clear(); 
         }
+        
         return filtrados; 
     }
 }
