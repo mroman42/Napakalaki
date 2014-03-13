@@ -72,6 +72,7 @@ public class PruebaNapakalaki {
         prize = new Prize(3,1); 
         monsters.add(new Monster("El gorrón en el umbral", 10, bad, prize)); 
         
+        
         // H.P. Munchcraft
         tvp.add(TreasureKind.ARMOR); 
         bad = new BadConsequence("Pierdes la armadura visible.", 0, tvp, thp);
@@ -79,12 +80,14 @@ public class PruebaNapakalaki {
         prize = new Prize(2,1); 
         monsters.add(new Monster("H.P. Munchcraft", 6, bad, prize)); 
         
+        
         // Bichgooth
         tvp.add(TreasureKind.ARMOR); 
         bad = new BadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible.", 0, tvp, thp);
         tvp.clear();
         prize = new Prize(1,1); 
         monsters.add(new Monster("Bichgooth", 2, bad, prize)); 
+        
         
         // El rey de rosa
         bad = new BadConsequence("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0);
@@ -97,6 +100,7 @@ public class PruebaNapakalaki {
         prize = new Prize(1,1); 
         monsters.add(new Monster("La que redacta en las sombras", 3, bad, prize));
         
+        
         // Los hondos verdes
         bad = new BadConsequence("Estos monstruos resultan "
                 + "bastante superficiales y te aburren mortalmente. "
@@ -104,10 +108,12 @@ public class PruebaNapakalaki {
         prize = new Prize(2,1);
         monsters.add(new Monster("Los hondos verdes", 7, bad, prize)); 
         
+        
         // Semillas Cthulhu
         bad = new BadConsequence("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2); 
         prize = new Prize(2,1); 
         monsters.add(new Monster("Semillas Cthulhu", 4, bad, prize));
+        
         
         // Dameargo
         tvp.add(TreasureKind.ONEHAND); 
@@ -160,8 +166,11 @@ public class PruebaNapakalaki {
         prize = new Prize(1,1); 
         monsters.add(new Monster("El Lenguas", 20, bad, prize)); 
         
+        
         // Bicéfalo
-        tvp.add(TreasureKind.BOTHHANDS); 
+        tvp.add(TreasureKind.BOTHHANDS);
+        tvp.add(TreasureKind.ONEHAND);
+        tvp.add(TreasureKind.ONEHAND);
         bad = new BadConsequence("Te faltan manos para tanta cabeza."
                 + " Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, tvp, thp);
         tvp.clear();
