@@ -6,6 +6,7 @@ import java.util.ArrayList;
  * @date 27/02/2014
  * @author Mario Román
  * @author José Carlos Entrena
+ * @author Óscar Bermúdez
  */
 public class BadConsequence {
     private final String text;
