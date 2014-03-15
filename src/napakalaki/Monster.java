@@ -12,6 +12,7 @@ public class Monster {
     private final BadConsequence bad; 
     private final Prize prize; 
     
+    
     // Constructores
     public Monster(String name, int level, BadConsequence bad, Prize prize){
         this.name = name; 
