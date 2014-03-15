@@ -188,7 +188,11 @@ public class PruebaNapakalaki {
         System.out.println("\n----\nMonstruos que sólo quitan niveles:\n----\n");
         System.out.println(pierdenSoloNiveles(monsters).toString());
         System.out.println("\n----\nMonstruos con ganancia de un nivel o más:\n----\n");
-        System.out.println(ganaMasDeUnNivel(monsters).toString());    
+        System.out.println(ganaMasDeUnNivel(monsters).toString());
+        System.out.println("\n----\nMonstruos que quitan armaduras:\n----\n");
+        ArrayList<TreasureKind> tesoros = new ArrayList();
+        tesoros.add(TreasureKind.ARMOR);
+        System.out.println(pierdeTesoros(monsters,tesoros).toString());
     }
     
     /**
@@ -258,6 +262,7 @@ public class PruebaNapakalaki {
         for (Monster actual : listado) {
             // Añadimos los tesoros que pueden perderse a una lista.
             ArrayList<TreasureKind> quitados = new ArrayList();
+            
             quitados.addAll(actual.getBadConsequence().getSpecificVisibleTreasures());
             quitados.addAll(actual.getBadConsequence().getSpecificHiddenTreasures()); 
             
