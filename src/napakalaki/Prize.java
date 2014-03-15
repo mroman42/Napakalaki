@@ -15,6 +15,7 @@ public class Prize {
         this.levels = levels;
     }
     
+    
     // Consultores
     public int getTreasures() {
         return treasures;
@@ -23,6 +24,7 @@ public class Prize {
     public int getLevels() {
         return levels;
     }
+    
     
     // Métodos
     @Override

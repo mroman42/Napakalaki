@@ -19,6 +19,7 @@ public class Monster {
         this.prize = prize; 
     }
     
+    
     // Consultores
     public String getName() {
         return name; 
@@ -27,14 +28,15 @@ public class Monster {
     public int getLevel() {
         return level; 
     }
-    
+
     public Prize getPrize() {
         return prize;
     }
-    
+
     public BadConsequence getBadConsequence() {
         return bad;
     }
+
     
     // Métodos
     @Override

@@ -40,6 +40,7 @@ public class BadConsequence {
         this.nHiddenTreasures = tHidden.size();         
     }
     
+    
     // Consultores
     public String getText() {
         return text; 
