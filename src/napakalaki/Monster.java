@@ -4,6 +4,7 @@
  * @date 27/02/14
  * @author Mario Román
  * @author José Carlos Entrena
+ * @author Óscar Bermúdez
  */
 public class Monster {
     private final String name;
