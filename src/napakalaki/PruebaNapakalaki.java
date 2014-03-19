@@ -212,7 +212,7 @@ public class PruebaNapakalaki {
     }
     
     /**
-     * Mnstruos que sólo quitan niveles.
+     * Monstruos que sólo quitan niveles.
      * @param listado Lista completa de monstruos.
      * @return Lista de monstruos que sólo quitan niveles.
      */
