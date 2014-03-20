@@ -13,11 +13,15 @@ public class Player {
     private boolean dead;
     private String name;
     private int level;
+    private BadConsequence pendingBadConsequence;
     private ArrayList<Treasure> hiddenTreasures;
     private ArrayList<Treasure> visibleTreasures;
 
     
-    private void bringToLife(){}
+    private void bringToLife(){
+        dead = false;
+        level = 1;
+    }
     
     private void incrementLevels(int nlevels){
         level += nlevels; 
@@ -30,11 +34,11 @@ public class Player {
             level = 1;
     }
     
-    private void setPendingBadConsequence(BadConsequence bad){}
+    private void setPendingBadConsequence(BadConsequence bad){
+        pendingBadConsequence = bad;
+    }
     
     private void die(){
-        level = 1;
-        
         hiddenTreasures.clear();
         visibleTreasures.clear();
         
@@ -48,7 +52,10 @@ public class Player {
             visibleTreasures.remove(new ArrayList<>(Arrays.asList(TreasureKind.NECKLACE)));
     }
     
-    private void dieIfNoTreasures(){}
+    private void dieIfNoTreasures(){
+        if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
+            die();
+    }
     
     private int computeGoldCoinsValue(Treasure treasure){
         return treasure.getGoldCoins();
@@ -58,7 +65,9 @@ public class Player {
         return false;
     }
     
-    public void applyPrize(Prize prize){}
+    public void applyPrize(Prize prize){
+        this.incrementLevels(prize.getLevels());
+    }
     
     public CombatResult combat(Monster monster){
         return null;
@@ -108,10 +117,7 @@ public class Player {
     }
     
     public Player(String name) {
-        this.dead = false;
         this.name = name;
-        level = 1;
-        
         bringToLife();
     }    
 
