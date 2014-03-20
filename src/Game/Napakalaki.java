@@ -20,6 +20,8 @@ class Napakalaki {
     
     private Napakalaki() {}
     
+
+    
     public static Napakalaki getInstance() {
         return instance;
     }
@@ -82,5 +84,12 @@ class Napakalaki {
     public boolean endOfGame(CombatResult result){
         return true; 
     }
-      
+     
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    }
 }
