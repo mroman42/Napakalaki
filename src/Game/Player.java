@@ -87,6 +87,26 @@ public class Player {
         return canIBuyLevels();
     }
     
+    public int getCombatLevel(){
+        return 0;
+    }
+    
+    public boolean validState(){
+        return false;
+    }
+    
+    public boolean initTreasure(){
+        return false;
+    }
+    
+    public boolean isDead(){
+        return dead;
+    }
+    
+    public boolean hasVisibleTreasures(){
+        return false;
+    }
+    
     public Player(String name) {
         this.dead = false;
         this.name = name;
@@ -94,14 +114,6 @@ public class Player {
         
         bringToLife();
     }    
-    /*
-+buyLevels(visible : Treasure [], hidden : Treasure []) : boolean
-+getCombatLevel() : int
-+validState() : boolean
-+initTreasures() : boolean
-+isDead() : boolean
-+hasVisibleTreasures() : boolean
-*/
 
     public ArrayList<Treasure> getHiddenTreasures() {
         return hiddenTreasures;
