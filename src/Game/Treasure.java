@@ -11,7 +11,7 @@ public class Treasure {
     private final int goldCoins;
     private final int minBonus;
     private final int maxBonus;
-    private TreasureKind type;
+    private final TreasureKind type;
 
     public Treasure(String name, int goldCoins, int minBonus, int maxBonus, TreasureKind type) {
         this.name = name;
