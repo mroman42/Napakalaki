@@ -1,4 +1,4 @@
-package napakalaki;
+package Game;
 
 /**
  * @date 19/3/14 

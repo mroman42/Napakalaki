@@ -1,4 +1,4 @@
-    package napakalaki;
+    package Game;
 
 /**
  * @date 27/02/14
