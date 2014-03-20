@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class Player {
     private boolean dead;
-    private String name;
+    private final String name;
     private int level;
     private BadConsequence pendingBadConsequence;
     private ArrayList<Treasure> hiddenTreasures;
@@ -41,9 +41,7 @@ public class Player {
     private void die(){
         hiddenTreasures.clear();
         visibleTreasures.clear();
-        
         dead = true;
-        
         bringToLife();
     }
     
@@ -70,6 +68,11 @@ public class Player {
     }
     
     public CombatResult combat(Monster monster){
+        int total_level = this.getCombatLevel();
+        
+
+        
+        
         return null;
     }
     
@@ -85,19 +88,28 @@ public class Player {
     }
     
     public void discardVisibleTreasure(Treasure treasure){
-        visibleTreasures.remove(new ArrayList<>(Arrays.asList(treasure.getType())));
+        visibleTreasures.remove(treasure.getType());
     }
 
     public void discardHiddenTreasure(Treasure treasure){
-        hiddenTreasures.remove(new ArrayList<>(Arrays.asList(treasure.getType())));
+        hiddenTreasures.remove(treasure.getType());
     }
     
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
-        return canIBuyLevels();
+        return canIBuyLevels(1);
     }
     
     public int getCombatLevel(){
-        return 0;
+        int combat_level = this.level;
+        
+        // Falta considerar el necklace.
+        for (Treasure treasure : visibleTreasures)
+            combat_level += treasure.getMaxBonus();
+        
+        for (Treasure treasure : hiddenTreasures)
+            combat_level += treasure.getMaxBonus();
+        
+        return combat_level;
     }
     
     public boolean validState(){
@@ -127,9 +139,5 @@ public class Player {
 
     public ArrayList<Treasure> getVisibleTreasures() {
         return visibleTreasures;
-    }
-
-    private boolean canIBuyLevels() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
