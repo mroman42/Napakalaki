@@ -1,6 +1,7 @@
-package napakalaki;
+package Game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @date 19/3/14
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * @author Óscar Bermúdez
  */
 public class Player {
-    private final boolean dead = true;
+    private boolean dead;
     private String name;
     private int level;
     private ArrayList<Treasure> hiddenTreasures;
@@ -37,6 +38,8 @@ public class Player {
         hiddenTreasures.clear();
         visibleTreasures.clear();
         
+        dead = true;
+        
         bringToLife();
     }
     
@@ -44,25 +47,71 @@ public class Player {
         if(visibleTreasures.contains(new ArrayList<>(Arrays.asList(TreasureKind.NECKLACE))))
             visibleTreasures.remove(new ArrayList<>(Arrays.asList(TreasureKind.NECKLACE)));
     }
+    
+    private void dieIfNoTreasures(){}
+    
+    private int computeGoldCoinsValue(Treasure treasure){
+        return treasure.getGoldCoins();
+    }
+    
+    private boolean canIBuyLevels(int levels){
+        return false;
+    }
+    
+    public void applyPrize(Prize prize){}
+    
+    public CombatResult combat(Monster monster){
+        return null;
+    }
+    
+    public void applyBadConsequence(BadConsequence bad){
+    }
+    
+    public boolean makeTreasureVisible(Treasure treasure){
+        return false;
+    }
+    
+    public boolean canMakeTreasureVisible(Treasure treasure){
+        return false;
+    }
+    
+    public void discardVisibleTreasure(Treasure treasure){
+        visibleTreasures.remove(new ArrayList<>(Arrays.asList(treasure.getType())));
+    }
+
+    public void discardHiddenTreasure(Treasure treasure){
+        hiddenTreasures.remove(new ArrayList<>(Arrays.asList(treasure.getType())));
+    }
+    
+    public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
+        return canIBuyLevels();
+    }
+    
+    public Player(String name) {
+        this.dead = false;
+        this.name = name;
+        level = 1;
+        
+        bringToLife();
+    }    
     /*
--discardNecklaceIfVisible() : void
--dieIfNoTreasures() : void
--computeGoldCoinsValue(t : Treasure []) : int
--canIBuyLevels(l : float) : boolean
-+applyPrize(p : Prize) : void
-+combat(m : Monster) : CombatResult
-+applyBadConsequence(bad : BadConsequence)
-+makeTreasureVisible(t : Treasure) : boolean
-+canMakeTreasureVisible(t : Treasure) : boolean
-+discardVisibleTreasure(t : Treasure) : void
-+discardHiddenTreasure(t : Treasure) : void
 +buyLevels(visible : Treasure [], hidden : Treasure []) : boolean
 +getCombatLevel() : int
 +validState() : boolean
 +initTreasures() : boolean
 +isDead() : boolean
 +hasVisibleTreasures() : boolean
-+Player(name : string)
-+getVisibleTreasures() : Treasure []
-+getHiddenTreasures() : Treasure []*/
+*/
+
+    public ArrayList<Treasure> getHiddenTreasures() {
+        return hiddenTreasures;
+    }
+
+    public ArrayList<Treasure> getVisibleTreasures() {
+        return visibleTreasures;
+    }
+
+    private boolean canIBuyLevels() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
