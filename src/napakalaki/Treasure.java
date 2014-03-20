@@ -11,12 +11,14 @@ public class Treasure {
     private final int goldCoins;
     private final int minBonus;
     private final int maxBonus;
+    private TreasureKind type;
 
-    public Treasure(String name, int goldCoins, int minBonus, int maxBonus) {
+    public Treasure(String name, int goldCoins, int minBonus, int maxBonus, TreasureKind type) {
         this.name = name;
         this.goldCoins = goldCoins;
         this.minBonus = minBonus;
         this.maxBonus = maxBonus;
+        this.type = type;
     }
 
     public String getName() {
@@ -34,8 +36,8 @@ public class Treasure {
     public int getMaxBonus() {
         return maxBonus;
     }
-    
-    public TreasureKind getType(){
-        return  TreasureKind.valueOf(name);
-    };
+
+    public TreasureKind getType() {
+        return type;
+    }
 }
