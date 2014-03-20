@@ -22,43 +22,13 @@ public class CardDealer {
     
     private void initTreasureCardDeck() {}
     
-    private void initMonsterCardDeck() {}
-    
-    private void shuffleTreasures() {}
-    
-    private void shuffleMonsters() {} 
-    
-    public static CardDealer getInstance() {
-        return instance;
-    }
-    
-    public Treasure nextTreasure() {
-        return null; 
-    }
-    
-    public Monster nextMonster() {
-        return null; 
-    }
-    
-    public void giveTreasureBack(Treasure t) {}
-    
-    public void giveMonsterBack(Monster m) {}
-    
-    public void initCards() {} 
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // Declaración de los monstruos. 
+    private void initMonsterCardDeck() {
+        
         ArrayList<Monster> monsters = new ArrayList();
         ArrayList<TreasureKind> tvp = new ArrayList();
         ArrayList<TreasureKind> thp = new ArrayList(); 
         
-        
-        
-        // Monstruos añadidos por orden de aparición en el guión. 
+         // Monstruos añadidos por orden de aparición en el guión. 
         
         // 3 Byakhees de bonanza.
         tvp.add(TreasureKind.ARMOR);
@@ -214,9 +184,38 @@ public class CardDealer {
         tvp.clear();
         prize = new Prize(1,1); 
         monsters.add(new Monster("Bicéfalo", 20, bad, prize)); 
+    }
+    
+    private void shuffleTreasures() {}
+    
+    private void shuffleMonsters() {} 
+    
+    public static CardDealer getInstance() {
+        return instance;
+    }
+    
+    public Treasure nextTreasure() {
+        return null; 
+    }
+    
+    public Monster nextMonster() {
+        return null; 
+    }
+    
+    public void giveTreasureBack(Treasure t) {}
+    
+    public void giveMonsterBack(Monster m) {}
+    
+    public void initCards() {} 
+    
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // Declaración de los monstruos. 
         
-        
-        
+   /*    
         ////
         // Filtros sobre los monstruos.
         ////
@@ -229,9 +228,10 @@ public class CardDealer {
         System.out.println("\n----\nMonstruos que quitan armaduras:\n----\n");
         ArrayList<TreasureKind> tesoros = new ArrayList();
         tesoros.add(TreasureKind.ARMOR);
-        System.out.println(pierdeTesoros(monsters,tesoros).toString());
-    }
-    
+        System.out.println(pierdeTesoros(monsters,tesoros).toString()); */
+    } 
+  
+        
     /**
      * Monstruos a partir de un nivel.
      * @param listado Listado de monstruos sobre los que se filtrará.
