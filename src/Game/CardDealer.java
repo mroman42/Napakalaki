@@ -196,7 +196,7 @@ public class CardDealer {
         
         
         // El rey de rosa
-        bad = new BadConsequence("Pierdes 5 niveles y 3 unusedTreasures visibles.", 5, 3, 0);
+        bad = new BadConsequence("Pierdes 5 niveles y 3 tesoros visibles.", 5, 3, 0);
         prize = new Prize(4,2);
         unusedMonsters.add(new Monster("El rey de rosa", 13, bad, prize)); 
         
@@ -216,7 +216,7 @@ public class CardDealer {
         
         
         // Semillas Cthulhu
-        bad = new BadConsequence("Pierdes 2 niveles y 2 unusedTreasures ocultos.", 2, 0, 2); 
+        bad = new BadConsequence("Pierdes 2 niveles y 2 tesoros ocultos.", 2, 0, 2); 
         prize = new Prize(2,1); 
         unusedMonsters.add(new Monster("Semillas Cthulhu", 4, bad, prize));
         
@@ -268,7 +268,7 @@ public class CardDealer {
         
         // El Lenguas
         bad = new BadConsequence("Menudo susto te llevas. Pierdes "
-                + "2 niveles y 5 unusedTreasures visibles.", 2, 5, 0); 
+                + "2 niveles y 5 tesoros visibles.", 2, 5, 0); 
         prize = new Prize(1,1); 
         unusedMonsters.add(new Monster("El Lenguas", 20, bad, prize)); 
         
@@ -278,7 +278,7 @@ public class CardDealer {
         tvp.add(TreasureKind.ONEHAND);
         tvp.add(TreasureKind.ONEHAND);
         bad = new BadConsequence("Te faltan manos para tanta cabeza."
-                + " Pierdes 3 niveles y tus unusedTreasures visibles de las manos.", 3, tvp, thp);
+                + " Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, tvp, thp);
         tvp.clear();
         prize = new Prize(1,1); 
         unusedMonsters.add(new Monster("Bicéfalo", 20, bad, prize)); 
