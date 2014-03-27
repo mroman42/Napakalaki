@@ -20,7 +20,105 @@ public class CardDealer {
     
     private CardDealer() { }
     
-    private void initTreasureCardDeck() {}
+    private void initTreasureCardDeck() {
+        ArrayList<Treasure> tesoros = new ArrayList();
+        //Tesoros añadidos por orden de aparición en el guión.
+        // ¡Sí, mi amo!
+        tesoros.add(new Treasure("¡Sí, mi amo!", 0, 4, 7, TreasureKind.HELMET));
+
+        // Botas de investigación
+        tesoros.add(new Treasure("Botas de investigación", 600, 3, 4, TreasureKind.SHOE));
+
+        // Capucha de Cthulhu
+        tesoros.add(new Treasure("Capucha de Cthulhu", 500, 3, 5, TreasureKind.HELMET));
+
+        // A prueba de babas verdes
+        tesoros.add(new Treasure("A prueba de babas verdes", 400, 3, 5, TreasureKind.ARMOR));
+
+        // Botas de lluvia  ́acida
+        tesoros.add(new Treasure("Botas de lluvia  ́acida", 800, 1, 1, TreasureKind.BOTHHANDS));
+
+        // Casco minero
+        tesoros.add(new Treasure("Casco minero", 400, 2, 4, TreasureKind.HELMET));
+
+        // Ametralladora Thompson
+        tesoros.add(new Treasure("Ametralladora Thompson", 600, 4, 8, TreasureKind.BOTHHANDS));
+
+        // Camiseta de la UGR
+        tesoros.add(new Treasure("Camiseta de la UGR", 100, 1, 7, TreasureKind.ARMOR));
+
+        // Clavo de rail ferroviario
+        tesoros.add(new Treasure("Clavo de rail ferroviario", 400, 3, 6, TreasureKind.ONEHAND));
+
+        // Cuchillo de sushi arcano
+        tesoros.add(new Treasure("Cuchillo de sushi arcano", 300, 2, 3, TreasureKind.ONEHAND));
+
+        // Fez Alópodo
+        tesoros.add(new Treasure("Fez Alópodo", 700, 3, 5, TreasureKind.HELMET));
+
+        // Hacha prehistórica
+        tesoros.add(new Treasure("Hacha prehistórica", 500, 2, 5, TreasureKind.ONEHAND));
+
+        // El aparato del Pr. Tesla
+        tesoros.add(new Treasure("El aparato del Pr. Tesla", 900, 4, 8, TreasureKind.ARMOR));
+
+        // Gaita
+        tesoros.add(new Treasure("Gaita", 200, 1, 5, TreasureKind.BOTHHANDS));
+
+        // Insecticida
+        tesoros.add(new Treasure("Insecticida", 300, 2, 3, TreasureKind.ONEHAND));
+
+        // Escopeta de 3 cañones
+        tesoros.add(new Treasure("Escopeta de 3 cañones", 700, 4, 6, TreasureKind.BOTHHANDS));
+
+        // Garabato místico
+        tesoros.add(new Treasure("Garabato místico", 300, 2, 2, TreasureKind.ONEHAND));
+
+        // La fuerza de Mr. T
+        tesoros.add(new Treasure("La fuerza de Mr. T", 1000, 0, 0, TreasureKind.NECKLACE));
+
+        // La rebeca metálica
+        tesoros.add(new Treasure("La rebeca metálica", 400, 2, 3, TreasureKind.ARMOR));
+
+        // Mazo de los antiguos
+        tesoros.add(new Treasure("Mazo de los antiguos", 200, 3, 4, TreasureKind.ONEHAND));
+
+        // Necro-playboycón
+        tesoros.add(new Treasure("Necro-playboycón", 300, 3, 5, TreasureKind.ONEHAND));
+
+        // Lanzallamas
+        tesoros.add(new Treasure("Lanzallamas", 800, 4, 8, TreasureKind.BOTHHANDS));
+
+        // Necro-comicón
+        tesoros.add(new Treasure("Necro-comicón", 100, 1, 1, TreasureKind.ONEHAND));
+
+        // Necronomicón
+        tesoros.add(new Treasure("Necronomicón", 800, 5, 7, TreasureKind.BOTHHANDS));
+
+        // Linterna a 2 manos
+        tesoros.add(new Treasure("Linterna a 2 manos", 400, 3, 6, TreasureKind.BOTHHANDS));
+
+        // Necro-gnomicón
+        tesoros.add(new Treasure("Necro-gnomicón", 200, 2, 4, TreasureKind.ONEHAND));
+
+        // Necrotelecom
+        tesoros.add(new Treasure("Necrotelecom", 300, 2, 3, TreasureKind.HELMET));
+
+        // Porra preternatural
+        tesoros.add(new Treasure("Porra preternatural", 200, 2, 3, TreasureKind.ONEHAND));
+
+        // Tentáculo de pega
+        tesoros.add(new Treasure("Tentáculo de pega", 200, 0, 1, TreasureKind.HELMET));
+
+        // Zapatillas deja-amigos
+        tesoros.add(new Treasure("Zapatillas deja-amigos", 500, 0, 1, TreasureKind.SHOE));
+
+        // Shogulador
+        tesoros.add(new Treasure("Shogulador", 600, 1, 1, TreasureKind.BOTHHANDS));
+
+        // Varita de atizamiento
+        tesoros.add(new Treasure("Varita de atizamiento", 400, 3, 4, TreasureKind.ONEHAND));
+    }
     
     private void initMonsterCardDeck() {
         
@@ -69,14 +167,7 @@ public class CardDealer {
         
         
         // El gorrón en el umbral
-        tvp.add(TreasureKind.ARMOR);
-        tvp.add(TreasureKind.BOTHHANDS); 
-        tvp.add(TreasureKind.SHOE);
-        tvp.add(TreasureKind.NECKLACE); 
-        tvp.add(TreasureKind.HELMET);
-        tvp.add(TreasureKind.ONEHAND); 
-        bad = new BadConsequence("Pierdes todos tus tesoros visibles.", 0, tvp, thp);
-        tvp.clear(); 
+        bad = new BadConsequence("Pierdes todos tus tesoros visibles.", 99, tvp, thp);
         prize = new Prize(3,1); 
         monsters.add(new Monster("El gorrón en el umbral", 10, bad, prize)); 
         
@@ -206,7 +297,10 @@ public class CardDealer {
     
     public void giveMonsterBack(Monster m) {}
     
-    public void initCards() {} 
+    public void initCards() {
+        initMonsterCardDeck();
+        initTreasureCardDeck();
+    } 
     
 
 
