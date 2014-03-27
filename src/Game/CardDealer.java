@@ -9,17 +9,26 @@ import java.util.*;
  * @author Óscar Bermúdez
  */
 public class CardDealer {
-    
+    // Atributos
+    private static final CardDealer instance = new CardDealer();
     private ArrayList<Treasure> usedTreasures; 
     private ArrayList<Treasure> unusedTreasures; 
     private ArrayList<Monster> usedMonsters; 
     private ArrayList<Monster> unusedMonsters; 
-    private static final CardDealer instance = new CardDealer();
     
+    // Patrón Singleton.
     // El constructor privado nos asegura que no se puede instanciar desde otras clases
+    private CardDealer() {
+        initTreasureCardDeck();
+        initMonsterCardDeck();
+    }
     
-    private CardDealer() { }
+    public static CardDealer getInstance() {
+        return instance;
+    }
     
+    
+    // Métodos privados.
     private void initTreasureCardDeck() {
         //Tesoros añadidos por orden de aparición en el guión.
         // ¡Sí, mi amo!
@@ -279,10 +288,7 @@ public class CardDealer {
     
     private void shuffleMonsters() {} 
     
-    public static CardDealer getInstance() {
-        return instance;
-    }
-    
+    // Métodos públicos.
     public Treasure nextTreasure() {
         return null; 
     }
@@ -291,9 +297,11 @@ public class CardDealer {
         return null; 
     }
     
-    public void giveTreasureBack(Treasure treasure) {}
+    public void giveTreasureBack(Treasure treasure) {
+    }
     
-    public void giveMonsterBack(Monster monster) {}
+    public void giveMonsterBack(Monster monster) {
+    }
     
     public void initCards() {
         initMonsterCardDeck();
