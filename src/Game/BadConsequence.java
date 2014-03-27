@@ -47,6 +47,14 @@ public class BadConsequence {
     
     
     // Consultores
+    public boolean isEmpty(){
+        return true; 
+    }
+    
+    public boolean kills(){
+        return death; 
+    }
+    
     public String getText() {
         return text; 
     }
@@ -71,10 +79,6 @@ public class BadConsequence {
         return specificVisibleTreasures;
     }
     
-    public boolean getDeath() {
-        return death; 
-    }
-    
     // Métodos 
     @Override
     public String toString() {
@@ -82,6 +86,11 @@ public class BadConsequence {
                "\n\t" + (death? " DEATH." : (Integer.toString(levels) + " levels, " +
                Integer.toString(nHiddenTreasures) + " hidden treasures, " +
                Integer.toString(nVisibleTreasures) + " visible treasures.")) + "\n"; 
+    }
+    
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, 
+            ArrayList<Treasure> h){
+        return null; 
     }
 }
     
