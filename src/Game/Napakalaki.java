@@ -42,7 +42,7 @@ class Napakalaki {
     
     public void discradHiddenTreasure(Treasure t){}
     
-    public boolean makeVisibleTreasure(Treasure t){
+    public boolean makeTreasureVisible(Treasure t){
         return false; 
     }
     
