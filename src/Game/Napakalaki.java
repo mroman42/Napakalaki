@@ -10,40 +10,41 @@ import java.util.ArrayList;
  * @author Óscar Bermúdez
  */
 class Napakalaki {
-    
+    // Atributos
+    private static final Napakalaki instance = new Napakalaki();
     private Player currentPlayer; 
     private Monster currentMonster; 
     private ArrayList<Player> players; 
-    private static final Napakalaki instance = new Napakalaki();
     
+    
+    // Patrón Singleton.
     // El constructor privado asegura que no se puede instanciar desde otras clases
-    
     private Napakalaki() {}
-    
-
     
     public static Napakalaki getInstance() {
         return instance;
     }
     
-    private void initPlayers(ArrayList<String> names){}
+    
+    // Métodos privados
+    private void initPlayers(ArrayList<String> names){
+    }
     
     private Player nextPlayer(){
         return null; 
     }
     
-    // Métodos públicos. 
-    
+    // Métodos públicos.
     public CombatResult combat(){
         return null; 
     }
     
     public void discardVisibleTreasure(Treasure t){}
     
-    public void discradHiddenTreasure(Treasure t){}
+    public void discardHiddenTreasure(Treasure t){}
     
     public boolean makeTreasureVisible(Treasure t){
-        return false; 
+        return false;
     }
     
     public boolean buyLevels(ArrayList<Treasure> visible, 
@@ -51,7 +52,8 @@ class Napakalaki {
         return false; 
     }
     
-    public void initGame(ArrayList<String> players){}
+    public void initGame(ArrayList<String> players){
+    }
     
     public Player getCurrentPlayer(){
         return null; 
@@ -83,10 +85,10 @@ class Napakalaki {
     
     public boolean endOfGame(CombatResult result){
         return true; 
-    }
-     
+    } 
     
     
+    // Método main.
     /**
      * @param args the command line arguments
      */
