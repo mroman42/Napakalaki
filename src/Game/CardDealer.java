@@ -165,7 +165,7 @@ public class CardDealer {
         
         
         // El gorrón en el umbral
-        bad = new BadConsequence("Pierdes todos tus unusedTreasures visibles.", 99, tvp, thp);
+        bad = new BadConsequence("Pierdes todos tus unusedTreasures visibles.", 0, 99, 99);
         prize = new Prize(3,1); 
         unusedMonsters.add(new Monster("El gorrón en el umbral", 10, bad, prize)); 
         
