@@ -40,7 +40,7 @@ public class Monster {
     }
 
     
-    // Métodos
+    // Métodos auxiliares
     @Override
     public String toString() {
         return name + " (lv. " + Integer.toString(level) + ")" + 
@@ -48,5 +48,4 @@ public class Monster {
                "\nBad: " + bad.toString() + 
                "\n";
     }
-    
 }
