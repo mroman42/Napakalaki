@@ -10,6 +10,7 @@ import java.util.Arrays;
  * @author Óscar Bermúdez
  */
 public class Player {
+    // Atributos.
     private boolean dead;
     private final String name;
     private int level;
@@ -17,7 +18,15 @@ public class Player {
     private ArrayList<Treasure> hiddenTreasures;
     private ArrayList<Treasure> visibleTreasures;
 
+    // Constructor.
+    public Player(String name) {
+        this.dead = true;
+        this.name = name;
+        bringToLife();
+    }
     
+    
+    // Métodos privados.
     private void bringToLife(){
         dead = false;
         level = 1;
@@ -63,16 +72,14 @@ public class Player {
         return false;
     }
     
+    
+    // Métodos públicos
     public void applyPrize(Prize prize){
         this.incrementLevels(prize.getLevels());
     }
     
     public CombatResult combat(Monster monster){
         int total_level = this.getCombatLevel();
-        
-
-        
-        
         return null;
     }
     
@@ -127,11 +134,6 @@ public class Player {
     public boolean hasVisibleTreasures(){
         return false;
     }
-    
-    public Player(String name) {
-        this.name = name;
-        bringToLife();
-    }    
 
     public ArrayList<Treasure> getHiddenTreasures() {
         return hiddenTreasures;

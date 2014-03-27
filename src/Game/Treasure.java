@@ -13,6 +13,7 @@ public class Treasure {
     private final int maxBonus;
     private final TreasureKind type;
 
+    // Constructor
     public Treasure(String name, int goldCoins, int minBonus, int maxBonus, TreasureKind type) {
         this.name = name;
         this.goldCoins = goldCoins;
@@ -21,6 +22,7 @@ public class Treasure {
         this.type = type;
     }
 
+    // Consultores
     public String getName() {
         return name;
     }

@@ -11,12 +11,13 @@ public class Dice {
     private static final Dice instance = new Dice();
     private static Random randomGenerator = new Random();
     
-    // El constructor privado asegura que no se puede instanciar
-    // desde otras clases
+    // Patrón Singleton.
+    // El constructor privado asegura que no se puede instanciar externamente.
     private Dice() {
         Dice.randomGenerator = new Random();
     }
     
+    // Existe una sola instancia.
     public static Dice getInstance() {
         return instance;
     }
