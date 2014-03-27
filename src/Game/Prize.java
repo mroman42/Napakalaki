@@ -27,7 +27,7 @@ public class Prize {
     }
     
     
-    // Métodos
+    // Métodos auxiliares
     @Override
     public String toString() {
         return Integer.toString(treasures) + " treasures and "   + 
