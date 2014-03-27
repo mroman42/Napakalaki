@@ -14,8 +14,8 @@ public class BadConsequence {
     private int nVisibleTreasures;
     private int nHiddenTreasures;
     private boolean death;
-    private ArrayList<TreasureKind> specificHiddenTreasures;
-    private ArrayList<TreasureKind> specificVisibleTreasures;
+    private final ArrayList<TreasureKind> specificHiddenTreasures;
+    private final ArrayList<TreasureKind> specificVisibleTreasures;
 
   
     // Constructores
@@ -28,21 +28,20 @@ public class BadConsequence {
         this.specificVisibleTreasures = new ArrayList();
     }
     
-    public BadConsequence (String text, boolean death) {
-        this.text = text;
-        this.death = death;
-        this.specificHiddenTreasures = new ArrayList();
-        this.specificVisibleTreasures = new ArrayList();
-    }
-    
-    public BadConsequence (String text, int levels, ArrayList<TreasureKind>
-            tVisible, ArrayList<TreasureKind> tHidden) {
+    public BadConsequence (String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden) {
         this.text = text; 
         this.levels = levels; 
         this.specificHiddenTreasures = (ArrayList<TreasureKind>) tHidden.clone();
         this.specificVisibleTreasures = (ArrayList<TreasureKind>) tVisible.clone(); 
         this.nVisibleTreasures = tVisible.size();
         this.nHiddenTreasures = tHidden.size();         
+    }
+    
+    public BadConsequence (String text, boolean death) {
+        this.text = text;
+        this.death = death;
+        this.specificHiddenTreasures = new ArrayList();
+        this.specificVisibleTreasures = new ArrayList();
     }
     
     
@@ -79,18 +78,25 @@ public class BadConsequence {
         return specificVisibleTreasures;
     }
     
-    // Métodos 
+    
+    // Métodos públicos
+    public void substractVisibleTreasure (Treasure treasure) {
+    }
+    
+    public void substractHiddenTreasure (Treasure treasure) {
+    }
+    
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
+        return null; 
+    }
+    
+    // Métodos auxiliares
     @Override
     public String toString() {
         return text +
                "\n\t" + (death? " DEATH." : (Integer.toString(levels) + " levels, " +
                Integer.toString(nHiddenTreasures) + " hidden treasures, " +
                Integer.toString(nVisibleTreasures) + " visible treasures.")) + "\n"; 
-    }
-    
-    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, 
-            ArrayList<Treasure> h){
-        return null; 
     }
 }
     
