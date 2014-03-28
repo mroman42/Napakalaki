@@ -132,7 +132,7 @@ public class Player {
     }
     
     public boolean hasVisibleTreasures(){
-        return false;
+        return visibleTreasures.isEmpty();
     }
 
     public ArrayList<Treasure> getHiddenTreasures() {
