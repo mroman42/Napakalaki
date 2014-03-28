@@ -51,7 +51,6 @@ public class Player {
         hiddenTreasures.clear();
         visibleTreasures.clear();
         dead = true;
-        bringToLife();
     }
     
     private void discardNecklaceIfVisible(){
@@ -75,7 +74,7 @@ public class Player {
     
     // Métodos públicos
     public void applyPrize(Prize prize){
-        this.incrementLevels(prize.getLevels());
+        incrementLevels(prize.getLevels());
     }
     
     public CombatResult combat(Monster monster){
@@ -107,15 +106,16 @@ public class Player {
     }
     
     public int getCombatLevel(){
-        int combat_level = this.level;
+        int combat_level = level;
         
-        // Falta considerar el necklace.
-        for (Treasure treasure : visibleTreasures)
-            combat_level += treasure.getMaxBonus();
-        
-        for (Treasure treasure : hiddenTreasures)
-            combat_level += treasure.getMaxBonus();
-        
+        for (Treasure treasure : visibleTreasures){
+            if(visibleTreasures.contains(TreasureKind.NECKLACE)){
+                combat_level += treasure.getMaxBonus();
+            }
+            else{
+                combat_level += treasure.getMinBonus();
+            }
+        }
         return combat_level;
     }
     
