@@ -95,7 +95,36 @@ public class BadConsequence {
     }
     
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
-        return null; 
+        BadConsequence adjustedBC = null;
+        
+        if(death){
+            adjustedBC = new BadConsequence(text, death);
+        }
+        else{
+            int nVTreasures;
+            int nHTreasures;
+            final ArrayList<TreasureKind> listHiddenTreasures = null;
+            final ArrayList<TreasureKind> listVisibleTreasures = null;
+
+            //Si las dos son vacías, o no especifica los tesoros, o no quita tesoros
+            if(specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
+                nVTreasures = (visibles.size() > nVisibleTreasures? nVisibleTreasures : visibles.size());
+                nHTreasures = (hidden.size() > nHiddenTreasures? nHiddenTreasures : hidden.size());
+            }
+            else{
+                for(TreasureKind object : specificVisibleTreasures)
+                    if(visibles.contains(object))
+                        listVisibleTreasures.add(object);
+        
+                for(TreasureKind object : specificHiddenTreasures)
+                    if(hidden.contains(object))
+                        listHiddenTreasures.add(object);
+
+                adjustedBC = new BadConsequence(text, levels, listVisibleTreasures, listVisibleTreasures);
+            }
+        }
+        
+        return adjustedBC;
     }
     
     // Métodos auxiliares
