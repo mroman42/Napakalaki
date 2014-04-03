@@ -72,8 +72,11 @@ public class Player {
             die();
     }
     
-    private int computeGoldCoinsValue(Treasure treasure){
-        return treasure.getGoldCoins();
+    private int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
+        int gold_coins = 0; 
+        for (Treasure t : treasure_list)
+            gold_coins += t.getGoldCoins(); 
+        return (gold_coins / 1000); 
     }
     
     private boolean canIBuyLevels(int levels){
@@ -92,10 +95,20 @@ public class Player {
     }
     
     public void applyBadConsequence(BadConsequence bad){
+        int nlevels = bad.getLevels();
+        decrementLevels(nlevels); 
+        BadConsequence pendingBad = bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures); 
+        setPendingBadConsequence(pendingBad); 
     }
     
     public boolean makeTreasureVisible(Treasure treasure){
-        return false;
+        if (canMakeTreasureVisible(treasure)){
+            visibleTreasures.add(treasure); 
+            hiddenTreasures.remove(treasure); 
+            return true; 
+        }
+        else
+            return false;       
     }
     
     public boolean canMakeTreasureVisible(Treasure treasure){
@@ -119,9 +132,7 @@ public class Player {
                     number_of_onehands++;
             }
             return (number_of_onehands < 2); 
-        }
-            
-            
+        }       
     }
     
     public void discardVisibleTreasure(Treasure treasure){
