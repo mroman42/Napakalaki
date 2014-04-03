@@ -27,10 +27,12 @@ class Napakalaki {
     
     // Métodos privados
     private void initPlayers(ArrayList<String> names){
+        for (String name : names)
+            players.add(new Player(name));
     }
     
     private Player nextPlayer(){
-        return null; 
+        return null;
     }
     
     // Métodos públicos.
