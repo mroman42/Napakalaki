@@ -68,7 +68,7 @@ public class Player {
     }
     
     private boolean canIBuyLevels(int levels){
-        return false;
+        return (this.level + levels < 10); 
     }
     
     
@@ -109,6 +109,7 @@ public class Player {
         int combat_level = level;
         
         for (Treasure treasure : visibleTreasures){
+            // Esto no funciona!! No se puede comprobar si un TKind está en un array de treasures.
             if(visibleTreasures.contains(TreasureKind.NECKLACE)){
                 combat_level += treasure.getMaxBonus();
             }
@@ -120,7 +121,7 @@ public class Player {
     }
     
     public boolean validState(){
-        return false;
+        return pendingBadConsequence.isEmpty();
     }
     
     public boolean initTreasure(){
@@ -132,7 +133,7 @@ public class Player {
     }
     
     public boolean hasVisibleTreasures(){
-        return visibleTreasures.isEmpty();
+        return !visibleTreasures.isEmpty();
     }
 
     public ArrayList<Treasure> getHiddenTreasures() {
