@@ -284,15 +284,19 @@ public class CardDealer {
         unusedMonsters.add(new Monster("Bicéfalo", 20, bad, prize));
     }
     
-    private void shuffleTreasures() {}
+    private void shuffleTreasures() {
+        Collections.shuffle(unusedTreasures); 
+    }
     
-    private void shuffleMonsters() {} 
+    private void shuffleMonsters() {
+        Collections.shuffle(unusedMonsters);
+    } 
     
     // Métodos públicos.
     public Treasure nextTreasure() {    
         if (unusedTreasures.isEmpty()) {
-            usedTreasures = unusedTreasures;
-            unusedTreasures = new ArrayList();
+            unusedTreasures = usedTreasures;
+            usedTreasures = new ArrayList();
             
         }
         
@@ -303,20 +307,28 @@ public class CardDealer {
     }
     
     public Monster nextMonster() {
-        return null; 
+        if (unusedMonsters.isEmpty()) {
+            unusedMonsters = usedMonsters;
+            usedMonsters = new ArrayList();
+            
+        }
+        
+        Monster next = unusedMonsters.remove(0);
+        usedMonsters.add(next);
+        
+        return next;
     }
     
     public void giveTreasureBack(Treasure treasure) {
+        usedTreasures.add(treasure);
     }
     
     public void giveMonsterBack(Monster monster) {
+        usedMonsters.add(monster);
     }
     
     public void initCards() {
         initMonsterCardDeck();
         initTreasureCardDeck();
-    } 
-    
-
-
+    }
 }

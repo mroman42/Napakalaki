@@ -40,7 +40,7 @@ class Napakalaki {
     
     // Métodos públicos.
     public CombatResult combat(){
-        return null; 
+        return currentPlayer.combat(currentMonster);
     }
     
     public void discardVisibleTreasure(Treasure t){}

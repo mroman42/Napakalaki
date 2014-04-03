@@ -110,6 +110,8 @@ public class BadConsequence {
             if(specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
                 nVTreasures = (visibles.size() > nVisibleTreasures? nVisibleTreasures : visibles.size());
                 nHTreasures = (hidden.size() > nHiddenTreasures? nHiddenTreasures : hidden.size());
+                
+                adjustedBC = new BadConsequence(text, levels, nVTreasures, nHTreasures);
             }
             else{
                 for(TreasureKind object : specificVisibleTreasures)
@@ -120,7 +122,7 @@ public class BadConsequence {
                     if(hidden.contains(object))
                         listHiddenTreasures.add(object);
 
-                adjustedBC = new BadConsequence(text, levels, listVisibleTreasures, listVisibleTreasures);
+                adjustedBC = new BadConsequence(text, levels, listVisibleTreasures, listHiddenTreasures);
             }
         }
         
