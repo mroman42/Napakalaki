@@ -47,7 +47,7 @@ public class BadConsequence {
     
     // Consultores
     public boolean isEmpty(){
-        return true; 
+        return (death == false && levels == 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0); 
     }
     
     public boolean kills(){
@@ -81,9 +81,17 @@ public class BadConsequence {
     
     // Métodos públicos
     public void substractVisibleTreasure (Treasure treasure) {
+        if(specificVisibleTreasures.contains(treasure) || (specificVisibleTreasures.isEmpty() && nVisibleTreasures != 0)){
+            specificVisibleTreasures.remove(treasure);
+            nVisibleTreasures--;
+        }
     }
     
     public void substractHiddenTreasure (Treasure treasure) {
+        if(specificHiddenTreasures.contains(treasure) || (specificHiddenTreasures.isEmpty()) && nHiddenTreasures != 0){
+            specificHiddenTreasures.remove(treasure);
+            nHiddenTreasures--;
+        }
     }
     
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
