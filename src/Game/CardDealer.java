@@ -281,7 +281,7 @@ public class CardDealer {
                 + " Pierdes 3 niveles y tus tesoros visibles de las manos.", 3, tvp, thp);
         tvp.clear();
         prize = new Prize(1,1); 
-        unusedMonsters.add(new Monster("Bicéfalo", 20, bad, prize)); 
+        unusedMonsters.add(new Monster("Bicéfalo", 20, bad, prize));
     }
     
     private void shuffleTreasures() {}
@@ -289,8 +289,17 @@ public class CardDealer {
     private void shuffleMonsters() {} 
     
     // Métodos públicos.
-    public Treasure nextTreasure() {
-        return null; 
+    public Treasure nextTreasure() {    
+        if (unusedTreasures.isEmpty()) {
+            usedTreasures = unusedTreasures;
+            unusedTreasures = new ArrayList();
+            
+        }
+        
+        Treasure next = unusedTreasures.remove(0);
+        usedTreasures.add(next);
+        
+        return next;
     }
     
     public Monster nextMonster() {
