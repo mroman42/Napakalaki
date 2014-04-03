@@ -11,7 +11,8 @@ import java.util.ArrayList;
 class Napakalaki {
     // Atributos
     private static final Napakalaki instance = new Napakalaki();
-    private Player currentPlayer; 
+    private Player currentPlayer;
+    private int currentPlayerIndex;
     private Monster currentMonster; 
     private ArrayList<Player> players; 
     
@@ -32,7 +33,9 @@ class Napakalaki {
     }
     
     private Player nextPlayer(){
-        return null;
+        currentPlayerIndex = (currentPlayerIndex + 1) % players.size();        
+        currentPlayer = players.get(currentPlayerIndex);
+        return currentPlayer;
     }
     
     // Métodos públicos.
@@ -53,15 +56,18 @@ class Napakalaki {
         return false; 
     }
     
-    public void initGame(ArrayList<String> players){
+    public void initGame(ArrayList<String> names){
+        CardDealer.getInstance().initCards();
+        initPlayers(names);
+        nextTurn();
     }
     
     public Player getCurrentPlayer(){
-        return null; 
+        return currentPlayer; 
     }
     
     public Monster getCurrentMonster(){
-        return null; 
+        return currentMonster; 
     }
     
     public boolean canMakeTreasureVisible(Treasure t){
@@ -77,15 +83,25 @@ class Napakalaki {
     }
     
     public boolean nextTurn(){
-        return true; 
+        boolean stateOK = nextTurnAllowed();
+        
+        if (stateOK) {
+            currentMonster = CardDealer.getInstance().nextMonster();
+            currentPlayer  = nextPlayer();
+            
+            if (currentPlayer.isDead())
+                currentPlayer.initTreasures();
+        }
+        
+        return stateOK;
     }
     
     public boolean nextTurnAllowed(){
-        return true;
+        return currentPlayer.validState();
     }
     
     public boolean endOfGame(CombatResult result){
-        return true; 
+        return result == CombatResult.WINANDWINGAME;
     } 
     
     

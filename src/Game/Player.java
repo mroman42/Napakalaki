@@ -54,8 +54,17 @@ public class Player {
     }
     
     private void discardNecklaceIfVisible(){
-        if(visibleTreasures.contains(new ArrayList<>(Arrays.asList(TreasureKind.NECKLACE))))
-            visibleTreasures.remove(new ArrayList<>(Arrays.asList(TreasureKind.NECKLACE)));
+        int position = 0; 
+        int size = visibleTreasures.size();
+        boolean found = false; 
+        while (!found || position >= size){
+           if (visibleTreasures.get(position).getType() != TreasureKind.NECKLACE)
+               position++; 
+           else 
+               found = true; 
+        }
+        CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
+        visibleTreasures.remove(position); 
     }
     
     private void dieIfNoTreasures(){
@@ -68,7 +77,7 @@ public class Player {
     }
     
     private boolean canIBuyLevels(int levels){
-        return false;
+        return (this.level + levels < 10); 
     }
     
     
@@ -90,7 +99,29 @@ public class Player {
     }
     
     public boolean canMakeTreasureVisible(Treasure treasure){
-        return false;
+        TreasureKind type = treasure.getType(); 
+        
+        if (type == TreasureKind.NECKLACE)
+            return true; 
+        
+        else if (type != TreasureKind.ONEHAND){
+            boolean has_item = false; 
+            for (Treasure t : visibleTreasures){
+                if(t.getType() == type)
+                    has_item = true;
+            }
+            return !has_item; 
+        }
+        else{
+            int number_of_onehands = 0; 
+            for (Treasure t : visibleTreasures){
+                if(t.getType() == TreasureKind.ONEHAND)
+                    number_of_onehands++;
+            }
+            return (number_of_onehands < 2); 
+        }
+            
+            
     }
     
     public void discardVisibleTreasure(Treasure treasure){
@@ -107,23 +138,28 @@ public class Player {
     
     public int getCombatLevel(){
         int combat_level = level;
+        boolean has_necklace = false; 
         
+        // Revisar este bucle: puede haber una mejor forma. 
         for (Treasure treasure : visibleTreasures){
-            if(visibleTreasures.contains(TreasureKind.NECKLACE)){
+            if(treasure.getType() == TreasureKind.NECKLACE)
+                has_necklace = true; 
+        }
+        for (Treasure treasure : visibleTreasures){
+            if (has_necklace)
                 combat_level += treasure.getMaxBonus();
-            }
-            else{
+            else
                 combat_level += treasure.getMinBonus();
-            }
+            
         }
         return combat_level;
     }
     
     public boolean validState(){
-        return false;
+        return pendingBadConsequence.isEmpty();
     }
     
-    public boolean initTreasure(){
+    public boolean initTreasures(){
         return false;
     }
     
@@ -132,7 +168,7 @@ public class Player {
     }
     
     public boolean hasVisibleTreasures(){
-        return visibleTreasures.isEmpty();
+        return !visibleTreasures.isEmpty();
     }
 
     public ArrayList<Treasure> getHiddenTreasures() {
