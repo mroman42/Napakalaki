@@ -330,8 +330,5 @@ public class CardDealer {
     public void initCards() {
         initMonsterCardDeck();
         initTreasureCardDeck();
-    } 
-    
-
-
+    }
 }
