@@ -95,10 +95,20 @@ public class Player {
     }
     
     public void applyBadConsequence(BadConsequence bad){
+        int nlevels = bad.getLevels();
+        decrementLevels(nlevels); 
+        BadConsequence pendingBad = bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures); 
+        setPendingBadConsequence(pendingBad); 
     }
     
     public boolean makeTreasureVisible(Treasure treasure){
-        return false;
+        if (canMakeTreasureVisible(treasure)){
+            visibleTreasures.add(treasure); 
+            hiddenTreasures.remove(treasure); 
+            return true; 
+        }
+        else
+            return false;       
     }
     
     public boolean canMakeTreasureVisible(Treasure treasure){
@@ -122,9 +132,7 @@ public class Player {
                     number_of_onehands++;
             }
             return (number_of_onehands < 2); 
-        }
-            
-            
+        }       
     }
     
     public void discardVisibleTreasure(Treasure treasure){
