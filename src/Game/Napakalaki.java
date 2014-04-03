@@ -57,11 +57,11 @@ class Napakalaki {
     }
     
     public Player getCurrentPlayer(){
-        return null; 
+        return currentPlayer; 
     }
     
     public Monster getCurrentMonster(){
-        return null; 
+        return currentMonster; 
     }
     
     public boolean canMakeTreasureVisible(Treasure t){
@@ -81,11 +81,11 @@ class Napakalaki {
     }
     
     public boolean nextTurnAllowed(){
-        return true;
+        return currentPlayer.validState();
     }
     
     public boolean endOfGame(CombatResult result){
-        return true; 
+        return result == CombatResult.WINANDWINGAME;
     } 
     
     
