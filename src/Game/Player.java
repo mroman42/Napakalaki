@@ -90,7 +90,29 @@ public class Player {
     }
     
     public boolean canMakeTreasureVisible(Treasure treasure){
-        return false;
+        TreasureKind type = treasure.getType(); 
+        
+        if (type == TreasureKind.NECKLACE)
+            return true; 
+        
+        else if (type != TreasureKind.ONEHAND){
+            boolean has_item = false; 
+            for (Treasure t : visibleTreasures){
+                if(t.getType() == type)
+                    has_item = true;
+            }
+            return !has_item; 
+        }
+        else{
+            int number_of_onehands = 0; 
+            for (Treasure t : visibleTreasures){
+                if(t.getType() == TreasureKind.ONEHAND)
+                    number_of_onehands++;
+            }
+            return (number_of_onehands < 2); 
+        }
+            
+            
     }
     
     public void discardVisibleTreasure(Treasure treasure){
