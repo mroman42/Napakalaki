@@ -72,8 +72,11 @@ public class Player {
             die();
     }
     
-    private int computeGoldCoinsValue(Treasure treasure){
-        return treasure.getGoldCoins();
+    private int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
+        int gold_coins = 0; 
+        for (Treasure t : treasure_list)
+            gold_coins += t.getGoldCoins(); 
+        return (gold_coins / 1000); 
     }
     
     private boolean canIBuyLevels(int levels){
