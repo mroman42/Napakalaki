@@ -56,7 +56,10 @@ class Napakalaki {
         return false; 
     }
     
-    public void initGame(ArrayList<String> players){
+    public void initGame(ArrayList<String> names){
+        CardDealer.getInstance().initCards();
+        initPlayers(names);
+        nextTurn();
     }
     
     public Player getCurrentPlayer(){
