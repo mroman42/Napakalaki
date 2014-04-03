@@ -56,7 +56,10 @@ class Napakalaki {
         return false; 
     }
     
-    public void initGame(ArrayList<String> players){
+    public void initGame(ArrayList<String> names){
+        CardDealer.getInstance().initCards();
+        initPlayers(names);
+        nextTurn();
     }
     
     public Player getCurrentPlayer(){
@@ -80,7 +83,17 @@ class Napakalaki {
     }
     
     public boolean nextTurn(){
-        return true; 
+        boolean stateOK = nextTurnAllowed();
+        
+        if (stateOK) {
+            currentMonster = CardDealer.getInstance().nextMonster();
+            currentPlayer  = nextPlayer();
+            
+            if (currentPlayer.isDead())
+                currentPlayer.initTreasures();
+        }
+        
+        return stateOK;
     }
     
     public boolean nextTurnAllowed(){
