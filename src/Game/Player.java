@@ -90,7 +90,29 @@ public class Player {
     }
     
     public boolean canMakeTreasureVisible(Treasure treasure){
-        return false;
+        TreasureKind type = treasure.getType(); 
+        
+        if (type == TreasureKind.NECKLACE)
+            return true; 
+        
+        else if (type != TreasureKind.ONEHAND){
+            boolean has_item = false; 
+            for (Treasure t : visibleTreasures){
+                if(t.getType() == type)
+                    has_item = true;
+            }
+            return !has_item; 
+        }
+        else{
+            int number_of_onehands = 0; 
+            for (Treasure t : visibleTreasures){
+                if(t.getType() == TreasureKind.ONEHAND)
+                    number_of_onehands++;
+            }
+            return (number_of_onehands < 2); 
+        }
+            
+            
     }
     
     public void discardVisibleTreasure(Treasure treasure){
@@ -107,15 +129,19 @@ public class Player {
     
     public int getCombatLevel(){
         int combat_level = level;
+        boolean has_necklace = false; 
         
+        // Revisar este bucle: puede haber una mejor forma. 
         for (Treasure treasure : visibleTreasures){
-            // Esto no funciona!! No se puede comprobar si un TKind está en un array de treasures.
-            if(visibleTreasures.contains(TreasureKind.NECKLACE)){
+            if(treasure.getType() == TreasureKind.NECKLACE)
+                has_necklace = true; 
+        }
+        for (Treasure treasure : visibleTreasures){
+            if (has_necklace)
                 combat_level += treasure.getMaxBonus();
-            }
-            else{
+            else
                 combat_level += treasure.getMinBonus();
-            }
+            
         }
         return combat_level;
     }
@@ -124,7 +150,7 @@ public class Player {
         return pendingBadConsequence.isEmpty();
     }
     
-    public boolean initTreasure(){
+    public boolean initTreasures(){
         return false;
     }
     
