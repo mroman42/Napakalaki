@@ -303,13 +303,24 @@ public class CardDealer {
     }
     
     public Monster nextMonster() {
-        return null; 
+        if (unusedMonsters.isEmpty()) {
+            usedMonsters = unusedMonsters;
+            unusedMonsters = new ArrayList();
+            
+        }
+        
+        Monster next = unusedMonsters.remove(0);
+        usedMonsters.add(next);
+        
+        return next;
     }
     
     public void giveTreasureBack(Treasure treasure) {
+        usedTreasures.add(treasure);
     }
     
     public void giveMonsterBack(Monster monster) {
+        usedMonsters.add(monster);
     }
     
     public void initCards() {
