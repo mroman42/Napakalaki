@@ -19,7 +19,10 @@ class Napakalaki {
     
     // Patrón Singleton.
     // El constructor privado asegura que no se puede instanciar desde otras clases
-    private Napakalaki() {}
+    private Napakalaki() {
+        currentPlayer = null;
+        currentMonster = null;
+    }
     
     public static Napakalaki getInstance() {
         return instance;
@@ -40,7 +43,7 @@ class Napakalaki {
     
     // Métodos públicos.
     public CombatResult combat(){
-        return null; 
+        return currentPlayer.combat(currentMonster);
     }
     
     public void discardVisibleTreasure(Treasure t){}
