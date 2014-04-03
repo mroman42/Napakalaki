@@ -11,7 +11,8 @@ import java.util.ArrayList;
 class Napakalaki {
     // Atributos
     private static final Napakalaki instance = new Napakalaki();
-    private Player currentPlayer; 
+    private Player currentPlayer;
+    private int currentPlayerIndex;
     private Monster currentMonster; 
     private ArrayList<Player> players; 
     
@@ -32,7 +33,9 @@ class Napakalaki {
     }
     
     private Player nextPlayer(){
-        return null;
+        currentPlayerIndex = (currentPlayerIndex + 1) % players.size();        
+        currentPlayer = players.get(currentPlayerIndex);
+        return currentPlayer;
     }
     
     // Métodos públicos.
