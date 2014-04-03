@@ -47,7 +47,7 @@ public class BadConsequence {
     
     // Consultores
     public boolean isEmpty(){
-        return true; 
+        return (death == false && levels == 0 && nVisibleTreasures == 0 && nHiddenTreasures == 0); 
     }
     
     public boolean kills(){
@@ -81,13 +81,52 @@ public class BadConsequence {
     
     // Métodos públicos
     public void substractVisibleTreasure (Treasure treasure) {
+        if(specificVisibleTreasures.contains(treasure) || (specificVisibleTreasures.isEmpty() && nVisibleTreasures != 0)){
+            specificVisibleTreasures.remove(treasure);
+            nVisibleTreasures--;
+        }
     }
     
     public void substractHiddenTreasure (Treasure treasure) {
+        if(specificHiddenTreasures.contains(treasure) || (specificHiddenTreasures.isEmpty()) && nHiddenTreasures != 0){
+            specificHiddenTreasures.remove(treasure);
+            nHiddenTreasures--;
+        }
     }
     
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
-        return null; 
+        BadConsequence adjustedBC = null;
+        
+        if(death){
+            adjustedBC = new BadConsequence(text, death);
+        }
+        else{
+            int nVTreasures;
+            int nHTreasures;
+            final ArrayList<TreasureKind> listHiddenTreasures = null;
+            final ArrayList<TreasureKind> listVisibleTreasures = null;
+
+            //Si las dos son vacías, o no especifica los tesoros, o no quita tesoros
+            if(specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
+                nVTreasures = (visibles.size() > nVisibleTreasures? nVisibleTreasures : visibles.size());
+                nHTreasures = (hidden.size() > nHiddenTreasures? nHiddenTreasures : hidden.size());
+                
+                adjustedBC = new BadConsequence(text, levels, nVTreasures, nHTreasures);
+            }
+            else{
+                for(TreasureKind object : specificVisibleTreasures)
+                    if(visibles.contains(object))
+                        listVisibleTreasures.add(object);
+        
+                for(TreasureKind object : specificHiddenTreasures)
+                    if(hidden.contains(object))
+                        listHiddenTreasures.add(object);
+
+                adjustedBC = new BadConsequence(text, levels, listVisibleTreasures, listHiddenTreasures);
+            }
+        }
+        
+        return adjustedBC;
     }
     
     // Métodos auxiliares

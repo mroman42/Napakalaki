@@ -54,8 +54,17 @@ public class Player {
     }
     
     private void discardNecklaceIfVisible(){
-        if(visibleTreasures.contains(new ArrayList<>(Arrays.asList(TreasureKind.NECKLACE))))
-            visibleTreasures.remove(new ArrayList<>(Arrays.asList(TreasureKind.NECKLACE)));
+        int position = 0; 
+        int size = visibleTreasures.size();
+        boolean found = false; 
+        while (!found || position >= size){
+           if (visibleTreasures.get(position).getType() != TreasureKind.NECKLACE)
+               position++; 
+           else 
+               found = true; 
+        }
+        CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
+        visibleTreasures.remove(position); 
     }
     
     private void dieIfNoTreasures(){
