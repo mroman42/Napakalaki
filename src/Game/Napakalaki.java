@@ -83,7 +83,17 @@ class Napakalaki {
     }
     
     public boolean nextTurn(){
-        return true; 
+        boolean stateOK = nextTurnAllowed();
+        
+        if (stateOK) {
+            currentMonster = CardDealer.getInstance().nextMonster();
+            currentPlayer  = nextPlayer();
+            
+            if (currentPlayer.isDead())
+                currentPlayer.initTreasures();
+        }
+        
+        return stateOK;
     }
     
     public boolean nextTurnAllowed(){
