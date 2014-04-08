@@ -70,9 +70,11 @@ public class Player {
            else 
                found = true; 
         }
-        CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
-        visibleTreasures.remove(position); 
-    }
+            if (found){
+                CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
+                visibleTreasures.remove(position); 		
+            }
+    }	
     
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
