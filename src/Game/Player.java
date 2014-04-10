@@ -21,7 +21,6 @@ public class Player {
 
     // Constructor.
     public Player(String name) {
-        this.dead = true;
         this.name = name;
         bringToLife();
     }
@@ -63,17 +62,19 @@ public class Player {
     private void discardNecklaceIfVisible(){
         int position = 0; 
         int size = visibleTreasures.size();
-        boolean found = false; 
+        boolean found = false;
+        
         while (!found || position >= size){
            if (visibleTreasures.get(position).getType() != TreasureKind.NECKLACE)
                position++; 
            else 
                found = true; 
         }
-            if (found){
-                CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
-                visibleTreasures.remove(position); 		
-            }
+        
+        if (found){
+            CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
+            visibleTreasures.remove(position); 		
+        }
     }	
     
     private void dieIfNoTreasures(){
@@ -108,7 +109,7 @@ public class Player {
         int total_level = this.getCombatLevel();
         return null;
     }
-    
+        
     public void applyBadConsequence(BadConsequence bad){
         int nlevels = bad.getLevels();
         decrementLevels(nlevels); 
@@ -160,6 +161,10 @@ public class Player {
 
     public void discardHiddenTreasure(Treasure treasure){
         hiddenTreasures.remove(treasure.getType());
+        if (pendingBadConsequence!=null && !pendingBadConsequence.isEmpty())
+            pendingBadConsequence.substractHiddenTreasure(treasure);
+        CardDealer.getInstance().giveTreasureBack(treasure); 
+        dieIfNoTreasures(); 
     }
     
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
@@ -185,12 +190,29 @@ public class Player {
         return combat_level;
     }
     
+    /**
+     * Comprueba que el estado del jugador es válido. 
+     * Para ello, comprueba que el BadConsequence asociado esté vacío. 
+     * @return 
+     */
     public boolean validState(){
         return pendingBadConsequence.isEmpty();
     }
     
-    public boolean initTreasures(){
-        return false;
+    public void initTreasures(){
+        bringToLife();
+        int number = Dice.getInstance().nextNumber(); 
+        if (number == 1){
+            hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
+        }
+        else if (number == 6){
+            for (int i = 0; i < 3; i++)
+                hiddenTreasures.add(CardDealer.getInstance().nextTreasure()); 
+        }
+        else{
+            for (int i = 0; i < 2; i++)
+                hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
+        }
     }
     
     public boolean isDead(){
