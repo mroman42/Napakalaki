@@ -59,8 +59,9 @@ public class Player {
         dead = true;
     }
     
-    private void discardNecklaceIfVisible(){
-        int position = 0; 
+    private void discardNecklaceIfVisible() {
+        
+        int position = 0;
         int size = visibleTreasures.size();
         boolean found = false;
         
