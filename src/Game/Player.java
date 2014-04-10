@@ -21,7 +21,6 @@ public class Player {
 
     // Constructor.
     public Player(String name) {
-        this.dead = true;
         this.name = name;
         bringToLife();
     }
@@ -191,8 +190,20 @@ public class Player {
         return pendingBadConsequence.isEmpty();
     }
     
-    public boolean initTreasures(){
-        return false;
+    public void initTreasures(){
+        bringToLife();
+        int number = Dice.getInstance().nextNumber(); 
+        if (number == 1){
+            hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
+        }
+        else if (number == 6){
+            for (int i = 0; i < 3; i++)
+                hiddenTreasures.add(CardDealer.getInstance().nextTreasure()); 
+        }
+        else{
+            for (int i = 0; i < 2; i++)
+                hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
+        }
     }
     
     public boolean isDead(){
