@@ -89,6 +89,10 @@ public class Player {
         return (gold_coins / 1000); 
     }
     
+    /**
+     * Comprueba si al comprar un número de niveles, no se supera el nivel 10.
+     * Hacemos esto porque no podemos alcanzar el nivel 10 en una compra de niveles. 
+     */
     private boolean canIBuyLevels(int levels){
         return (this.level + levels < 10); 
     }
@@ -167,8 +171,26 @@ public class Player {
         dieIfNoTreasures(); 
     }
     
+    /**
+     * Compra niveles a partir de una lista de tesoros, si el juego nos lo permite. 
+     * IMPORTANTE: Aunque se llama al método discardVisibleTreasure(), que actúa sobre 
+     * pendingBadConsequence, no interfiere en el mal rollo ya que este aun no ha aparecido.
+     * @param visible Lista de tesoros visibles. 
+     * @param hidden Lista de tesoros ocultos. 
+     * @return Compra realizada. 
+     */
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
-        return canIBuyLevels(1);
+        int levels = computeGoldCoinsValue(visible); 
+        levels += computeGoldCoinsValue(hidden); 
+        boolean canI = canIBuyLevels(levels); 
+        if (canI){
+            incrementLevels(levels); 
+            for(Treasure treasure : visible)
+                discardVisibleTreasure(treasure); 
+            for (Treasure treasure : hidden)
+                discardHiddenTreasure(treasure); 
+        }
+        return canI;
     }
     
     public int getCombatLevel(){
