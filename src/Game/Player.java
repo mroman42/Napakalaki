@@ -80,7 +80,7 @@ public class Player {
     
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
-            die();
+            dead = true; 
     }
     
     private int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
