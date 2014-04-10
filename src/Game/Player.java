@@ -111,8 +111,8 @@ public class Player {
     public void applyBadConsequence(BadConsequence bad){
         int nlevels = bad.getLevels();
         decrementLevels(nlevels); 
-        pendingBadConsequence = bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures); 
-        setPendingBadConsequence(pendingBadConsequence); 
+        BadConsequence pendingBad = bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures); 
+        setPendingBadConsequence(pendingBad); 
     }
     
     public boolean makeTreasureVisible(Treasure treasure){
