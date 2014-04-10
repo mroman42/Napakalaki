@@ -135,13 +135,29 @@ public class CardDealer {
         
          // Monstruos añadidos por orden de aparición en el guión. 
         
+        // El profesor de PDOO
+        tvp.add(TreasureKind.ARMOR);
+        thp.add(TreasureKind.ONEHAND);
+        thp.add(TreasureKind.ONEHAND);
+        thp.add(TreasureKind.ONEHAND);
+        thp.add(TreasureKind.ONEHAND);
+        thp.add(TreasureKind.BOTHHANDS);
+        thp.add(TreasureKind.BOTHHANDS); 
+        thp.add(TreasureKind.BOTHHANDS); 
+        thp.add(TreasureKind.BOTHHANDS);  
+        BadConsequence bad = new BadConsequence("Si se pierde contra el monstruo se pierden 20 niveles, todas las armaduras visibles y todos los tesoros de mano invisibles", 20, tvp, thp);
+        tvp.clear();
+        thp.clear();
+        Prize prize = new Prize(1,2); 
+        unusedMonsters.add(new Monster("El profesor de PDOO", 25, bad, prize)); 
+
         // 3 Byakhees de bonanza.
         tvp.add(TreasureKind.ARMOR);
         thp.add(TreasureKind.ARMOR);
-        BadConsequence bad = new BadConsequence("Pierdes tu armadura visible y otra oculta.", 0, tvp, thp);
+        bad = new BadConsequence("Pierdes tu armadura visible y otra oculta.", 0, tvp, thp);
         tvp.clear();
         thp.clear();
-        Prize prize = new Prize(2,1);
+        prize = new Prize(2,1);
         unusedMonsters.add(new Monster("3 Byakhees de bonanza", 8, bad, prize));
         
         
