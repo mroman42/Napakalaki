@@ -159,6 +159,10 @@ public class Player {
 
     public void discardHiddenTreasure(Treasure treasure){
         hiddenTreasures.remove(treasure.getType());
+        if (pendingBadConsequence!=null && !pendingBadConsequence.isEmpty())
+            pendingBadConsequence.substractHiddenTreasure(treasure);
+        CardDealer.getInstance().giveTreasureBack(treasure); 
+        dieIfNoTreasures(); 
     }
     
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
@@ -184,6 +188,11 @@ public class Player {
         return combat_level;
     }
     
+    /**
+     * Comprueba que el estado del jugador es válido. 
+     * Para ello, comprueba que el BadConsequence asociado esté vacío. 
+     * @return 
+     */
     public boolean validState(){
         return pendingBadConsequence.isEmpty();
     }
