@@ -62,17 +62,19 @@ public class Player {
     private void discardNecklaceIfVisible(){
         int position = 0; 
         int size = visibleTreasures.size();
-        boolean found = false; 
+        boolean found = false;
+        
         while (!found || position >= size){
            if (visibleTreasures.get(position).getType() != TreasureKind.NECKLACE)
                position++; 
            else 
                found = true; 
         }
-            if (found){
-                CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
-                visibleTreasures.remove(position); 		
-            }
+        
+        if (found){
+            CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
+            visibleTreasures.remove(position); 		
+        }
     }	
     
     private void dieIfNoTreasures(){
@@ -107,7 +109,7 @@ public class Player {
         int total_level = this.getCombatLevel();
         return null;
     }
-    
+        
     public void applyBadConsequence(BadConsequence bad){
         int nlevels = bad.getLevels();
         decrementLevels(nlevels); 
