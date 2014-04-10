@@ -1,5 +1,6 @@
 package Game;
 
+import static java.lang.Math.min;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -48,7 +49,13 @@ public class Player {
     }
     
     private void die(){
+        for (Treasure treasure : hiddenTreasures){
+            CardDealer.getInstance().giveTreasureBack(treasure);
+        }
         hiddenTreasures.clear();
+        for (Treasure treasure : visibleTreasures){
+            CardDealer.getInstance().giveTreasureBack(treasure);
+        }
         visibleTreasures.clear();
         dead = true;
     }
@@ -63,9 +70,11 @@ public class Player {
            else 
                found = true; 
         }
-        CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
-        visibleTreasures.remove(position); 
-    }
+            if (found){
+                CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
+                visibleTreasures.remove(position); 		
+            }
+    }	
     
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
@@ -86,7 +95,13 @@ public class Player {
     
     // Métodos públicos
     public void applyPrize(Prize prize){
-        incrementLevels(prize.getLevels());
+        int nLevels = prize.getLevels(); 
+        incrementLevels(nLevels); 
+        int nPrize = prize.getTreasures(); 
+        for (int i = 0; i < min(nPrize, 4-hiddenTreasures.size()); i++){
+            Treasure treasure = CardDealer.getInstance().nextTreasure(); 
+            hiddenTreasures.add(treasure); 
+        }
     }
     
     public CombatResult combat(Monster monster){
@@ -136,7 +151,11 @@ public class Player {
     }
     
     public void discardVisibleTreasure(Treasure treasure){
-        visibleTreasures.remove(treasure.getType());
+        visibleTreasures.remove(treasure);
+        if (pendingBadConsequence!=null && !pendingBadConsequence.isEmpty())
+            pendingBadConsequence.substractVisibleTreasure(treasure);
+        CardDealer.getInstance().giveTreasureBack(treasure); 
+        dieIfNoTreasures(); 
     }
 
     public void discardHiddenTreasure(Treasure treasure){

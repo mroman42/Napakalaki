@@ -81,17 +81,13 @@ public class BadConsequence {
     
     // Métodos públicos
     public void substractVisibleTreasure (Treasure treasure) {
-        if(specificVisibleTreasures.contains(treasure) || (specificVisibleTreasures.isEmpty() && nVisibleTreasures != 0)){
-            specificVisibleTreasures.remove(treasure);
+        if(specificVisibleTreasures.remove(treasure) || (specificVisibleTreasures.isEmpty() && nVisibleTreasures != 0))
             nVisibleTreasures--;
-        }
     }
     
     public void substractHiddenTreasure (Treasure treasure) {
-        if(specificHiddenTreasures.contains(treasure) || (specificHiddenTreasures.isEmpty()) && nHiddenTreasures != 0){
-            specificHiddenTreasures.remove(treasure);
+        if(specificHiddenTreasures.remove(treasure) || (specificHiddenTreasures.isEmpty()) && nHiddenTreasures != 0)
             nHiddenTreasures--;
-        }
     }
     
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
