@@ -318,7 +318,6 @@ public class CardDealer {
         }
         
         Treasure next = unusedTreasures.remove(0);
-        usedTreasures.add(next);
         
         return next;
     }
@@ -332,7 +331,6 @@ public class CardDealer {
         }
         
         Monster next = unusedMonsters.remove(0);
-        usedMonsters.add(next);
         
         return next;
     }
