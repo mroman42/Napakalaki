@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author Mario Román
  * @author Óscar Bermúdez
  */
-class Napakalaki {
+public class Napakalaki {
     // Atributos
     private static final Napakalaki instance = new Napakalaki();
     private Player currentPlayer;
@@ -106,12 +106,4 @@ class Napakalaki {
     public boolean endOfGame(CombatResult result){
         return result == CombatResult.WINANDWINGAME;
     } 
-    
-    
-    // Método main.
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-    }
 }
