@@ -2,6 +2,7 @@ package TextUI;
 
 import Game.Napakalaki;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -18,18 +19,21 @@ public class TextUI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        scanIn = new Scanner(System.in);
-        
         // Trabaja con la instancia de Napakalaki.
         Napakalaki napakalaki = Napakalaki.getInstance();
         
         // Lee los nombres.
-        napakalaki.initGame(readNames());
+        ArrayList<String> names = readNames();
+        napakalaki.initGame(names);
     }
     
     private static ArrayList<String> readNames() {
-        ArrayList<String> names = new ArrayList();
         System.out.println("Introduzca los nombres de los jugadores.");
-        return names;
+        
+        scanIn = new Scanner(System.in);
+        String line = scanIn.nextLine();
+        String[] names = line.split(" ");
+        
+        return new ArrayList<>(Arrays.asList(names));
     }
 }
