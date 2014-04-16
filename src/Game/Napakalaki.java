@@ -35,6 +35,10 @@ public class Napakalaki {
         players = new ArrayList<>();
         for (String name : names)
             players.add(new Player(name));
+        
+        // Toma el primer jugador como jugador actual
+        currentPlayerIndex = 0;
+        currentPlayer = players.get(currentPlayerIndex);
     }
     
     private Player nextPlayer(){
