@@ -11,10 +11,10 @@ import java.util.*;
 public class CardDealer {
     // Atributos
     private static final CardDealer instance = new CardDealer();
-    private ArrayList<Treasure> usedTreasures; 
-    private ArrayList<Treasure> unusedTreasures; 
-    private ArrayList<Monster> usedMonsters; 
-    private ArrayList<Monster> unusedMonsters; 
+    private ArrayList<Treasure> usedTreasures = new ArrayList<>(); 
+    private ArrayList<Treasure> unusedTreasures = new ArrayList<>(); 
+    private ArrayList<Monster> usedMonsters = new ArrayList<>(); 
+    private ArrayList<Monster> unusedMonsters = new ArrayList<>(); 
     
     // Patrón Singleton.
     // El constructor privado nos asegura que no se puede instanciar desde otras clases

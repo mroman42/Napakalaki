@@ -31,6 +31,8 @@ public class Napakalaki {
     
     // Métodos privados
     private void initPlayers(ArrayList<String> names){
+        // Inicializa jugadores
+        players = new ArrayList<>();
         for (String name : names)
             players.add(new Player(name));
     }
