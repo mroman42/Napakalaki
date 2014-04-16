@@ -65,7 +65,7 @@ public class Player {
         int size = visibleTreasures.size();
         boolean found = false;
         
-        while (!found || position >= size){
+        while (!found || position == size){
            if (visibleTreasures.get(position).getType() != TreasureKind.NECKLACE)
                position++; 
            else 
@@ -80,7 +80,7 @@ public class Player {
     
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
-            die();
+            dead = true; 
     }
     
     private int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
@@ -97,6 +97,8 @@ public class Player {
     private boolean canIBuyLevels(int levels){
         return (this.level + levels < 10); 
     }
+    
+    
     
     
     // Métodos públicos

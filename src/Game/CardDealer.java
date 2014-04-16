@@ -311,26 +311,26 @@ public class CardDealer {
     // Métodos públicos.
     public Treasure nextTreasure() {    
         if (unusedTreasures.isEmpty()) {
+            ArrayList<Treasure> temp = unusedTreasures;
             unusedTreasures = usedTreasures;
-            usedTreasures = new ArrayList();
+            usedTreasures = temp;
             
         }
         
         Treasure next = unusedTreasures.remove(0);
-        usedTreasures.add(next);
         
         return next;
     }
     
     public Monster nextMonster() {
         if (unusedMonsters.isEmpty()) {
+            ArrayList<Monster> temp = unusedMonsters;
             unusedMonsters = usedMonsters;
-            usedMonsters = new ArrayList();
+            usedMonsters = temp;
             
         }
         
         Monster next = unusedMonsters.remove(0);
-        usedMonsters.add(next);
         
         return next;
     }
