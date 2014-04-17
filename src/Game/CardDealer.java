@@ -305,7 +305,11 @@ public class CardDealer {
         
         return next;
     }
-    
+    /**
+     * Devuelve el siguiente monstruo. En caso de que hayan salido todos, los vuelve a poner 
+     * como no usados y los vuelve a barajar. 
+     * @return Monster siguiente monstruo. 
+     */
     public Monster nextMonster() {
         if (unusedMonsters.isEmpty()) {
             ArrayList<Monster> temp = unusedMonsters;
