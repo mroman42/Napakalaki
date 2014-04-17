@@ -42,6 +42,8 @@ public class BadConsequence {
         this.death = death;
         this.specificHiddenTreasures = new ArrayList();
         this.specificVisibleTreasures = new ArrayList();
+        this.nHiddenTreasures = 0; 
+        this.nVisibleTreasures = 0; 
     }
     
     
