@@ -111,10 +111,45 @@ public class Player {
             hiddenTreasures.add(treasure); 
         }
     }
-    
+    /**
+     * @brief Combate contra un monstruo. Analiza todas las posibilidades.  
+     * @param monster Monstruo al que se enfrenta.
+     * @return Resultado del combate
+     */
     public CombatResult combat(Monster monster){
         int total_level = this.getCombatLevel();
-        return null;
+        int monster_level = monster.getLevel(); 
+        CombatResult result;
+        // Si ganamos el combate. 
+        if (total_level >= monster_level){
+            result = CombatResult.WIN;
+            Prize prize = monster.getPrize(); 
+            applyPrize(prize); 
+            if (this.level >= 10)
+                result = CombatResult.WINANDWINGAME;
+        }
+        // Si perdemos el combate, podemos escapar o no. 
+        else {
+        // Tiramos el dado.
+            int escape = Dice.getInstance().nextNumber(); 
+        // No escapamos. 
+            if (escape < 5){
+                BadConsequence bad = monster.getBadConsequence(); 
+                boolean amIDead = bad.kills(); 
+                if (amIDead){
+                    die(); 
+                    result = CombatResult.LOSEANDDIE;
+                }
+                else{
+                    applyBadConsequence(bad); 
+                    result = CombatResult.LOSE; 
+                }
+            }
+        // Escapamos.
+            else
+                result = CombatResult.LOSEANDESCAPE; 
+        }
+        return result;
     }
         
     public void applyBadConsequence(BadConsequence bad){
