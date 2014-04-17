@@ -42,4 +42,13 @@ public class Treasure {
     public TreasureKind getType() {
         return type;
     }
+    // Métodos auxiliares
+    @Override
+    public String toString() {
+        return name + " (Coins: " + Integer.toString(goldCoins) + ")" + 
+               "\nMin Bonus: " + Integer.toString(minBonus) + 
+               "\nMax Bonus: " + Integer.toString(maxBonus) + 
+               "\n";
+    }
 }
+
