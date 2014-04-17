@@ -32,10 +32,11 @@ public class TextUI {
     
     
     /**
-     * Lee un número introducido por el usuario.
-     * @param msg Mensaje mostrado por pantalla para solicitar la entrada. 
+     * Lee un número entero introducido por el usuario.
+     * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
+     * @return Número entero leído.
      */
-    public  int readInteger(String msg) {
+    public static int readInteger(String msg) {
         int input = 0;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));       
         System.out.print(msg);
@@ -53,26 +54,27 @@ public class TextUI {
     
     /**
      * Lee una cadena introducida por el usuario.
-     * @param msg Mensaje mostrado por pantalla para solicitar la entrada. 
+     * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
+     * @return Cadena de texto leída.
      */
-    public  String readString(String msg) {
+    public static String readString(String msg) {
         String input= "";
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));       
         System.out.print(msg);
+        
         try{
             input = br.readLine();
         }
         catch(IOException ioe){
             System.err.println("IO Error!");            
         }
+        
         return input;
     }   
     
     private static ArrayList<String> readNames() {
         System.out.println("Introduzca los nombres de los jugadores.");
-        
-        scanIn = new Scanner(System.in);
-        String line = scanIn.nextLine();
+        String line = readString("");
         String[] names = line.split(" ");
         
         return new ArrayList<>(Arrays.asList(names));

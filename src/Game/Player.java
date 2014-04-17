@@ -218,7 +218,7 @@ public class Player {
     /**
      * Comprueba que el estado del jugador es válido. 
      * Para ello, comprueba que el BadConsequence asociado esté vacío. 
-     * @return 
+     * @return Validez del estado.
      */
     public boolean validState(){
         return pendingBadConsequence.isEmpty();
