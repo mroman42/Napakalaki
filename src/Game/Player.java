@@ -167,7 +167,7 @@ public class Player {
     }
 
     public void discardHiddenTreasure(Treasure treasure){
-        hiddenTreasures.remove(treasure.getType());
+        hiddenTreasures.remove(treasure);
         if (pendingBadConsequence!=null && !pendingBadConsequence.isEmpty())
             pendingBadConsequence.substractHiddenTreasure(treasure);
         CardDealer.getInstance().giveTreasureBack(treasure); 
