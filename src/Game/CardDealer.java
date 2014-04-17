@@ -293,12 +293,17 @@ public class CardDealer {
     } 
     
     // Métodos públicos.
+    /**
+     * Devuelve el siguiente tesoro. En caso de que se hayan usado todos, los vuelve a poner 
+     * como no usados y los vuelve a barajar. 
+     * @return Treasure siguiente tesoro. 
+     */
     public Treasure nextTreasure() {    
         if (unusedTreasures.isEmpty()) {
             ArrayList<Treasure> temp = unusedTreasures;
             unusedTreasures = usedTreasures;
             usedTreasures = temp;
-            
+            shuffleTreasures(); 
         }
         
         Treasure next = unusedTreasures.remove(0);
