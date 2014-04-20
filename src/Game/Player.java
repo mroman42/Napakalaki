@@ -83,6 +83,11 @@ public class Player {
             dead = true; 
     }
     
+    /**
+     * @brief Devuelve el número de niveles que podemos comprar con unos determinados tesoros. 
+     * @param treasure_list Lista de tesoros. 
+     * @return Numero de niveles. 
+     */
     private int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
         int gold_coins = 0; 
         for (Treasure t : treasure_list)
@@ -218,6 +223,7 @@ public class Player {
      * @return Compra realizada. 
      */
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
+        // NO FUNCIONA! HAY QUE UNIR LOS DOS ARRAYLIST ANTES DE LLAMAR A computeGoldCoinsValue
         int levels = computeGoldCoinsValue(visible); 
         levels += computeGoldCoinsValue(hidden); 
         boolean canI = canIBuyLevels(levels); 
