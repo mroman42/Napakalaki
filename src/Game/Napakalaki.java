@@ -30,6 +30,10 @@ public class Napakalaki {
     
     
     // Métodos privados
+    /**
+     * @brief Inicia los jugadores a partir de los nombres y toma el primero como actual. 
+     * @param names Nombres de los jugadores. 
+     */
     private void initPlayers(ArrayList<String> names){
         // Inicializa jugadores
         players = new ArrayList<>();
@@ -41,6 +45,10 @@ public class Napakalaki {
         currentPlayer = players.get(currentPlayerIndex);
     }
     
+    /**
+     * @brief Pasa al siguiente jugador.
+     * @return Siguiente jugador. 
+     */
     private Player nextPlayer(){
         currentPlayerIndex = (currentPlayerIndex + 1) % players.size();        
         currentPlayer = players.get(currentPlayerIndex);
@@ -92,6 +100,10 @@ public class Napakalaki {
         return currentPlayer.getHiddenTreasures(); 
     }
     
+    /** 
+     * @brief Pasa al siguiente turno si el estado es válido. 
+     * @brief Si el siguiente jugador está muerto, llama a initTreasures()
+     */
     public boolean nextTurn(){
         boolean stateOK = nextTurnAllowed();
         
