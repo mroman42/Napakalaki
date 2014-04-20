@@ -70,7 +70,7 @@ public class Napakalaki {
     
     public boolean buyLevels(ArrayList<Treasure> visible, 
             ArrayList<Treasure> hidden){
-        return false; 
+        return currentPlayer.buyLevels(visible, hidden); 
     }
     
     public void initGame(ArrayList<String> names){
