@@ -57,7 +57,7 @@ public class Napakalaki {
     public void discardHiddenTreasure(Treasure t){}
     
     public boolean makeTreasureVisible(Treasure t){
-        return false;
+        return currentPlayer.makeTreasureVisible(t);
     }
     
     public boolean buyLevels(ArrayList<Treasure> visible, 
@@ -79,16 +79,17 @@ public class Napakalaki {
         return currentMonster; 
     }
     
+    // Llama al método canMakeTreasureVisible del jugador actual. 
     public boolean canMakeTreasureVisible(Treasure t){
-        return true; 
+        return currentPlayer.canMakeTreasureVisible(t); 
     }
     
     public ArrayList<Treasure> getVisibleTreasures(){
-        return null; 
+        return currentPlayer.getVisibleTreasures(); 
     }
     
     public ArrayList<Treasure> getHiddenTreasures(){
-        return null; 
+        return currentPlayer.getHiddenTreasures(); 
     }
     
     public boolean nextTurn(){
