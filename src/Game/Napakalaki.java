@@ -68,6 +68,7 @@ public class Napakalaki {
         return currentPlayer.makeTreasureVisible(t);
     }
     
+    // Podría tener solo un argumento? Preguntar al profesor. 
     public boolean buyLevels(ArrayList<Treasure> visible, 
             ArrayList<Treasure> hidden){
         return currentPlayer.buyLevels(visible, hidden); 
