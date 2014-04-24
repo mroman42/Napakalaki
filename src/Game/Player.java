@@ -301,6 +301,7 @@ public class Player {
     }
     
     @Override
+    // Mirar como se imprime un tesoro. 
     public String toString() {
         return name +
                "\n\t" + " Lv: " + Integer.toString(level) + 
