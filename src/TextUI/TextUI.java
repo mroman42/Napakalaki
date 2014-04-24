@@ -19,17 +19,18 @@ public class TextUI {
     private static final Napakalaki NP = Napakalaki.getInstance();
     
     // Método main.
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // Trabaja con la instancia de Napakalaki.
-        Napakalaki napakalaki = Napakalaki.getInstance();
-        
-        // Lee los nombres.
+    public static void main(){
+        printHeader(); 
         ArrayList<String> names = readNames();
-        napakalaki.initGame(names);
+        NP.initGame(names);
+             
+        do{
+            printCurrentPlayerStatus(); 
+            printCurrentMonsterStatus();           
+            
+        } while (false); 
     }
+
     
     // Imprime una cabecera para el juego
     public static void printHeader(){
@@ -95,16 +96,6 @@ public class TextUI {
         String[] names = line.split(" ");
         
         return new ArrayList<>(Arrays.asList(names));
-    }
-    
-    public static int main(){
-        printHeader(); 
-         
-        
-        do{
-           
-            
-        } while (true); 
     }
     
 }
