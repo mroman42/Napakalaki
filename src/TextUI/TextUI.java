@@ -16,19 +16,21 @@ import java.util.Scanner;
  */
 public class TextUI {
     private static Scanner scanIn;
+    private static final Napakalaki NP = Napakalaki.getInstance();
     
     // Método main.
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // Trabaja con la instancia de Napakalaki.
-        Napakalaki napakalaki = Napakalaki.getInstance();
-        
-        // Lee los nombres.
+    public static void main(){
+        printHeader(); 
         ArrayList<String> names = readNames();
-        napakalaki.initGame(names);
+        NP.initGame(names);
+             
+        do{
+            printCurrentPlayerStatus(); 
+            printCurrentMonsterStatus();           
+            
+        } while (false); 
     }
+
     
     // Imprime una cabecera para el juego
     public static void printHeader(){
@@ -36,7 +38,16 @@ public class TextUI {
         System.out.println("\tNapakalaki");
         System.out.println("---------------------"); 
     }
+
+    // Imprime el estado del jugador actual. 
+    public static void printCurrentPlayerStatus(){
+        System.out.println(NP.getCurrentPlayer().toString());  
+    }
     
+    // Imprime el estado del monstruo actual.
+    public static void printCurrentMonsterStatus(){
+        System.out.println(NP.getCurrentMonster().toString());
+    }
     
     /**
      * Lee un número entero introducido por el usuario.
@@ -86,4 +97,5 @@ public class TextUI {
         
         return new ArrayList<>(Arrays.asList(names));
     }
+    
 }
