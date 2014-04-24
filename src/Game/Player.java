@@ -181,10 +181,11 @@ public class Player {
     
     public boolean canMakeTreasureVisible(Treasure treasure){
         TreasureKind type = treasure.getType(); 
-        
+        // Si es un collar, se puede hacer visible. 
         if (type == TreasureKind.NECKLACE)
             return true; 
         
+        // Si no es de una mano, comprobamos si ya tiene uno visible. 
         else if (type != TreasureKind.ONEHAND){
             boolean has_item = false; 
             for (Treasure t : visibleTreasures){
@@ -193,6 +194,7 @@ public class Player {
             }
             return !has_item; 
         }
+        // Si es de una mano, comprobamos si hay dos visibles.
         else{
             int number_of_onehands = 0; 
             for (Treasure t : visibleTreasures){
@@ -229,6 +231,7 @@ public class Player {
      */
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
         // NO FUNCIONA! HAY QUE UNIR LOS DOS ARRAYLIST ANTES DE LLAMAR A computeGoldCoinsValue
+        // ArrayList<Treasure> union = new ArrayList<Treasure>(visible); 
         int levels = computeGoldCoinsValue(visible); 
         levels += computeGoldCoinsValue(hidden); 
         boolean canI = canIBuyLevels(levels); 
