@@ -30,6 +30,13 @@ public class TextUI {
         napakalaki.initGame(names);
     }
     
+    // Imprime una cabecera para el juego
+    public static void printHeader(){
+        System.out.println("---------------------"); 
+        System.out.println("\tNapakalaki");
+        System.out.println("---------------------"); 
+    }
+    
     
     /**
      * Lee un número entero introducido por el usuario.
