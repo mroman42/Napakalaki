@@ -21,7 +21,12 @@ public class Player {
 
     // Constructor.
     public Player(String name) {
+        dead = true;
         this.name = name;
+        level = 1;
+        pendingBadConsequence = new BadConsequence("",0,0,0);
+        hiddenTreasures = new ArrayList<Treasure>();
+        visibleTreasures = new ArrayList<Treasure>();
         bringToLife();
     }
     
