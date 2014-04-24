@@ -299,4 +299,12 @@ public class Player {
     public ArrayList<Treasure> getVisibleTreasures() {
         return visibleTreasures;
     }
+    
+    @Override
+    public String toString() {
+        return name +
+               "\n\t" + " Lv: " + Integer.toString(level) + 
+               hiddenTreasures + " hidden treasures, " +
+               visibleTreasures + " visible treasures." + "\n"; 
+    }
 }
