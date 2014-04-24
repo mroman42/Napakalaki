@@ -38,11 +38,15 @@ public class TextUI {
         System.out.println("---------------------"); 
     }
 
-    // Imprime el estado del jugador
+    // Imprime el estado del jugador actual. 
     public static void printCurrentPlayerStatus(){
         System.out.println(NP.getCurrentPlayer().toString());  
     }
     
+    // Imprime el estado del monstruo actual.
+    public static void printCurrentMonsterStatus(){
+        System.out.println(NP.getCurrentMonster().toString());
+    }
     
     /**
      * Lee un número entero introducido por el usuario.
