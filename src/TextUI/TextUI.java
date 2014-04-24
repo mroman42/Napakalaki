@@ -16,6 +16,7 @@ import java.util.Scanner;
  */
 public class TextUI {
     private static Scanner scanIn;
+    private static final Napakalaki NP = Napakalaki.getInstance();
     
     // Método main.
     /**
@@ -35,6 +36,11 @@ public class TextUI {
         System.out.println("---------------------"); 
         System.out.println("\tNapakalaki");
         System.out.println("---------------------"); 
+    }
+
+    // Imprime el estado del jugador
+    public static void printCurrentPlayerStatus(){
+        System.out.println(NP.getCurrentPlayer().toString());  
     }
     
     
@@ -86,4 +92,15 @@ public class TextUI {
         
         return new ArrayList<>(Arrays.asList(names));
     }
+    
+    public static int main(){
+        printHeader(); 
+         
+        
+        do{
+           
+            
+        } while (true); 
+    }
+    
 }
