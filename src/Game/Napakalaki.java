@@ -60,9 +60,13 @@ public class Napakalaki {
         return currentPlayer.combat(currentMonster);
     }
     
-    public void discardVisibleTreasure(Treasure t){}
+    public void discardVisibleTreasure(Treasure t){
+        currentPlayer.discardVisibleTreasure(t);
+    }
     
-    public void discardHiddenTreasure(Treasure t){}
+    public void discardHiddenTreasure(Treasure t){
+        currentPlayer.discardHiddenTreasure(t);
+    }
     
     public boolean makeTreasureVisible(Treasure t){
         return currentPlayer.makeTreasureVisible(t);
