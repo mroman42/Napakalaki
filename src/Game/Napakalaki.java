@@ -74,7 +74,7 @@ public class Napakalaki {
     
     // Podría tener solo un argumento? Preguntar al profesor.
     /* Mejor dos argumentos y que uno te lo pasen vacío; si no, tendríamos que
-     crear un método cuando sólo quisiésemos vender objetos ocultos y otra para los visible
+     crear un método para cuando sólo quisiésemos vender objetos ocultos y otro para los visibles
     
      Y si estás pensando en unir las listas, el diagrama de interacción se opene.
     --Óscar
