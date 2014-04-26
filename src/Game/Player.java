@@ -232,8 +232,11 @@ public class Player {
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
         // NO FUNCIONA! HAY QUE UNIR LOS DOS ARRAYLIST ANTES DE LLAMAR A computeGoldCoinsValue
         // ArrayList<Treasure> union = new ArrayList<Treasure>(visible); 
+        
+        // Según el diagrama, se llama a computeGoldCoins con las dos listas por separado. --Óscar
         int levels = computeGoldCoinsValue(visible); 
-        levels += computeGoldCoinsValue(hidden); 
+        levels += computeGoldCoinsValue(hidden);
+        //No me gusta tener variables "canis" XD
         boolean canI = canIBuyLevels(levels); 
         if (canI){
             incrementLevels(levels); 

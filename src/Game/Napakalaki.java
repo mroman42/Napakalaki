@@ -72,7 +72,13 @@ public class Napakalaki {
         return currentPlayer.makeTreasureVisible(t);
     }
     
-    // Podría tener solo un argumento? Preguntar al profesor. 
+    // Podría tener solo un argumento? Preguntar al profesor.
+    /* Mejor dos argumentos y que uno te lo pasen vacío; si no, tendríamos que
+     crear un método cuando sólo quisiésemos vender objetos ocultos y otra para los visible
+    
+     Y si estás pensando en unir las listas, el diagrama de interacción se opene.
+    --Óscar
+    */
     public boolean buyLevels(ArrayList<Treasure> visible, 
             ArrayList<Treasure> hidden){
         return currentPlayer.buyLevels(visible, hidden); 
