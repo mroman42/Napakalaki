@@ -23,10 +23,11 @@ public class Player {
     public Player(String name) {
         dead = true;
         this.name = name;
-        level = 1;
+        level = 1; //¿Necesario? Lo hace bringToLife
         pendingBadConsequence = new BadConsequence("",0,0,0);
         hiddenTreasures = new ArrayList<Treasure>();
         visibleTreasures = new ArrayList<Treasure>();
+
         bringToLife();
     }
     
@@ -144,9 +145,9 @@ public class Player {
             int escape = Dice.getInstance().nextNumber(); 
         // No escapamos. 
             if (escape < 5){
-                BadConsequence bad = monster.getBadConsequence(); 
-                boolean amIDead = bad.kills(); 
-                if (amIDead){
+                BadConsequence bad = monster.getBadConsequence();
+                
+                if (bad.kills()){
                     die(); 
                     result = CombatResult.LOSEANDDIE;
                 }
