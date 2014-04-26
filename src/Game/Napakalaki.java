@@ -60,16 +60,16 @@ public class Napakalaki {
         return currentPlayer.combat(currentMonster);
     }
     
-    public void discardVisibleTreasure(Treasure t){
-        currentPlayer.discardVisibleTreasure(t);
+    public void discardVisibleTreasure(Treasure treasure){
+        currentPlayer.discardVisibleTreasure(treasure);
     }
     
-    public void discardHiddenTreasure(Treasure t){
-        currentPlayer.discardHiddenTreasure(t);
+    public void discardHiddenTreasure(Treasure treasure){
+        currentPlayer.discardHiddenTreasure(treasure);
     }
     
-    public boolean makeTreasureVisible(Treasure t){
-        return currentPlayer.makeTreasureVisible(t);
+    public boolean makeTreasureVisible(Treasure treasure){
+        return currentPlayer.makeTreasureVisible(treasure);
     }
     
     // Podría tener solo un argumento? Preguntar al profesor.
@@ -99,8 +99,8 @@ public class Napakalaki {
     }
     
     // Llama al método canMakeTreasureVisible del jugador actual. 
-    public boolean canMakeTreasureVisible(Treasure t){
-        return currentPlayer.canMakeTreasureVisible(t); 
+    public boolean canMakeTreasureVisible(Treasure treasure){
+        return currentPlayer.canMakeTreasureVisible(treasure); 
     }
     
     public ArrayList<Treasure> getVisibleTreasures(){
