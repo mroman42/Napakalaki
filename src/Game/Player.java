@@ -33,6 +33,8 @@ public class Player {
     
     
     // Métodos privados.
+    
+    // Las reglas del juego (P2) dicen que en algún momento hay que darle tesoros al jugador al revivirlo. 
     private void bringToLife(){
         dead = false;
         level = 1;
@@ -132,7 +134,7 @@ public class Player {
         int monster_level = monster.getLevel(); 
         CombatResult result;
         // Si ganamos el combate. 
-        if (total_level >= monster_level){
+        if (total_level > monster_level){
             result = CombatResult.WIN;
             Prize prize = monster.getPrize(); 
             applyPrize(prize); 
