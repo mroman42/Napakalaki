@@ -162,6 +162,8 @@ public class Player {
             else
                 result = CombatResult.LOSEANDESCAPE; 
         }
+        discardNecklaceIfVisible(); 
+        CardDealer.getInstance().giveMonsterBack(monster);
         return result;
     }
         
@@ -225,7 +227,7 @@ public class Player {
     }
     
     /**
-     * Compra niveles a partir de una lista de tesoros, si el juego nos lo permite. 
+     * @brief Compra niveles a partir de una lista de tesoros, si el juego nos lo permite. 
      * IMPORTANTE: Aunque se llama al método discardVisibleTreasure(), que actúa sobre 
      * pendingBadConsequence, no interfiere en el mal rollo ya que este aun no ha aparecido.
      * @param visible Lista de tesoros visibles. 
