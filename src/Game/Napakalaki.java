@@ -58,7 +58,7 @@ public class Napakalaki {
     // Métodos públicos.
     public CombatResult combat(){
         CombatResult result = currentPlayer.combat(currentMonster);
-        CardDealer.getInstance().giveMonsterBack(monster);
+        CardDealer.getInstance().giveMonsterBack(currentMonster);
 
         return result;
     }
