@@ -64,6 +64,7 @@ public class Player {
             CardDealer.getInstance().giveTreasureBack(treasure);
         }
         visibleTreasures.clear();
+
         dead = true;
     }
     
@@ -76,13 +77,11 @@ public class Player {
         while (!found || position == size){
            if (visibleTreasures.get(position).getType() != TreasureKind.NECKLACE)
                position++; 
-           else 
-               found = true; 
-        }
-        
-        if (found){
-            CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
-            visibleTreasures.remove(position); 		
+           else{
+               found = true;
+               CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
+               visibleTreasures.remove(position);
+           }
         }
     }	
     
@@ -135,11 +134,12 @@ public class Player {
         CombatResult result;
         // Si ganamos el combate. 
         if (total_level > monster_level){
-            result = CombatResult.WIN;
             Prize prize = monster.getPrize(); 
             applyPrize(prize); 
             if (this.level >= 10)
                 result = CombatResult.WINANDWINGAME;
+            else
+                result = CombatResult.WIN;
         }
         // Si perdemos el combate, podemos escapar o no. 
         else {
@@ -163,15 +163,14 @@ public class Player {
                 result = CombatResult.LOSEANDESCAPE; 
         }
         discardNecklaceIfVisible(); 
-        CardDealer.getInstance().giveMonsterBack(monster);
+
         return result;
     }
         
     public void applyBadConsequence(BadConsequence bad){
         int nlevels = bad.getLevels();
-        decrementLevels(nlevels); 
-        BadConsequence pendingBad = bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures); 
-        setPendingBadConsequence(pendingBad); 
+        decrementLevels(nlevels);
+        setPendingBadConsequence(bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures)); 
     }
     
     public boolean makeTreasureVisible(Treasure treasure){
