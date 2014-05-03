@@ -166,8 +166,7 @@ public class Player {
     }
         
     public void applyBadConsequence(BadConsequence bad){
-        int nlevels = bad.getLevels();
-        decrementLevels(nlevels);
+        decrementLevels(bad.getLevels());
         setPendingBadConsequence(bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures)); 
     }
     
@@ -187,23 +186,18 @@ public class Player {
         if (type == TreasureKind.NECKLACE)
             return true; 
         
-        // Si no es de una mano, comprobamos si ya tiene uno visible. 
-        else if (type != TreasureKind.ONEHAND){
-            boolean has_item = false; 
-            for (Treasure t : visibleTreasures){
-                if(t.getType() == type)
-                    has_item = true;
-            }
-            return !has_item; 
+        // Si no es de mano(una o dos), se puede hacer visible si no hay otro del mismo tipo. 
+        else if (type != TreasureKind.ONEHAND && type != TreasureKind.BOTHHANDS){
+            return !visibleTreasures.contains(treasure); 
         }
-        // Si es de una mano, comprobamos si hay dos visibles.
+        // Si es de mano, puede hacerse visible si hay ya dos de una mano visibles o uno de dos manos.
         else{
             int number_of_onehands = 0; 
             for (Treasure t : visibleTreasures){
                 if(t.getType() == TreasureKind.ONEHAND)
                     number_of_onehands++;
             }
-            return (number_of_onehands < 2); 
+            return (!visibleTreasures.contains(TreasureKind.BOTHHANDS) && number_of_onehands < 2); 
         }       
     }
     
