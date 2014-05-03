@@ -245,15 +245,15 @@ public class Player {
         return false;
     }
     
+    /**
+     * @brief Calcula el nivel de combate del jugados a partir de una lista de tesoros visibles. 
+     * @param visible Lista de tesoros visibles. 
+     * @return Nivel de combate. 
+     */
     public int getCombatLevel(){
         int combat_level = level;
-        boolean has_necklace = false; 
+        boolean has_necklace = visibleTreasures.contains(TreasureKind.NECKLACE);
         
-        // Revisar este bucle: puede haber una mejor forma. 
-        for (Treasure treasure : visibleTreasures){
-            if(treasure.getType() == TreasureKind.NECKLACE)
-                has_necklace = true; 
-        }
         for (Treasure treasure : visibleTreasures){
             if (has_necklace)
                 combat_level += treasure.getMaxBonus();
