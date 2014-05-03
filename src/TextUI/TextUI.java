@@ -23,10 +23,14 @@ public class TextUI {
         printHeader(); 
         ArrayList<String> names = readNames();
         NP.initGame(names);
-             
+        int turn = 0; 
         do{
+            System.out.println("Turno: " + Integer.toString(turn) + "\n"); 
             printCurrentPlayerStatus(); 
-            printCurrentMonsterStatus();           
+            printCurrentMonsterStatus();     
+            System.out.println("Compra de niveles."); 
+            
+            turn++; 
             
         } while (false); 
     }
@@ -89,6 +93,11 @@ public class TextUI {
         
         return input;
     }   
+    
+    public static boolean yesNoQuestion(String msg) {
+        System.out.print(msg); 
+        return true; 
+    }
     
     private static ArrayList<String> readNames() {
         System.out.println("Introduzca los nombres de los jugadores.");
