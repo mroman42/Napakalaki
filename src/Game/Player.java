@@ -34,7 +34,6 @@ public class Player {
     
     // Métodos privados.
     
-    // Las reglas del juego (P2) dicen que en algún momento hay que darle tesoros al jugador al revivirlo. 
     private void bringToLife(){
         dead = false;
         level = 1;
@@ -110,7 +109,6 @@ public class Player {
     private boolean canIBuyLevels(int levels){
         return (this.level + levels < 10); 
     }
-    
     
     
     
@@ -235,13 +233,11 @@ public class Player {
      * @return Compra realizada. 
      */
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
-        // NO FUNCIONA! HAY QUE UNIR LOS DOS ARRAYLIST ANTES DE LLAMAR A computeGoldCoinsValue
-        // ArrayList<Treasure> union = new ArrayList<Treasure>(visible); 
-        
-        // Según el diagrama, se llama a computeGoldCoins con las dos listas por separado. --Óscar
+        // Aunque se computen por separado, los posibles errores originados se obviarán. 
         int levels = computeGoldCoinsValue(visible); 
         levels += computeGoldCoinsValue(hidden);
-        //No me gusta tener variables "canis" XD
+        // No me gusta tener variables "canis" XD
+        // No me gusta tener comentarios fútiles 
         boolean canI = canIBuyLevels(levels); 
         if (canI){
             incrementLevels(levels); 
