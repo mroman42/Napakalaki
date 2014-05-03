@@ -273,9 +273,13 @@ public class Player {
         return pendingBadConsequence.isEmpty();
     }
     
+    /**
+     * @biref Inicializa los tesoros de un jugador, dependiendo del número sacado al tirar del dado.
+     */
     public void initTreasures(){
         bringToLife();
         int number = Dice.getInstance().nextNumber(); 
+        
         if (number == 1){
             hiddenTreasures.add(CardDealer.getInstance().nextTreasure());
         }
