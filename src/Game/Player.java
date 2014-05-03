@@ -203,8 +203,10 @@ public class Player {
     
     public void discardVisibleTreasure(Treasure treasure){
         visibleTreasures.remove(treasure);
+        
         if (pendingBadConsequence!=null && !pendingBadConsequence.isEmpty())
             pendingBadConsequence.substractVisibleTreasure(treasure);
+        
         CardDealer.getInstance().giveTreasureBack(treasure); 
         dieIfNoTreasures(); 
     }
@@ -220,26 +222,27 @@ public class Player {
     /**
      * @brief Compra niveles a partir de una lista de tesoros, si el juego nos lo permite. 
      * IMPORTANTE: Aunque se llama al método discardVisibleTreasure(), que actúa sobre 
-     * pendingBadConsequence, no interfiere en el mal rollo ya que este aun no ha aparecido.
+     * pendingBadConsequence, no interfiere en el mal rollo ya que este aún no ha aparecido.
      * @param visible Lista de tesoros visibles. 
      * @param hidden Lista de tesoros ocultos. 
      * @return Compra realizada. 
      */
     public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
         // Aunque se computen por separado, los posibles errores originados se obviarán. 
-        int levels = computeGoldCoinsValue(visible); 
-        levels += computeGoldCoinsValue(hidden);
-        // No me gusta tener variables "canis" XD
-        // No me gusta tener comentarios fútiles 
-        boolean canI = canIBuyLevels(levels); 
-        if (canI){
+        int levels = computeGoldCoinsValue(visible) + computeGoldCoinsValue(hidden);
+         
+        if (canIBuyLevels(levels)){
             incrementLevels(levels); 
+
             for(Treasure treasure : visible)
-                discardVisibleTreasure(treasure); 
+                discardVisibleTreasure(treasure);
             for (Treasure treasure : hidden)
                 discardHiddenTreasure(treasure); 
+            
+            return true;
         }
-        return canI;
+        
+        return false;
     }
     
     public int getCombatLevel(){
