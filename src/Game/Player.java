@@ -274,7 +274,7 @@ public class Player {
     }
     
     /**
-     * @biref Inicializa los tesoros de un jugador, dependiendo del número sacado al tirar del dado.
+     * @brief Inicializa los tesoros de un jugador, dependiendo del número sacado al tirar del dado.
      */
     public void initTreasures(){
         bringToLife();
