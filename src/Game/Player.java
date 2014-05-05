@@ -188,17 +188,37 @@ public class Player {
         
         // Si no es de mano(una o dos), se puede hacer visible si no hay otro del mismo tipo. 
         else if (type != TreasureKind.ONEHAND && type != TreasureKind.BOTHHANDS){
-            return !visibleTreasures.contains(treasure); 
+            boolean has_one = false; 
+            for (Treasure t : visibleTreasures){
+                if (t.getType() == type)
+                    has_one = true; 
+            }
+            return !has_one; 
         }
-        // Si es de mano, puede hacerse visible si hay ya dos de una mano visibles o uno de dos manos.
-        else{
+        // Si es de una mano, puede hacerse visible si no hay de dos manos y hay menos de dos de una mano.
+        else if (type == TreasureKind.ONEHAND){
             int number_of_onehands = 0; 
+            boolean has_bothhands = false; 
             for (Treasure t : visibleTreasures){
                 if(t.getType() == TreasureKind.ONEHAND)
                     number_of_onehands++;
+                else if (t.getType() == TreasureKind.BOTHHANDS)
+                    has_bothhands = true; 
             }
-            return (!visibleTreasures.contains(TreasureKind.BOTHHANDS) && number_of_onehands < 2); 
-        }       
+            return (!has_bothhands && number_of_onehands < 2); 
+        }    
+        // Si es de dos manos, puede hacerse visible si no hay nada en las manos. 
+        else{
+            boolean has_bothhands = false; 
+            boolean has_onehands = false; 
+            for (Treasure t : visibleTreasures){
+                if(t.getType() == TreasureKind.ONEHAND)
+                    has_onehands = true;
+                else if (t.getType() == TreasureKind.BOTHHANDS)
+                    has_bothhands = true; 
+            }
+            return (!has_bothhands && !has_onehands);
+        }
     }
     
     public void discardVisibleTreasure(Treasure treasure){
