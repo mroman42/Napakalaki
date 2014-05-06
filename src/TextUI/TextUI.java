@@ -95,8 +95,18 @@ public class TextUI {
     }   
     
     public static boolean yesNoQuestion(String msg) {
-        System.out.print(msg); 
-        return true; 
+        System.out.print(msg + "(y/n): "); 
+        String input = ""; 
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
+        
+        try{
+            input = br.readLine();
+        }
+        catch(IOException ioe){
+            System.err.println("IO Error!");            
+        }
+        
+        return "y".equals(input); 
     }
     
     private static ArrayList<String> readNames() {
