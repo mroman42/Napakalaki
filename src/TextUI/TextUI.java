@@ -94,14 +94,18 @@ public class TextUI {
         return input;
     }   
     
+    /**
+     * @brief Imprime un mensaje por pantalla y toma una respuesta a la pregunta. 
+     * @param msg Mensaje (pregunta) a imprimir. 
+     * @return Valor booleano, respuesta a la pregunta. 
+     */
     public static boolean yesNoQuestion(String msg) {
         String input = readString(msg + "(y/n): "); 
         return "y".equals(input); 
     }
     
     private static ArrayList<String> readNames() {
-        System.out.println("Introduzca los nombres de los jugadores.");
-        String line = readString("");
+        String line = readString("Introduzca los nombres de los jugadores.");
         String[] names = line.split(" ");
         
         return new ArrayList<>(Arrays.asList(names));
