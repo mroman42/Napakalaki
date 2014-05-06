@@ -40,9 +40,9 @@ public class Napakalaki {
         for (String name : names)
             players.add(new Player(name));
         
-        // Toma el primer jugador como jugador actual
-        currentPlayerIndex = 0;
-        currentPlayer = players.get(currentPlayerIndex);
+        // Toma el índice del primer jugador como -1. 
+        // Así, cuando iniciemos el juego y hagamos nextTurn(), el primer jugador en jugar será el primero.
+        currentPlayerIndex = -1;
     }
     
     /**
@@ -56,6 +56,7 @@ public class Napakalaki {
     }
     
     // Métodos públicos.
+    // Los siguientes métodos llaman al correspondiente en el jugador actual. 
     public CombatResult combat(){
         CombatResult result = currentPlayer.combat(currentMonster);
         CardDealer.getInstance().giveMonsterBack(currentMonster);
@@ -75,18 +76,27 @@ public class Napakalaki {
         return currentPlayer.makeTreasureVisible(treasure);
     }
     
-    // Podría tener solo un argumento? Preguntar al profesor.
-    /* Mejor dos argumentos y que uno te lo pasen vacío; si no, tendríamos que
-     crear un método para cuando sólo quisiésemos vender objetos ocultos y otro para los visibles
-    
-     Y si estás pensando en unir las listas, el diagrama de interacción se opene.
-    --Óscar
-    */
     public boolean buyLevels(ArrayList<Treasure> visible, 
             ArrayList<Treasure> hidden){
         return currentPlayer.buyLevels(visible, hidden); 
     }
     
+    public boolean canMakeTreasureVisible(Treasure treasure){
+        return currentPlayer.canMakeTreasureVisible(treasure); 
+    }
+    
+    public ArrayList<Treasure> getVisibleTreasures(){
+        return currentPlayer.getVisibleTreasures(); 
+    }
+    
+    public ArrayList<Treasure> getHiddenTreasures(){
+        return currentPlayer.getHiddenTreasures(); 
+    }
+    
+    /**
+     * @brief Inicia el juego. 
+     * @param names Nombres de los jugadores. 
+     */
     public void initGame(ArrayList<String> names){
         CardDealer.getInstance().initCards();
         initPlayers(names);
@@ -99,19 +109,6 @@ public class Napakalaki {
     
     public Monster getCurrentMonster(){
         return currentMonster; 
-    }
-    
-    // Llama al método canMakeTreasureVisible del jugador actual. 
-    public boolean canMakeTreasureVisible(Treasure treasure){
-        return currentPlayer.canMakeTreasureVisible(treasure); 
-    }
-    
-    public ArrayList<Treasure> getVisibleTreasures(){
-        return currentPlayer.getVisibleTreasures(); 
-    }
-    
-    public ArrayList<Treasure> getHiddenTreasures(){
-        return currentPlayer.getHiddenTreasures(); 
     }
     
     /** 
@@ -132,6 +129,10 @@ public class Napakalaki {
         return stateOK;
     }
     
+    /**
+     * @brief Comprueba si el estado del jugador es apto para pasar de turno. 
+     * @return Valor booleano indicando si podemos pasar de turno. 
+     */
     public boolean nextTurnAllowed(){
         return currentPlayer.validState();
     }
