@@ -95,17 +95,7 @@ public class TextUI {
     }   
     
     public static boolean yesNoQuestion(String msg) {
-        System.out.print(msg + "(y/n): "); 
-        String input = ""; 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); 
-        
-        try{
-            input = br.readLine();
-        }
-        catch(IOException ioe){
-            System.err.println("IO Error!");            
-        }
-        
+        String input = readString(msg + "(y/n): "); 
         return "y".equals(input); 
     }
     
