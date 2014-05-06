@@ -67,6 +67,9 @@ public class Player {
         dead = true;
     }
     
+    /** 
+     * @brief Busca el tesoro de tipo collar, y si lo encuentra, lo elimina. 
+     */
     private void discardNecklaceIfVisible() {
         
         int position = 0;
@@ -84,6 +87,9 @@ public class Player {
         }
     }	
     
+    /**
+     * @brief Mata al jugador si no le queda ningún tesoro, visible u oculto.   
+     */
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
             dead = true; 
@@ -112,6 +118,11 @@ public class Player {
     
     
     // Métodos públicos
+    
+    /**
+     * @brief Aplica el buen rollo pasado como parámetro. 
+     * @param prize Buen rollo a aplicar. 
+     */ 
     public void applyPrize(Prize prize){
         int nLevels = prize.getLevels(); 
         incrementLevels(nLevels); 
@@ -164,12 +175,22 @@ public class Player {
 
         return result;
     }
-        
+    
+    /**
+     * @brief Resta los niveles precisados por el mal rollo, y lo ajusta para que podamos
+     * proceder a eliminar tesoros de forma manual. 
+     * @param bad Mal rollo. 
+     */
     public void applyBadConsequence(BadConsequence bad){
         decrementLevels(bad.getLevels());
         setPendingBadConsequence(bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures)); 
     }
     
+    /**
+     * @brief Hace visible un tesoro, comprobando previamente si puede hacerse. 
+     * @param treasure Tesoro a hacer visible. 
+     * @return Valor booleano, que nos dice si el tesoro se ha hecho visible. 
+     */
     public boolean makeTreasureVisible(Treasure treasure){
         if (canMakeTreasureVisible(treasure)){
             visibleTreasures.add(treasure); 
@@ -180,6 +201,11 @@ public class Player {
             return false;       
     }
     
+    /**
+     * @brief Comprueba si un tesoro puede hacerse visible, según las reglas del juego. 
+     * @param treasure Tesoro a comprobar. 
+     * @return Valor booleano que nos dice si se puede hacer visible. 
+     */
     public boolean canMakeTreasureVisible(Treasure treasure){
         TreasureKind type = treasure.getType(); 
         // Si es un collar, se puede hacer visible. 
@@ -221,6 +247,10 @@ public class Player {
         }
     }
     
+    /**
+     * @brief Elimina un tesoro visible. En caso de que haya un mal rollo pendiente, lo elimina de él.
+     * @param treasure Tesoro a eliminar. 
+     */
     public void discardVisibleTreasure(Treasure treasure){
         visibleTreasures.remove(treasure);
         
@@ -231,6 +261,10 @@ public class Player {
         dieIfNoTreasures(); 
     }
 
+    /**
+     * @brief Elimina un tesoro oculto. En caso de que haya un mal rollo pendiente, lo elimina de él.
+     * @param treasure Tesoro a eliminar. 
+     */
     public void discardHiddenTreasure(Treasure treasure){
         hiddenTreasures.remove(treasure);
         if (pendingBadConsequence!=null && !pendingBadConsequence.isEmpty())
