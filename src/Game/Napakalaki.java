@@ -42,7 +42,9 @@ public class Napakalaki {
         
         // Toma el índice del primer jugador como -1. 
         // Así, cuando iniciemos el juego y hagamos nextTurn(), el primer jugador en jugar será el primero.
+        // Tomamos como jugador el 0 para que nextTurn se puede ejecutar. 
         currentPlayerIndex = -1;
+        currentPlayer = players.get(0); 
     }
     
     /**
