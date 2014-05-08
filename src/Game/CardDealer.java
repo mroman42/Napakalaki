@@ -139,10 +139,10 @@ public class CardDealer {
         // 3 Byakhees de bonanza.
         tvp.add(TreasureKind.ARMOR);
         thp.add(TreasureKind.ARMOR);
-        BadConsequence bad = new BadConsequence("Pierdes tu armadura visible y otra oculta.", 0, tvp, thp);
+        bad = new BadConsequence("Pierdes tu armadura visible y otra oculta.", 0, tvp, thp);
         tvp.clear();
         thp.clear();
-        Prize prize = new Prize(2,1);
+        prize = new Prize(2,1);
         unusedMonsters.add(new Monster("3 Byakhees de bonanza", 8, bad, prize));
         
         

@@ -19,7 +19,7 @@ public class TextUI {
     private static final Napakalaki NP = Napakalaki.getInstance();
     
     // Método main.
-    public static void main(){
+    public static void main(String[] args) {
         printHeader(); 
         ArrayList<String> names = readNames();
         NP.initGame(names);
@@ -110,5 +110,6 @@ public class TextUI {
         
         return new ArrayList<>(Arrays.asList(names));
     }
+    
     
 }
