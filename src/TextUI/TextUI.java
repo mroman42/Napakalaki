@@ -35,6 +35,21 @@ public class TextUI {
         } while (false); 
     }
 
+    // Limpiar consola.
+    public final static void clearConsole()
+    {
+        try {
+            final String os = System.getProperty("os.name");
+            
+            if (os.contains("Windows"))
+                Runtime.getRuntime().exec("cls");
+            else
+                Runtime.getRuntime().exec("clear");
+        }
+        catch {
+            System.out.println("Sistema operativo desconocido.\n");
+        }
+    }
     
     // Imprime una cabecera para el juego
     public static void printHeader(){
