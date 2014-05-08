@@ -129,27 +129,28 @@ public class CardDealer {
     }
     
     private void initMonsterCardDeck() {
-        
+        BadConsequence bad;
+        Prize prize;
         ArrayList<TreasureKind> tvp = new ArrayList();
         ArrayList<TreasureKind> thp = new ArrayList(); 
         
          // Monstruos añadidos por orden de aparición en el guión. 
         
-        // El profesor de PDOO
-        tvp.add(TreasureKind.ARMOR);
-        thp.add(TreasureKind.ONEHAND);
-        thp.add(TreasureKind.ONEHAND);
-        thp.add(TreasureKind.ONEHAND);
-        thp.add(TreasureKind.ONEHAND);
-        thp.add(TreasureKind.BOTHHANDS);
-        thp.add(TreasureKind.BOTHHANDS); 
-        thp.add(TreasureKind.BOTHHANDS); 
-        thp.add(TreasureKind.BOTHHANDS);  
-        BadConsequence bad = new BadConsequence("Si se pierde contra el monstruo se pierden 20 niveles, todas las armaduras visibles y todos los tesoros de mano invisibles", 20, tvp, thp);
-        tvp.clear();
-        thp.clear();
-        Prize prize = new Prize(1,2); 
-        unusedMonsters.add(new Monster("El profesor de PDOO", 25, bad, prize)); 
+//        // El profesor de PDOO
+//        tvp.add(TreasureKind.ARMOR);
+//        thp.add(TreasureKind.ONEHAND);
+//        thp.add(TreasureKind.ONEHAND);
+//        thp.add(TreasureKind.ONEHAND);
+//        thp.add(TreasureKind.ONEHAND);
+//        thp.add(TreasureKind.BOTHHANDS);
+//        thp.add(TreasureKind.BOTHHANDS); 
+//        thp.add(TreasureKind.BOTHHANDS); 
+//        thp.add(TreasureKind.BOTHHANDS);  
+//        bad = new BadConsequence("Si se pierde contra el monstruo se pierden 20 niveles, todas las armaduras visibles y todos los tesoros de mano invisibles", 20, tvp, thp);
+//        tvp.clear();
+//        thp.clear();
+//        prize = new Prize(1,2); 
+//        unusedMonsters.add(new Monster("El profesor de PDOO", 25, bad, prize)); 
 
         // 3 Byakhees de bonanza.
         tvp.add(TreasureKind.ARMOR);
