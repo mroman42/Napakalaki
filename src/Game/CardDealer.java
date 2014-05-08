@@ -134,31 +134,15 @@ public class CardDealer {
         ArrayList<TreasureKind> tvp = new ArrayList();
         ArrayList<TreasureKind> thp = new ArrayList(); 
         
-         // Monstruos añadidos por orden de aparición en el guión. 
+        // Monstruos añadidos por orden de aparición en el guión. 
         
-//        // El profesor de PDOO
-//        tvp.add(TreasureKind.ARMOR);
-//        thp.add(TreasureKind.ONEHAND);
-//        thp.add(TreasureKind.ONEHAND);
-//        thp.add(TreasureKind.ONEHAND);
-//        thp.add(TreasureKind.ONEHAND);
-//        thp.add(TreasureKind.BOTHHANDS);
-//        thp.add(TreasureKind.BOTHHANDS); 
-//        thp.add(TreasureKind.BOTHHANDS); 
-//        thp.add(TreasureKind.BOTHHANDS);  
-//        bad = new BadConsequence("Si se pierde contra el monstruo se pierden 20 niveles, todas las armaduras visibles y todos los tesoros de mano invisibles", 20, tvp, thp);
-//        tvp.clear();
-//        thp.clear();
-//        prize = new Prize(1,2); 
-//        unusedMonsters.add(new Monster("El profesor de PDOO", 25, bad, prize)); 
-
         // 3 Byakhees de bonanza.
         tvp.add(TreasureKind.ARMOR);
         thp.add(TreasureKind.ARMOR);
-        bad = new BadConsequence("Pierdes tu armadura visible y otra oculta.", 0, tvp, thp);
+        BadConsequence bad = new BadConsequence("Pierdes tu armadura visible y otra oculta.", 0, tvp, thp);
         tvp.clear();
         thp.clear();
-        prize = new Prize(2,1);
+        Prize prize = new Prize(2,1);
         unusedMonsters.add(new Monster("3 Byakhees de bonanza", 8, bad, prize));
         
         
@@ -310,25 +294,34 @@ public class CardDealer {
     } 
     
     // Métodos públicos.
+    /**
+     * Devuelve el siguiente tesoro. En caso de que se hayan usado todos, los vuelve a poner 
+     * como no usados y los vuelve a barajar. 
+     * @return Treasure siguiente tesoro. 
+     */
     public Treasure nextTreasure() {    
         if (unusedTreasures.isEmpty()) {
             ArrayList<Treasure> temp = unusedTreasures;
             unusedTreasures = usedTreasures;
             usedTreasures = temp;
-            
+            shuffleTreasures(); 
         }
         
         Treasure next = unusedTreasures.remove(0);
         
         return next;
     }
-    
+    /**
+     * Devuelve el siguiente monstruo. En caso de que hayan salido todos, los vuelve a poner 
+     * como no usados y los vuelve a barajar. 
+     * @return Monster siguiente monstruo. 
+     */
     public Monster nextMonster() {
         if (unusedMonsters.isEmpty()) {
             ArrayList<Monster> temp = unusedMonsters;
             unusedMonsters = usedMonsters;
             usedMonsters = temp;
-            
+            shuffleMonsters(); 
         }
         
         Monster next = unusedMonsters.remove(0);
@@ -345,7 +338,9 @@ public class CardDealer {
     }
     
     public void initCards() {
-        initMonsterCardDeck();
         initTreasureCardDeck();
+        initMonsterCardDeck();
+        shuffleTreasures(); 
+        shuffleMonsters(); 
     }
 }

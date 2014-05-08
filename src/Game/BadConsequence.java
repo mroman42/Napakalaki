@@ -42,6 +42,8 @@ public class BadConsequence {
         this.death = death;
         this.specificHiddenTreasures = new ArrayList();
         this.specificVisibleTreasures = new ArrayList();
+        this.nHiddenTreasures = 0; 
+        this.nVisibleTreasures = 0; 
     }
     
     
@@ -80,6 +82,9 @@ public class BadConsequence {
     
     
     // Métodos públicos
+    // En los siguientes dos métodos, hay que usar que hay dos posibles BadConsequence que trabajan con tesoros, los que conocen los objetos que quitan y los que sólo conocen la cantidad.
+    // Para saber si un tesoro está contenido, tenemos que ver si está en la lista de tesoros(conoce los tesoros) o está vacía pero la cantidad de tesoros que quita no es nula(no conoce los tesoros)
+
     public void substractVisibleTreasure (Treasure treasure) {
         if(specificVisibleTreasures.remove(treasure) || (specificVisibleTreasures.isEmpty() && nVisibleTreasures != 0))
             nVisibleTreasures--;
@@ -90,9 +95,11 @@ public class BadConsequence {
             nHiddenTreasures--;
     }
     
+    // En este método, se usan los tres BadConsequence: 
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
         BadConsequence adjustedBC = null;
         
+    //    ·si es mortal, es mortal.
         if(death){
             adjustedBC = new BadConsequence(text, death);
         }
@@ -102,13 +109,14 @@ public class BadConsequence {
             final ArrayList<TreasureKind> listHiddenTreasures = null;
             final ArrayList<TreasureKind> listVisibleTreasures = null;
 
-            //Si las dos son vacías, o no especifica los tesoros, o no quita tesoros
+    //    ·si no conoce los tesoros(o no hay), trabaja con las cantidades(no puedes quitar más tesoros de los que tiene).
             if(specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
                 nVTreasures = (visibles.size() > nVisibleTreasures? nVisibleTreasures : visibles.size());
                 nHTreasures = (hidden.size() > nHiddenTreasures? nHiddenTreasures : hidden.size());
                 
                 adjustedBC = new BadConsequence(text, levels, nVTreasures, nHTreasures);
             }
+    //    ·si conoce los tesoros, trabaja con los tesoros(no puedes quitar los tesoros que no tiene)
             else{
                 for(TreasureKind object : specificVisibleTreasures)
                     if(visibles.contains(object))

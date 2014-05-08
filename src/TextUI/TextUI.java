@@ -16,20 +16,42 @@ import java.util.Scanner;
  */
 public class TextUI {
     private static Scanner scanIn;
+    private static final Napakalaki NP = Napakalaki.getInstance();
     
     // Método main.
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // Trabaja con la instancia de Napakalaki.
-        Napakalaki napakalaki = Napakalaki.getInstance();
-        
-        // Lee los nombres.
+    public static void main(){
+        printHeader(); 
         ArrayList<String> names = readNames();
-        napakalaki.initGame(names);
+        NP.initGame(names);
+        int turn = 0; 
+        do{
+            System.out.println("Turno: " + Integer.toString(turn) + "\n"); 
+            printCurrentPlayerStatus(); 
+            printCurrentMonsterStatus();     
+            System.out.println("Compra de niveles."); 
+            
+            turn++; 
+            
+        } while (false); 
+    }
+
+    
+    // Imprime una cabecera para el juego
+    public static void printHeader(){
+        System.out.println("---------------------"); 
+        System.out.println("\tNapakalaki");
+        System.out.println("---------------------"); 
+    }
+
+    // Imprime el estado del jugador actual. 
+    public static void printCurrentPlayerStatus(){
+        System.out.println(NP.getCurrentPlayer().toString());  
     }
     
+    // Imprime el estado del monstruo actual.
+    public static void printCurrentMonsterStatus(){
+        System.out.println(NP.getCurrentMonster().toString());
+    }
     
     /**
      * Lee un número entero introducido por el usuario.
@@ -72,11 +94,21 @@ public class TextUI {
         return input;
     }   
     
+    /**
+     * @brief Imprime un mensaje por pantalla y toma una respuesta a la pregunta. 
+     * @param msg Mensaje (pregunta) a imprimir. 
+     * @return Valor booleano, respuesta a la pregunta. 
+     */
+    public static boolean yesNoQuestion(String msg) {
+        String input = readString(msg + "(y/n): "); 
+        return "y".equals(input); 
+    }
+    
     private static ArrayList<String> readNames() {
-        System.out.println("Introduzca los nombres de los jugadores.");
-        String line = readString("");
+        String line = readString("Introduzca los nombres de los jugadores.");
         String[] names = line.split(" ");
         
         return new ArrayList<>(Arrays.asList(names));
     }
+    
 }
