@@ -1,5 +1,6 @@
 package TextUI;
 
+import Game.CardDealer;
 import Game.Napakalaki;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,6 +36,16 @@ public class TextUI {
         } while (false); 
     }
 
+/*        def clearScreen
+            system "clear"
+            printHeader
+            puts "Turno: #{@turn}\n"
+            puts Game::CardDealer.instance
+            printCurrentPlayerStatus
+            printCurrentMonsterStatus
+        end
+
+*/
     // Limpiar consola.
     public final static void clearConsole()
     {
@@ -49,6 +60,11 @@ public class TextUI {
         catch(final IOException e) {
             System.out.println("Sistema operativo desconocido.\n");
         }
+        
+        printHeader();
+        System.out.println(CardDealer.getInstance().toString());
+        printCurrentPlayerStatus();
+        printCurrentMonsterStatus();
     }
     
     // Imprime una cabecera para el juego
