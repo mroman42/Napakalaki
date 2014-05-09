@@ -124,7 +124,64 @@ public class TextUI {
         }
         
     }
+    
+    /**
+     * @brief Crea un menú
+     * @param msg Mensaje inicial del menú
+     * @param options Opciones del menú
+     */
+    public static void menu(String msg, String... options){
+        System.out.println(msg);
+        
+        int i = 1;
+        
+        for(String o : options){
+            System.out.println("[" + i + "]: " + o + "\n");
+            
+            i++;
+        }
+    }
+    
+    /**
+     * @brief Menú de antes de la batalla
+     */
+    public static void selectionMenu(){
+        menu("Elegir acción:\n",
+                "Comprar niveles",
+                "Combatir");
+        char respuesta = readString("").charAt(0);
+        
+        clearScreen();
+        
+        // Controla las opciones
+        switch (respuesta) {
+            case '2': break;
+            case '1': //buyLevels();    No se me ha olvidado el break, es que cómo los dos hacen SelectionMenu...
+            default: selectionMenu();
+            break;
+        }
+    }
 
+    /**
+     * @brief Menú de después de la batalla
+     */
+    public static void selectionMenu2(){
+        menu("Elegir acción:\n",
+                "Equipar niveles",
+                "Pasar de turno");
+        char respuesta = readString("").charAt(0);
+        
+        clearScreen();
+        
+        // Controla las opciones
+        switch (respuesta) {
+            case '2': break;
+            case '1': //equip();    No se me ha olvidado el break, es que cómo los dos hacen SelectionMenu2...
+            default: selectionMenu2();
+            break;
+        }
+    }
+    
     /**
      * Lee un número entero introducido por el usuario.
      * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
@@ -164,18 +221,6 @@ public class TextUI {
         }
         
         return input;
-    }   
-
-    public static void menu(String msg, String[] options){
-        System.out.println(msg + "\n");
-        
-        int i = 1;
-        
-        for(String o : options){
-            System.out.println("[" + i + "]: " + o + "\n");
-            
-            i++;
-        }
     }
     
     /**
