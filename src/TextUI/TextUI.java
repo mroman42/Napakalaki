@@ -66,14 +66,29 @@ public class TextUI {
         System.out.println("---------------------"); 
     }
 
+    /*        def printCurrentPlayerStatus
+            puts "\nJugador actual: #{NP.getCurrentPlayer}\n"
+            printVisibleTreasures
+            printHiddenTreasures
+            printCurrentPlayerCombatStatus
+        end
+*/
+    
     // Imprime el estado del jugador actual. 
     public static void printCurrentPlayerStatus(){
-        System.out.println(NP.getCurrentPlayer().toString());  
+        System.out.println("\nJugador actual: " + NP.getCurrentPlayer().toString() + "\n");
+        //printVisibleTreasures();
+        //printHiddenTreasures();
+        printCurrentPlayerCombatStatus();
+    }
+    
+    public static void printCurrentPlayerCombatStatus(){
+        System.out.println("Nivel de combate: " + NP.getCurrentPlayer().getCombatLevel() + "\n");
     }
     
     // Imprime el estado del monstruo actual.
     public static void printCurrentMonsterStatus(){
-        System.out.println(NP.getCurrentMonster().toString());
+        System.out.println("\nMonstruo actual: " + NP.getCurrentMonster().toString() + "\n");
     }
     
     /**
