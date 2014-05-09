@@ -36,19 +36,13 @@ public class TextUI {
     }
 
     // Limpiar consola.
-    public final static void clearConsole()
-    {
-        try {
-            final String os = System.getProperty("os.name");
-            
-            if (os.contains("Windows"))
-                Runtime.getRuntime().exec("cls");
-            else
-                Runtime.getRuntime().exec("clear");
-        }
-        catch {
-            System.out.println("Sistema operativo desconocido.\n");
-        }
+    public final static void clearConsole() {
+        System.out.print("\u001b[2J");
+        System.out.flush();
+    }
+    
+    public final static void clearScreen() {
+        
     }
     
     // Imprime una cabecera para el juego
@@ -120,8 +114,9 @@ public class TextUI {
     }
     
     private static ArrayList<String> readNames() {
-        String line = readString("Introduzca los nombres de los jugadores.");
+        String line = readString("Introduzca los nombres de los jugadores: ");
         String[] names = line.split(" ");
+        clearConsole();
         
         return new ArrayList<>(Arrays.asList(names));
     }
