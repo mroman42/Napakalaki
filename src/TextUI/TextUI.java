@@ -36,35 +36,27 @@ public class TextUI {
         } while (false); 
     }
 
-/*        def clearScreen
+    // Limpiar consola.
+    public final static void clearConsole() {
+        System.out.print("\u001b[2J");
+        System.out.flush();
+    }
+
+ 
+    /*        def clearScreen
             system "clear"
             printHeader
             puts "Turno: #{@turn}\n"
             puts Game::CardDealer.instance
             printCurrentPlayerStatus
             printCurrentMonsterStatus
-        end
-
-*/
-    // Limpiar consola.
-    public final static void clearConsole()
-    {
-        try {
-            final String os = System.getProperty("os.name");
-            
-            if (os.contains("Windows"))
-                Runtime.getRuntime().exec("cls");
-            else
-                Runtime.getRuntime().exec("clear");
-        }
-        catch(final IOException e) {
-            System.out.println("Sistema operativo desconocido.\n");
-        }
-        
+        end*/
+    public final static void clearScreen() {
         printHeader();
         System.out.println(CardDealer.getInstance().toString());
         printCurrentPlayerStatus();
         printCurrentMonsterStatus();
+        
     }
     
     // Imprime una cabecera para el juego
@@ -136,8 +128,9 @@ public class TextUI {
     }
     
     private static ArrayList<String> readNames() {
-        String line = readString("Introduzca los nombres de los jugadores.");
+        String line = readString("Introduzca los nombres de los jugadores: ");
         String[] names = line.split(" ");
+        clearConsole();
         
         return new ArrayList<>(Arrays.asList(names));
     }
