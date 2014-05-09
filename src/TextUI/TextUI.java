@@ -165,6 +165,18 @@ public class TextUI {
         
         return input;
     }   
+
+    public static void menu(String msg, String[] options){
+        System.out.println(msg + "\n");
+        
+        int i = 1;
+        
+        for(String o : options){
+            System.out.println("[" + i + "]: " + o + "\n");
+            
+            i++;
+        }
+    }
     
     /**
      * @brief Imprime un mensaje por pantalla y toma una respuesta a la pregunta. 
