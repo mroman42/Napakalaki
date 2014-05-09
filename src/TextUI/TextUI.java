@@ -46,7 +46,7 @@ public class TextUI {
             else
                 Runtime.getRuntime().exec("clear");
         }
-        catch {
+        catch(final IOException e) {
             System.out.println("Sistema operativo desconocido.\n");
         }
     }
