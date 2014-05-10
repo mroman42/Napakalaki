@@ -174,10 +174,7 @@ public class BadConsequence {
     // Métodos auxiliares
     @Override
     public String toString() {
-        return text +
-               "\n\t" + (death? " DEATH." : (Integer.toString(levels) + " levels, " +
-               Integer.toString(nHiddenTreasures) + " hidden treasures, " +
-               Integer.toString(nVisibleTreasures) + " visible treasures.")) + "\n"; 
+        return text; 
     }
 }
     
