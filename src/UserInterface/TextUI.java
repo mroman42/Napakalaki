@@ -305,6 +305,20 @@ public class TextUI {
         } while(!NP.nextTurnAllowed());
     }
     
+    /**
+     * @brief Elimina tesoros visibles del jugador, y ajusta el mal rollo. 
+     */
+    public static void discardVisibleTreasures(){
+        
+    }
+    
+    /**
+     * @brief Elimina tesoros ocultos del jugador, y ajusta el mal rollo. 
+     */
+    public static void discardHiddenTreasures(){
+        
+    }
+    
     public static void buyLevels(){
         ArrayList<Game.Treasure> svisibles = new ArrayList<>();
         ArrayList<Game.Treasure> shidden = new ArrayList<>();
