@@ -189,10 +189,7 @@ public class TextUI {
         System.out.println("Nivel de combate: " + NP.getCurrentPlayer().getCombatLevel() + "\n");
     }
 
-    /**
-     * @brief Muestra una lista de tesoros
-     * @param treasures Lista de tesoros
-     */
+    // Imprime una lista de tesoros
     public static void printTreasures(ArrayList<Treasure> treasures){
         for(int i = 0; i < treasures.size(); i++){
             System.out.println("\t(" + i + "): " + treasures.get(i));
@@ -227,17 +224,17 @@ public class TextUI {
         
         switch (result) {
             case WIN:  System.out.println("Has derrotado al monstruo.\n");
-                     break;
+                break;
             case WINANDWINGAME:  System.out.println("Has ganado el combate y el juego. ¡Enhorabuena!\n");
-                     break;
+                break;
             case LOSE:  System.out.println("Has sido derrotado. Ahora se te aplicará el mal rollo del monstruo.\n");
-                     break;
+                break;
             case LOSEANDDIE:  System.out.println("Has sido derrotado y has muerto.\n");
-                     break;
+                break;
             case LOSEANDESCAPE:  System.out.println("Has logrado escapar del combate a salvo.\n");
-                     break;
+                break;
             default: System.out.println("Error en el combate.\n");
-                     break;
+                break;
         }
         
     }
