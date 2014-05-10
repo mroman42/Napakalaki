@@ -320,21 +320,78 @@ public class TextUI {
     }
     
     public static void buyLevels(){
+        // Contienen los tesoros visibles y ocultos a vender.
         ArrayList<Game.Treasure> svisibles = new ArrayList<>();
         ArrayList<Game.Treasure> shidden = new ArrayList<>();
-        ArrayList<Integer> index_visibles = new ArrayList<>();
-        ArrayList<Integer> index_hidden = new ArrayList<>();
+        
+        // Indican si el tesoro en esa posición se ha vendido ya.
+        ArrayList<Boolean> index_visibles = new ArrayList<>();
+        ArrayList<Boolean> index_hidden = new ArrayList<>();
+        int visibles_size = NP.getVisibleTreasures().size();
+        int hiddens_size = NP.getHiddenTreasures().size();
+        for (int i=0; i<visibles_size; ++i)
+            index_visibles.add(true);
+        for (int i=0; i<hiddens_size; ++i)
+            index_hidden.add(true);
+        
         
         char read_index = ' ';
-        int  index;
+        int index;
         
+        // Tesoros visibles.
         do {
+            // Muestra las posibles ventas.
             System.out.println("Vendiendo tesoros visibles:");
             System.out.println("Tesoros visibles que se venderán:");
             printTreasures(svisibles);
             printVisibleTreasures();
             System.out.println("\t(x): Salir");
+            
+            // Vende el índice indicado si es correcto.
+            if (read_index != 'x') {
+                index = Character.getNumericValue(read_index);
+                
+                if (index >= 0 && index < visibles_size && index_visibles.get(index)) {
+                    svisibles.add(NP.getVisibleTreasures().get(index));
+                    index_visibles.set(index, false);
+                }
+            }
+            
+            clearScreen();
         } while (read_index != 'x');
+        
+        // Tesoros ocultos.
+        do {
+            // Muestra las posibles ventas.
+            System.out.println("Vendiendo tesoros ocultos:");
+            System.out.println("Tesoros ocultos que se venderán:");
+            printTreasures(shidden);
+            printHiddenTreasures();
+            System.out.println("\t(x): Salir");
+            
+            // Vende el índice indicado si es correcto.
+            if (read_index != 'x') {
+                index = Character.getNumericValue(read_index);
+                
+                if (index >= 0 && index < hiddens_size && index_hidden.get(index)) {
+                    shidden.add(NP.getHiddenTreasures().get(index));
+                    index_hidden.set(index, false);
+                }
+            }
+            
+            clearScreen();
+        } while (read_index != 'x');
+        
+        
+        // Comprobante de venta.
+        if (!NP.buyLevels(svisibles,shidden)) {
+            clearScreen();
+            System.out.println("No puedes vender los tesoros.\n");
+        }
+        else {
+            clearScreen();
+            System.out.println("Compra realizada.\n");
+        }
     }
     
 }
