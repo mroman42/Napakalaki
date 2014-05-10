@@ -191,19 +191,19 @@ public class TextUI {
      */
     public static void printTreasures(ArrayList<Treasure> treasures){
         for(int i = 0; i < treasures.size(); i++){
-            System.out.println("\t(" + i + "): " + treasures.get(i) + "\n");
+            System.out.println("\t(" + i + "): " + treasures.get(i));
         }
     }
     
     // Imprime los tesoros visibles del jugador actual. 
     public static void printVisibleTreasures(){
-        System.out.println("Tesoros visibles:\n");
+        System.out.println("Tesoros visibles:");
         printTreasures(NP.getVisibleTreasures());
     }
 
     // Imprime los tesoros ocultos del jugador actual. 
     public static void printHiddenTreasures(){
-        System.out.println("Tesoros ocultos:\n");
+        System.out.println("Tesoros ocultos:");
         printTreasures(NP.getHiddenTreasures());
     } 
     

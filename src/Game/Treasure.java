@@ -45,10 +45,7 @@ public class Treasure {
     // Métodos auxiliares
     @Override
     public String toString() {
-        return name + " (Coins: " + Integer.toString(goldCoins) + ")" + 
-               "\nMin Bonus: " + Integer.toString(minBonus) + 
-               "\nMax Bonus: " + Integer.toString(maxBonus) + 
-               "\n";
+        return name + " (" + goldCoins + "$) [+" + minBonus + ",++" + maxBonus + "]";
     }
 }
 
