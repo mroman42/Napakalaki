@@ -52,11 +52,9 @@ public class TextUI {
             
             // Combate
             result = NP.combat();
-            
             printCombatResult(result);
 
-            // En printCombatResult me permitió usar sólo WINANDWINGAME
-            if(result == CombatResult.WINANDWINGAME){
+            if(result != CombatResult.WINANDWINGAME){
                 // Aplica mal rollo si pierde, o bien ofrece la posibilidad de eliminar tesoros.
                 adjust();
                 
@@ -292,8 +290,8 @@ public class TextUI {
      */
     public static void selectionMenu2(){
         menu("Elegir acción:",
-                "Equipar niveles",
-                "Pasar de turno");
+             "Equipar tesoros",
+             "Pasar de turno");
         char respuesta = readString("").charAt(0);
         
         clearScreen();
