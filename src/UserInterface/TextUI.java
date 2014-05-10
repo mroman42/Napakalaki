@@ -144,12 +144,12 @@ public class TextUI {
     
     // Limpiar consola.
     public final static void clearConsole() {
-        System.out.print("\u001b[2J");
+        System.out.print("\u001B[H\u001B[2J");
         System.out.flush();
     }
 
     public final static void clearScreen() {
-        //¿clearConsole();?
+        clearConsole();
         printHeader();
         System.out.println("Turno: " + turn + "\n");
         System.out.println(CardDealer.getInstance().toString());
