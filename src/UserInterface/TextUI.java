@@ -271,10 +271,21 @@ public class TextUI {
         
         // Controla las opciones
         switch (respuesta) {
-            case '2': break;
-            case '1': //buyLevels();
-            default: selectionMenu();
-            break;
+            case '1': {
+                clearScreen();
+                buyLevels();
+                selectionMenu();
+                break;
+            }
+            case '2':  {
+                clearScreen();
+                break;
+            }
+            default: {
+                clearScreen();
+                selectionMenu();
+                break;
+            }
         }
     }
 
