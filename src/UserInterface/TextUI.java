@@ -271,10 +271,21 @@ public class TextUI {
         
         // Controla las opciones
         switch (respuesta) {
-            case '2': break;
-            case '1': //buyLevels();
-            default: selectionMenu();
-            break;
+            case '1': {
+                clearScreen();
+                buyLevels();
+                selectionMenu();
+                break;
+            }
+            case '2': {
+                clearScreen();
+                break;
+            }
+            default: {
+                clearScreen();
+                selectionMenu();
+                break;
+            }
         }
     }
 
@@ -347,6 +358,9 @@ public class TextUI {
             printVisibleTreasures();
             System.out.println("\t(x): Salir");
             
+            // Lee el índice de la venta
+            read_index = readString("").charAt(0);
+            
             // Vende el índice indicado si es correcto.
             if (read_index != 'x') {
                 index = Character.getNumericValue(read_index);
@@ -368,6 +382,9 @@ public class TextUI {
             printTreasures(shidden);
             printHiddenTreasures();
             System.out.println("\t(x): Salir");
+            
+            // Lee el índice de la venta
+            read_index = readString("").charAt(0);
             
             // Vende el índice indicado si es correcto.
             if (read_index != 'x') {
