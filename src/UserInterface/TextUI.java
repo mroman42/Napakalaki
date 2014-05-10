@@ -9,9 +9,12 @@ import Game.Treasure;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @date 10/04/14
@@ -21,6 +24,7 @@ import java.util.Scanner;
  */
 public class TextUI {
     private static Scanner scanIn;
+    private static Reader reader = new InputStreamReader(System.in);
     private static final Napakalaki NP = Napakalaki.getInstance();
     private static int turn;
     
@@ -33,7 +37,7 @@ public class TextUI {
         CombatResult result;
         
         // Presentación del juego
-        //¿clearConsole();?
+        clearConsole();
         printHeader(); 
         
         // Lee los jugadores
@@ -151,7 +155,7 @@ public class TextUI {
     public final static void clearScreen() {
         clearConsole();
         printHeader();
-        System.out.println("Turno: " + turn + "\n");
+        System.out.println("Turno: " + turn);
         System.out.println(CardDealer.getInstance().toString());
         printCurrentPlayerStatus();
         printCurrentMonsterStatus();
@@ -163,9 +167,9 @@ public class TextUI {
     
     // Imprime una cabecera para el juego
     public static void printHeader(){
-        System.out.println("---------------------"); 
+        System.out.println("------------------------------"); 
         System.out.println("\tNapakalaki");
-        System.out.println("---------------------"); 
+        System.out.println("------------------------------"); 
     }
     
     // Imprime el estado del jugador actual. 
@@ -261,14 +265,13 @@ public class TextUI {
         menu("Elegir acción:\n",
                 "Comprar niveles",
                 "Combatir");
-        char respuesta = readString("").charAt(0);
-        
+        char respuesta = readString("").charAt(0);        
         clearScreen();
         
         // Controla las opciones
         switch (respuesta) {
             case '2': break;
-            case '1': //buyLevels();    No se me ha olvidado el break, es que cómo los dos hacen SelectionMenu...
+            case '1': //buyLevels();
             default: selectionMenu();
             break;
         }
