@@ -90,6 +90,7 @@ public class Player {
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
             dead = true; 
+            level = 1; 
     }
     
     /**
