@@ -22,22 +22,57 @@ import java.util.Scanner;
 public class TextUI {
     private static Scanner scanIn;
     private static final Napakalaki NP = Napakalaki.getInstance();
+    private static int turn;
+    
+    private TextUI(){
+        turn = 0;
+    }
     
     // Método main.
     public static void main(String[] args) {
+        CombatResult result;
+        
+        // Presentación del juego
+        //¿clearConsole();?
         printHeader(); 
+        
+        // Lee los jugadores
         ArrayList<String> players = readPlayers();
-        NP.initGame(players);
-        int turn = 0; 
+        NP.initGame(players); 
+        
+        // Bucle principal del juego
         do{
-            System.out.println("Turno: " + Integer.toString(turn) + "\n"); 
-            printCurrentPlayerStatus(); 
-            printCurrentMonsterStatus();     
-            System.out.println("Compra de niveles."); 
+            // Anuncia el nuevo turno
+            clearScreen();
             
-            turn++; 
+            // El jugador elige acción
+            selectionMenu();
             
-        } while (false); 
+            // Combate
+            result = NP.combat();
+            
+            printCombatResult(result);
+
+            // En printCombatResult me permitió usar sólo WINANDWINGAME
+            if(result == CombatResult.WINANDWINGAME){
+                // Aplica mal rollo si pierde, o bien ofrece la posibilidad de eliminar tesoros.
+                //adjust();
+                
+                do{
+                    // El jugador elige acción
+                    selectionMenu2();
+                    
+                // Pasa al siguiente turno
+                } while(!yesNoQuestion("¿Pasar al siguiente turno?"));
+                
+                NP.nextTurn();
+                turn++;
+            }
+            else{
+                //Fin del juego.
+                System.out.println("¡El juego ha terminado! Ganador: " + NP.getCurrentPlayer());
+            }
+        } while (!NP.endOfGame(result)); 
     }
 
     // Limpiar consola.
@@ -46,18 +81,10 @@ public class TextUI {
         System.out.flush();
     }
 
- 
-    /*        def clearScreen
-            system "clear"
-            printHeader
-            puts "Turno: #{@turn}\n"
-            puts Game::CardDealer.instance
-            printCurrentPlayerStatus
-            printCurrentMonsterStatus
-        end*/
     public final static void clearScreen() {
+        //¿clearConsole();?
         printHeader();
-        //System.out.println("Turno: " + turno + "\n");
+        System.out.println("Turno: " + turn + "\n");
         System.out.println(CardDealer.getInstance().toString());
         printCurrentPlayerStatus();
         printCurrentMonsterStatus();
