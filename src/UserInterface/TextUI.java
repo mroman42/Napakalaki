@@ -1,4 +1,4 @@
-package TextUI;
+package UserInterface;
 
 //Sugerencia:
 //import Game.*;
