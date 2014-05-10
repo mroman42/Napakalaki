@@ -286,11 +286,13 @@ public class CardDealer {
     }
     
     private void shuffleTreasures() {
-        Collections.shuffle(unusedTreasures); 
+        long seed = System.nanoTime();
+        Collections.shuffle(unusedTreasures, new Random(seed));
     }
     
     private void shuffleMonsters() {
-        Collections.shuffle(unusedMonsters);
+        long seed = System.nanoTime();
+        Collections.shuffle(unusedMonsters, new Random(seed));
     } 
     
     // Métodos públicos.
