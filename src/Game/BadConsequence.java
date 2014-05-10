@@ -1,5 +1,6 @@
 package Game;
 
+import static java.lang.Math.min;
 import java.util.ArrayList;
 
 /**
@@ -135,7 +136,7 @@ public class BadConsequence {
                 final ArrayList<TreasureKind> listVisibleTreasures = null;
                 
                 for (TreasureKind tKind : TreasureKind.values()) {
-                    int min, min1 = 0, min2 = 0; 
+                    int min1 = 0, min2 = 0; 
                         // Trabajamos con tesoros visibles para cada TreasureKind
                         for(int i = 0; i < specificVisibleTreasures.size(); i++){
                             if(specificVisibleTreasures.get(i) == tKind)
@@ -146,8 +147,7 @@ public class BadConsequence {
                                 min2++; 
                         }
                         // Tomamos el mínimo y añadimos ese número de TreasureKind
-                        min = (min1 < min2? min1 : min2); 
-                        for(int i = 0; i < min; i++){
+                        for(int i = 0; i < min(min1, min2);  i++){
                             listVisibleTreasures.add(tKind); 
                         }
                         
@@ -161,8 +161,7 @@ public class BadConsequence {
                                 min2++; 
                         }
                         // Tomamos el mínimo y añadimos ese número de TreasureKind
-                        min = (min1 < min2? min1 : min2); 
-                        for(int i = 0; i < min; i++){
+                        for(int i = 0; i < min(min1, min2);  i++){
                             listHiddenTreasures.add(tKind); 
                         }
                 }
@@ -175,10 +174,7 @@ public class BadConsequence {
     // Métodos auxiliares
     @Override
     public String toString() {
-        return text +
-               "\n\t" + (death? " DEATH." : (Integer.toString(levels) + " levels, " +
-               Integer.toString(nHiddenTreasures) + " hidden treasures, " +
-               Integer.toString(nVisibleTreasures) + " visible treasures.")) + "\n"; 
+        return text; 
     }
 }
     
