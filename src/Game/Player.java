@@ -28,7 +28,7 @@ public class Player {
         hiddenTreasures = new ArrayList<Treasure>();
         visibleTreasures = new ArrayList<Treasure>();
 
-        bringToLife();
+        initTreasures();
     }
     
     
@@ -54,6 +54,10 @@ public class Player {
         pendingBadConsequence = bad;
     }
     
+    /**
+     * @brief Método para matar a un jugador. Devuelve los tesoros al mazo, 
+     * los elimina y pone su estado a muerto. 
+     */
     private void die(){
         for (Treasure treasure : hiddenTreasures){
             CardDealer.getInstance().giveTreasureBack(treasure);
@@ -72,18 +76,11 @@ public class Player {
      */
     private void discardNecklaceIfVisible() {
         
-        int position = 0;
-        int size = visibleTreasures.size();
-        boolean found = false;
-        
-        while (!found || position == size){
-           if (visibleTreasures.get(position).getType() != TreasureKind.NECKLACE)
-               position++; 
-           else{
-               found = true;
-               CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(position));
-               visibleTreasures.remove(position);
-           }
+        for (Treasure t : visibleTreasures){
+            if (t.getType() == TreasureKind.NECKLACE){
+                CardDealer.getInstance().giveTreasureBack(t);
+                visibleTreasures.remove(t);
+            }
         }
     }	
     
