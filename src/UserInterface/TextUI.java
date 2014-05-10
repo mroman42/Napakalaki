@@ -216,20 +216,20 @@ public class TextUI {
     public static void printCombatResult(CombatResult result){
         clearScreen();
         
-        System.out.println("Combate contra " + NP.getCurrentMonster().getName() + ":\n");        
+        System.out.println("Combate contra " + NP.getCurrentMonster().getName() + ":");        
         
         switch (result) {
-            case WIN:  System.out.println("Has derrotado al monstruo.\n");
+            case WIN:  System.out.println("Has derrotado al monstruo.");
                 break;
-            case WINANDWINGAME:  System.out.println("Has ganado el combate y el juego. ¡Enhorabuena!\n");
+            case WINANDWINGAME:  System.out.println("Has ganado el combate y el juego. ¡Enhorabuena!");
                 break;
-            case LOSE:  System.out.println("Has sido derrotado. Ahora se te aplicará el mal rollo del monstruo.\n");
+            case LOSE:  System.out.println("Has sido derrotado. Ahora se te aplicará el mal rollo del monstruo.");
                 break;
-            case LOSEANDDIE:  System.out.println("Has sido derrotado y has muerto.\n");
+            case LOSEANDDIE:  System.out.println("Has sido derrotado y has muerto.");
                 break;
-            case LOSEANDESCAPE:  System.out.println("Has logrado escapar del combate a salvo.\n");
+            case LOSEANDESCAPE:  System.out.println("Has logrado escapar del combate a salvo.");
                 break;
-            default: System.out.println("Error en el combate.\n");
+            default: System.out.println("Error en el combate.");
                 break;
         }
         
