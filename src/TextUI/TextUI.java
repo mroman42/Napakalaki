@@ -56,7 +56,7 @@ public class TextUI {
             // En printCombatResult me permitió usar sólo WINANDWINGAME
             if(result == CombatResult.WINANDWINGAME){
                 // Aplica mal rollo si pierde, o bien ofrece la posibilidad de eliminar tesoros.
-                //adjust();
+                adjust();
                 
                 do{
                     // El jugador elige acción
@@ -75,6 +75,73 @@ public class TextUI {
         } while (!NP.endOfGame(result)); 
     }
 
+    
+// SECCIÓN LECTURA:
+    
+    /**
+     * Lee un número entero introducido por el usuario.
+     * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
+     * @return Número entero leído.
+     */
+    public static int readInteger(String msg) {
+        int input = 0;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));       
+        System.out.print(msg);
+        
+        try {
+            input = Integer.parseInt(br.readLine());
+        } catch (NumberFormatException nfe){
+            System.err.println("Invalid Format!");
+        }
+        catch (IOException ioe){
+            System.err.println("IO Error!");            
+        }
+        return input;
+    }
+    
+    /**
+     * @brief Lee una cadena introducida por el usuario.
+     * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
+     * @return Cadena de texto leída.
+     */
+    public static String readString(String msg) {
+        String input= "";
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));       
+        System.out.print(msg);
+        
+        try{
+            input = br.readLine();
+        }
+        catch(IOException ioe){
+            System.err.println("IO Error!");            
+        }
+        
+        return input;
+    }
+    
+    
+    /**
+     * @brief Imprime un mensaje y lee los nombres de los jugadores
+     * @return Una lista de jugadores 
+     */
+    private static ArrayList<String> readPlayers() {
+        String line = readString("Introduzca los nombres de los jugadores: ");
+        String[] players = line.split(" ");
+        clearConsole();
+        
+        return new ArrayList<>(Arrays.asList(players));
+    }
+    
+    /**
+     * @brief Imprime un mensaje por pantalla y toma una respuesta a la pregunta. 
+     * @param msg Mensaje (pregunta) a imprimir. 
+     * @return Valor booleano, respuesta a la pregunta. 
+     */
+    public static boolean yesNoQuestion(String msg) {
+        String input = readString(msg + "(y/n): "); 
+        return "y".equals(input); 
+    }
+    
     // Limpiar consola.
     public final static void clearConsole() {
         System.out.print("\u001b[2J");
@@ -90,6 +157,9 @@ public class TextUI {
         printCurrentMonsterStatus();
         
     }
+
+    
+//SECCIÓN PRINT'S:
     
     // Imprime una cabecera para el juego
     public static void printHeader(){
@@ -164,6 +234,9 @@ public class TextUI {
         
     }
     
+    
+//SECCIÓN MENÚ'S:
+    
     /**
      * @brief Crea un menú
      * @param msg Mensaje inicial del menú
@@ -221,68 +294,10 @@ public class TextUI {
         }
     }
     
-    /**
-     * Lee un número entero introducido por el usuario.
-     * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
-     * @return Número entero leído.
-     */
-    public static int readInteger(String msg) {
-        int input = 0;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));       
-        System.out.print(msg);
-        
-        try {
-            input = Integer.parseInt(br.readLine());
-        } catch (NumberFormatException nfe){
-            System.err.println("Invalid Format!");
-        }
-        catch (IOException ioe){
-            System.err.println("IO Error!");            
-        }
-        return input;
+    public static void adjust(){
+        do{
+            //discardVisibleTreasures();
+            //discardHiddenTreasures();
+        } while(!NP.nextTurnAllowed());
     }
-    
-    /**
-     * @brief Lee una cadena introducida por el usuario.
-     * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
-     * @return Cadena de texto leída.
-     */
-    public static String readString(String msg) {
-        String input= "";
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));       
-        System.out.print(msg);
-        
-        try{
-            input = br.readLine();
-        }
-        catch(IOException ioe){
-            System.err.println("IO Error!");            
-        }
-        
-        return input;
-    }
-    
-    /**
-     * @brief Imprime un mensaje por pantalla y toma una respuesta a la pregunta. 
-     * @param msg Mensaje (pregunta) a imprimir. 
-     * @return Valor booleano, respuesta a la pregunta. 
-     */
-    public static boolean yesNoQuestion(String msg) {
-        String input = readString(msg + "(y/n): "); 
-        return "y".equals(input); 
-    }
-    
-    /**
-     * @brief Imprime un mensaje y lee los nombres de los jugadores
-     * @return Una lista de jugadores 
-     */
-    private static ArrayList<String> readPlayers() {
-        String line = readString("Introduzca los nombres de los jugadores: ");
-        String[] players = line.split(" ");
-        clearConsole();
-        
-        return new ArrayList<>(Arrays.asList(players));
-    }
-    
-    
 }
