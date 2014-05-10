@@ -303,4 +303,23 @@ public class TextUI {
             //discardHiddenTreasures();
         } while(!NP.nextTurnAllowed());
     }
+    
+    public static void buyLevels(){
+        ArrayList<Game.Treasure> svisibles = new ArrayList<>();
+        ArrayList<Game.Treasure> shidden = new ArrayList<>();
+        ArrayList<Integer> index_visibles = new ArrayList<>();
+        ArrayList<Integer> index_hidden = new ArrayList<>();
+        
+        char read_index = ' ';
+        int  index;
+        
+        do {
+            System.out.println("Vendiendo tesoros visibles:");
+            System.out.println("Tesoros visibles que se venderán:");
+            printTreasures(svisibles);
+            printVisibleTreasures();
+            System.out.println("\t(x): Salir");
+        } while (read_index != 'x');
+    }
+    
 }
