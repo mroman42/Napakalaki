@@ -106,30 +106,42 @@ public class TextUI {
         printCurrentPlayerCombatStatus();
     }
     
+    // Imprime el nivel de combate del jugador actual. 
     public static void printCurrentPlayerCombatStatus(){
         System.out.println("Nivel de combate: " + NP.getCurrentPlayer().getCombatLevel() + "\n");
     }
 
+    /**
+     * @brief Muestra una lista de tesoros
+     * @param treasures Lista de tesoros
+     */
     public static void printTreasures(ArrayList<Treasure> treasures){
         for(int i = 0; i < treasures.size(); i++){
             System.out.println("\t(" + i + "): " + treasures.get(i) + "\n");
         }
     }
     
+    // Imprime los tesoros visibles del jugador actual. 
     public static void printVisibleTreasures(){
         System.out.println("Tesoros visibles:\n");
         printTreasures(NP.getVisibleTreasures());
     }
 
+    // Imprime los tesoros ocultos del jugador actual. 
     public static void printHiddenTreasures(){
         System.out.println("Tesoros ocultos:\n");
         printTreasures(NP.getHiddenTreasures());
     } 
+    
     // Imprime el estado del monstruo actual.
     public static void printCurrentMonsterStatus(){
         System.out.println("\nMonstruo actual: " + NP.getCurrentMonster().toString() + "\n");
     }
     
+    /**
+     * @brief Imprime un mensaje asociado al resultado de un combate 
+     * @param result Resultado del combate
+     */
     public static void printCombatResult(CombatResult result){
         clearScreen();
         
@@ -231,7 +243,7 @@ public class TextUI {
     }
     
     /**
-     * Lee una cadena introducida por el usuario.
+     * @brief Lee una cadena introducida por el usuario.
      * @param msg Mensaje mostrado por pantalla para solicitar la entrada.
      * @return Cadena de texto leída.
      */
@@ -260,6 +272,10 @@ public class TextUI {
         return "y".equals(input); 
     }
     
+    /**
+     * @brief Imprime un mensaje y lee los nombres de los jugadores
+     * @return Una lista de jugadores 
+     */
     private static ArrayList<String> readPlayers() {
         String line = readString("Introduzca los nombres de los jugadores: ");
         String[] players = line.split(" ");
