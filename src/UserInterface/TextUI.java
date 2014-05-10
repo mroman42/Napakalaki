@@ -252,7 +252,7 @@ public class TextUI {
         int i = 1;
         
         for(String o : options){
-            System.out.println("[" + i + "]: " + o + "\n");
+            System.out.println("[" + i + "]: " + o);
             
             i++;
         }
@@ -262,7 +262,7 @@ public class TextUI {
      * @brief Menú de antes de la batalla
      */
     public static void selectionMenu(){
-        menu("Elegir acción:\n",
+        menu("Elegir acción:",
                 "Comprar niveles",
                 "Combatir");
         char respuesta = readString("").charAt(0);        
@@ -281,7 +281,7 @@ public class TextUI {
      * @brief Menú de después de la batalla
      */
     public static void selectionMenu2(){
-        menu("Elegir acción:\n",
+        menu("Elegir acción:",
                 "Equipar niveles",
                 "Pasar de turno");
         char respuesta = readString("").charAt(0);
