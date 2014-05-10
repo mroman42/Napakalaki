@@ -142,8 +142,12 @@ public class TextUI {
      * @return Valor booleano, respuesta a la pregunta. 
      */
     public static boolean yesNoQuestion(String msg) {
-        String input = readString(msg + "(y/n): "); 
-        return "y".equals(input); 
+        String input; 
+        do{
+            input = readString(msg + "(y/n): "); 
+        } while(!input.equals("y") && !input.equals("c"));
+        
+        return input.equals("y"); 
     }
     
     // Limpiar consola.
