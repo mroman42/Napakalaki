@@ -82,17 +82,33 @@ public class BadConsequence {
     
     
     // Métodos públicos
-    // En los siguientes dos métodos, hay que usar que hay dos posibles BadConsequence que trabajan con tesoros, los que conocen los objetos que quitan y los que sólo conocen la cantidad.
-    // Para saber si un tesoro está contenido, tenemos que ver si está en la lista de tesoros(conoce los tesoros) o está vacía pero la cantidad de tesoros que quita no es nula(no conoce los tesoros)
-
+    
+    /**
+     * @brief Elimina un TreasureKind del mal rollo. Es necesario para actualizarlo 
+     * cuando el jugador elimina tesoros. Actua sobre los tesoros visibles. 
+     * @param treasure Tesoro que hemos eliminado. Tomaremos su tipo y lo quitaremos del mal rollo. 
+     */
     public void substractVisibleTreasure (Treasure treasure) {
-        if(specificVisibleTreasures.remove(treasure) || (specificVisibleTreasures.isEmpty() && nVisibleTreasures != 0))
+        if(!specificVisibleTreasures.isEmpty()){
+            specificVisibleTreasures.remove(treasure.getType());
             nVisibleTreasures--;
+        }
+        else if(specificVisibleTreasures.isEmpty() && nVisibleTreasures != 0)
+            nVisibleTreasures--; 
     }
     
+    /**
+     * @brief Elimina un TreasureKind del mal rollo. Es necesario para actualizarlo 
+     * cuando el jugador elimina tesoros. Actua sobre los tesoros ocultos. 
+     * @param treasure Tesoro que hemos eliminado. Tomaremos su tipo y lo quitaremos del mal rollo. 
+     */
     public void substractHiddenTreasure (Treasure treasure) {
-        if(specificHiddenTreasures.remove(treasure) || (specificHiddenTreasures.isEmpty()) && nHiddenTreasures != 0)
+        if(!specificHiddenTreasures.isEmpty()){
+            specificHiddenTreasures.remove(treasure.getType());
             nHiddenTreasures--;
+        }
+        else if(specificHiddenTreasures.isEmpty() && nHiddenTreasures != 0)
+            nHiddenTreasures--; 
     }
     
     /**
