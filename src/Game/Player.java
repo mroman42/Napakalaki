@@ -90,7 +90,6 @@ public class Player {
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
             dead = true; 
-            level = 1; 
     }
     
     /**
@@ -112,7 +111,6 @@ public class Player {
     private boolean canIBuyLevels(int levels){
         return (this.level + levels < 10); 
     }
-    
     
     
     // Métodos públicos
