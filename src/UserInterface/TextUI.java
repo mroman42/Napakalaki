@@ -307,8 +307,8 @@ public class TextUI {
     
     public static void adjust(){
         do{
-            //discardVisibleTreasures();
-            //discardHiddenTreasures();
+            discardVisibleTreasures();
+            discardHiddenTreasures();
         } while(!NP.nextTurnAllowed());
     }
     
@@ -322,6 +322,9 @@ public class TextUI {
             System.out.println("Descarta tesoros visibles:\n");
             printVisibleTreasures();
             System.out.println("Dime el índice del tesoro visible a descartar (x para terminar): ");
+            
+            // Lee al usuario
+            read_index = readString("").charAt(0);
             
             // Si el índice es válido lo elimina de los tesoros visibles.
             if (read_index != 'x') {
@@ -351,6 +354,9 @@ public class TextUI {
             System.out.println("Descarta tesoros ocultos:\n");
             printHiddenTreasures();
             System.out.println("Dime el índice del tesoro oculto a descartar (x para terminar): ");
+            
+            // Lee al usuario
+            read_index = readString("").charAt(0);
             
             // Si el índice es válido lo elimina de los tesoros visibles.
             if (read_index != 'x') {
