@@ -130,10 +130,11 @@ public class BadConsequence {
                 
                 adjustedBC = new BadConsequence(text, 0, nVTreasures, nHTreasures);
             }
+            
             // Si conoce los tesoros, trabaja con los tipos de tesoros. 
             else{
-                final ArrayList<TreasureKind> listHiddenTreasures = null;
-                final ArrayList<TreasureKind> listVisibleTreasures = null;
+                final ArrayList<TreasureKind> listHiddenTreasures = new ArrayList<>();
+                final ArrayList<TreasureKind> listVisibleTreasures = new ArrayList<>();
                 
                 for (TreasureKind tKind : TreasureKind.values()) {
                     int min1 = 0, min2 = 0; 
