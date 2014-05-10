@@ -299,7 +299,7 @@ public class TextUI {
         // Controla las opciones
         switch (respuesta) {
             case '2': break;
-            case '1': //equip();    No se me ha olvidado el break, es que cómo los dos hacen SelectionMenu2...
+            case '1': //equip();
             default: selectionMenu2();
             break;
         }
@@ -316,14 +316,58 @@ public class TextUI {
      * @brief Elimina tesoros visibles del jugador, y ajusta el mal rollo. 
      */
     public static void discardVisibleTreasures(){
+        char read_index = 'x';
         
+        do {
+            System.out.println("Descarta tesoros visibles:\n");
+            printVisibleTreasures();
+            System.out.println("Dime el índice del tesoro visible a descartar (x para terminar): ");
+            
+            // Si el índice es válido lo elimina de los tesoros visibles.
+            if (read_index != 'x') {
+                int index = Character.getNumericValue(read_index);
+                if (index >= 0 && index < NP.getVisibleTreasures().size()) {
+                    NP.discardVisibleTreasure(NP.getVisibleTreasures().get(index));
+                    clearScreen();
+                    System.out.println("Tesoro eliminado.\n");
+                }
+                else {
+                    clearScreen();
+                }
+            }
+            else {
+                clearScreen();
+            }
+        } while (read_index != 'x');
     }
     
     /**
      * @brief Elimina tesoros ocultos del jugador, y ajusta el mal rollo. 
      */
     public static void discardHiddenTreasures(){
+        char read_index = 'x';
         
+        do {
+            System.out.println("Descarta tesoros ocultos:\n");
+            printHiddenTreasures();
+            System.out.println("Dime el índice del tesoro oculto a descartar (x para terminar): ");
+            
+            // Si el índice es válido lo elimina de los tesoros visibles.
+            if (read_index != 'x') {
+                int index = Character.getNumericValue(read_index);
+                if (index >= 0 && index < NP.getHiddenTreasures().size()) {
+                    NP.discardHiddenTreasure(NP.getHiddenTreasures().get(index));
+                    clearScreen();
+                    System.out.println("Tesoro eliminado.\n");
+                }
+                else {
+                    clearScreen();
+                }
+            }
+            else {
+                clearScreen();
+            }
+        } while (read_index != 'x');
     }
     
     public static void buyLevels(){
