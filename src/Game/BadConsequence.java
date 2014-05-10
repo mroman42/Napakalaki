@@ -95,41 +95,64 @@ public class BadConsequence {
             nHiddenTreasures--;
     }
     
-    // En este método, se usan los tres BadConsequence: 
+    /**
+     * @brief En este método, se ajustan los malos rollos, teniendo en cuenta que ya se han restado los niveles. 
+     * @param visibles Tesoros visibles del jugador
+     * @param hidden Tesoros ocultos del jugador
+     * @return Mal rollo ajustado
+     */
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
-        BadConsequence adjustedBC = null;
-        
-    //    ·si es mortal, es mortal.
-        if(death){
-            adjustedBC = new BadConsequence(text, death);
-        }
-        else{
-            int nVTreasures;
-            int nHTreasures;
-            final ArrayList<TreasureKind> listHiddenTreasures = null;
-            final ArrayList<TreasureKind> listVisibleTreasures = null;
-
-    //    ·si no conoce los tesoros(o no hay), trabaja con las cantidades(no puedes quitar más tesoros de los que tiene).
+            BadConsequence adjustedBC = null;
+            
+            // Si no conoce los tesoros específicos, trabaja con las cantidades, tomando el menor número
+            // de tesoros a eliminar, entre los que indica el mal rollo y los que tiene el jugador. 
             if(specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
-                nVTreasures = (visibles.size() > nVisibleTreasures? nVisibleTreasures : visibles.size());
-                nHTreasures = (hidden.size() > nHiddenTreasures? nHiddenTreasures : hidden.size());
                 
-                adjustedBC = new BadConsequence(text, levels, nVTreasures, nHTreasures);
+                int nVTreasures = (visibles.size() > nVisibleTreasures? nVisibleTreasures : visibles.size());
+                int nHTreasures = (hidden.size() > nHiddenTreasures? nHiddenTreasures : hidden.size());
+                
+                adjustedBC = new BadConsequence(text, 0, nVTreasures, nHTreasures);
             }
-    //    ·si conoce los tesoros, trabaja con los tesoros(no puedes quitar los tesoros que no tiene)
+            // Si conoce los tesoros, trabaja con los tipos de tesoros. 
             else{
-                for(TreasureKind object : specificVisibleTreasures)
-                    if(visibles.contains(object))
-                        listVisibleTreasures.add(object);
-        
-                for(TreasureKind object : specificHiddenTreasures)
-                    if(hidden.contains(object))
-                        listHiddenTreasures.add(object);
-
+                final ArrayList<TreasureKind> listHiddenTreasures = null;
+                final ArrayList<TreasureKind> listVisibleTreasures = null;
+                
+                for (TreasureKind tKind : TreasureKind.values()) {
+                    int min, min1 = 0, min2 = 0; 
+                        // Trabajamos con tesoros visibles para cada TreasureKind
+                        for(int i = 0; i < specificVisibleTreasures.size(); i++){
+                            if(specificVisibleTreasures.get(i) == tKind)
+                                min1++; 
+                        }
+                        for(int i = 0; i < visibles.size(); i++){
+                            if(visibles.get(i).getType() == tKind)
+                                min2++; 
+                        }
+                        // Tomamos el mínimo y añadimos ese número de TreasureKind
+                        min = (min1 < min2? min1 : min2); 
+                        for(int i = 0; i < min; i++){
+                            listVisibleTreasures.add(tKind); 
+                        }
+                        
+                        // Trabajamos con tesoros ocultos. 
+                        for(int i = 0; i < specificHiddenTreasures.size(); i++){
+                            if(specificHiddenTreasures.get(i) == tKind)
+                                min1++; 
+                        }
+                        for(int i = 0; i < hidden.size(); i++){
+                            if(hidden.get(i).getType() == tKind)
+                                min2++; 
+                        }
+                        // Tomamos el mínimo y añadimos ese número de TreasureKind
+                        min = (min1 < min2? min1 : min2); 
+                        for(int i = 0; i < min; i++){
+                            listHiddenTreasures.add(tKind); 
+                        }
+                }
+                
                 adjustedBC = new BadConsequence(text, levels, listVisibleTreasures, listHiddenTreasures);
             }
-        }
-        
         return adjustedBC;
     }
     
