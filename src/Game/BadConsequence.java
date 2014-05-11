@@ -152,8 +152,8 @@ public class BadConsequence {
                             listVisibleTreasures.add(tKind); 
                         }
                         
-                        min1 = 0; 
-                        min2 = 0; 
+                        //Reseteamos los contadores
+                        min1 = min2 = 0; 
                         
                         // Trabajamos con tesoros ocultos. 
                         for(int i = 0; i < specificHiddenTreasures.size(); i++){

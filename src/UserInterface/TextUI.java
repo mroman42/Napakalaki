@@ -451,15 +451,45 @@ public class TextUI {
             clearScreen();
         } while (read_index != 'x');
         
+
         
         // Comprobante de venta.
-        if (!NP.buyLevels(svisibles,shidden)) {
-            clearScreen();
-            System.out.println("No puedes vender los tesoros.\n");
+        System.out.println("Se venderán los siguientes tesoros:\n");
+        System.out.println("Tesoros visibles:");
+        printTreasures(svisibles);
+        
+        int sumavisibles = 0;
+        
+        for(Treasure t : svisibles){
+            sumavisibles += t.getGoldCoins();
         }
-        else {
+        
+        System.out.println("\tSuma total: " + sumavisibles + "\n");
+        System.out.println("Tesoros ocultos:\n");
+        printTreasures(shidden);
+        
+        int sumahidden = 0;
+        
+        for(Treasure t : shidden){
+            sumahidden += t.getGoldCoins();
+        }
+        
+        System.out.println("\tSuma total: " + sumahidden + "\n");
+        System.out.println("Aumentarías " + (sumavisibles/1000 + sumahidden/1000) + " niveles\n");
+                
+        if(yesNoQuestion("¿Realizar la compra?")){
+            if (!NP.buyLevels(svisibles, shidden)) {
+                clearScreen();
+                System.out.println("No puedes vender los tesoros.\n");
+            }
+            else {
+                clearScreen();
+                System.out.println("Compra realizada.\n");
+            }
+        }
+        else{
             clearScreen();
-            System.out.println("Compra realizada.\n");
+            System.out.println("Compra anulada.");
         }
     }
     
