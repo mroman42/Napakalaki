@@ -45,7 +45,40 @@ public class Treasure {
     // Métodos auxiliares
     @Override
     public String toString() {
-        return name + " (" + goldCoins + "$) [+" + minBonus + ",++" + maxBonus + "]";
+        String tipo;
+        
+        switch (type) {
+            case ARMOR: {
+                tipo = "Armadura";
+                break;
+            }
+            case BOTHHANDS: {
+                tipo = "Arma de dos manos";
+                break;
+            }
+            case ONEHAND: {
+                tipo = "Arma de una mano";
+                break;
+            }
+            case SHOE: {
+                tipo = "Calzado";
+                break;
+            }
+            case HELMET: {
+                tipo = "Casco";
+                break;
+            }
+            case NECKLACE: {
+                tipo = "Collar";
+                break;
+            }
+            default: {
+                tipo = "ERROR";
+                break;
+            }
+        }
+
+        return name + "  (" + tipo + ") [+" + minBonus + ",++" + maxBonus + "] (" + goldCoins + "$)";
     }
 }
 
