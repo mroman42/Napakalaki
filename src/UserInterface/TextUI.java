@@ -298,10 +298,21 @@ public class TextUI {
         
         // Controla las opciones
         switch (respuesta) {
-            case '2': break;
-            case '1': //equip();
-            default: selectionMenu2();
-            break;
+            case '1': {
+                clearScreen();
+                equip();
+                selectionMenu2();
+                break;
+            }
+            case '2': {
+                clearScreen();
+                break;
+            }
+            default: {
+                clearScreen();
+                selectionMenu2();
+                break;
+            }
         }
     }
     
