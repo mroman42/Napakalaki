@@ -248,12 +248,12 @@ public class CardDealer {
         
         // Roboggoth 
         tvp.add(TreasureKind.BOTHHANDS); 
-        BadConsequence bad16 = new BadConsequence("La quinta directiva primaria "
+        bad = new BadConsequence("La quinta directiva primaria "
                 + "te obliga a perder 2 niveles y un tesoro 2 manos visible.", 2
                 , tvp, thp);
         tvp.clear();
-        Prize prize16 = new Prize(2,1); 
-        unusedMonsters.add(new Monster("Roboggoth", 8, bad16, prize16)); 
+        prize = new Prize(2,1); 
+        unusedMonsters.add(new Monster("Roboggoth", 8, bad, prize)); 
         
         
         // El espía ciego.
