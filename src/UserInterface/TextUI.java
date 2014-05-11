@@ -136,7 +136,7 @@ public class TextUI {
         String input; 
         do{
             input = readString(msg + "(y/n): "); 
-        } while(!input.equals("y") && !input.equals("c"));
+        } while(!input.equals("y") && !input.equals("n"));
         
         return input.equals("y"); 
     }
