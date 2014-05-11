@@ -122,7 +122,8 @@ public class Player {
         int nLevels = prize.getLevels(); 
         incrementLevels(nLevels); 
         int nPrize = prize.getTreasures(); 
-        for (int i = 0; i < min(nPrize, 4-hiddenTreasures.size()); i++){
+        int min = min(nPrize, 4-hiddenTreasures.size());
+        for (int i = 0; i < min; i++){
             Treasure treasure = CardDealer.getInstance().nextTreasure(); 
             hiddenTreasures.add(treasure); 
         }
