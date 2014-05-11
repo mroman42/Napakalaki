@@ -1,11 +1,6 @@
 package UserInterface;
 
-//Sugerencia:
-//import Game.*;
-import Game.CardDealer;
-import Game.CombatResult;
-import Game.Napakalaki;
-import Game.Treasure;
+import Game.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,7 +17,7 @@ import java.util.Scanner;
  */
 public class TextUI {
     private static Scanner scanIn;
-    private static Reader reader = new InputStreamReader(System.in);
+    private static final Reader reader = new InputStreamReader(System.in);
     private static final Napakalaki NP = Napakalaki.getInstance();
     private static int turn;
     
@@ -327,7 +322,7 @@ public class TextUI {
      * @brief Elimina tesoros visibles del jugador, y ajusta el mal rollo. 
      */
     public static void discardVisibleTreasures(){
-        char read_index = 'x';
+        char read_index;
         
         do {
             System.out.println("Descarta tesoros visibles:\n");
@@ -359,7 +354,7 @@ public class TextUI {
      * @brief Elimina tesoros ocultos del jugador, y ajusta el mal rollo. 
      */
     public static void discardHiddenTreasures(){
-        char read_index = 'x';
+        char read_index;
         
         do {
             System.out.println("Descarta tesoros ocultos:\n");
@@ -403,7 +398,7 @@ public class TextUI {
             index_hidden.add(true);
         
         
-        char read_index = ' ';
+        char read_index;
         int index;
         
         // Tesoros visibles.
