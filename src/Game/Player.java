@@ -22,7 +22,6 @@ public class Player {
     public Player(String name) {
         dead = true;
         this.name = name;
-        level = 1; //¿Necesario? Lo hace bringToLife
         pendingBadConsequence = new BadConsequence("",0,0,0);
         hiddenTreasures = new ArrayList<>();
         visibleTreasures = new ArrayList<>();
@@ -300,8 +299,14 @@ public class Player {
      */
     public int getCombatLevel(){
         int combat_level = level;
-        boolean has_necklace = visibleTreasures.contains(TreasureKind.NECKLACE);
+        boolean has_necklace = false;
         
+        for (Treasure treasure : visibleTreasures){
+            if(treasure.getType() == TreasureKind.NECKLACE){
+                has_necklace = true;
+            }
+        }
+         
         for (Treasure treasure : visibleTreasures){
             if (has_necklace)
                 combat_level += treasure.getMaxBonus();
@@ -309,6 +314,7 @@ public class Player {
                 combat_level += treasure.getMinBonus();
             
         }
+        
         return combat_level;
     }
     
