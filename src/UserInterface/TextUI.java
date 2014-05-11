@@ -476,18 +476,19 @@ public class TextUI {
         
         System.out.println("\tSuma total: " + sumahidden + "\n");
         System.out.println("Aumentarías " + sumavisibles/1000 + sumahidden/1000 + " niveles\n");
-        
-        clearScreen();
                 
         if(yesNoQuestion("¿Realizar la compra?")){
             if (!NP.buyLevels(svisibles, shidden)) {
+                clearScreen();
                 System.out.println("No puedes vender los tesoros.\n");
             }
             else {
+                clearScreen();
                 System.out.println("Compra realizada.\n");
             }
         }
         else{
+            clearScreen();
             System.out.println("Compra anulada.");
         }
     }
