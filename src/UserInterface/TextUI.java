@@ -457,4 +457,38 @@ public class TextUI {
         }
     }
     
+    
+    public static void equip () {
+        char read_index;
+        
+        do {
+            System.out.println("Equipación de objetos.");
+            printVisibleTreasures();
+            printHiddenTreasures();
+            System.out.println("\t(x): Salir");
+            System.out.println("Dime qué tesoro oculto te quieres equipar:");
+            
+            // Pasamos el índice del tesoro que queremos equipar.
+            read_index = readString("").charAt(0);
+            
+            if (read_index != 'x') {
+                int index = Character.getNumericValue(read_index);
+                clearScreen();
+                
+                // Comprueba que el índice sea válido y si puede equiparse.
+                if (index < NP.getHiddenTreasures().size() && index >= 0) {
+                    if (NP.canMakeTreasureVisible(NP.getHiddenTreasures().get(index))) {
+                        System.out.println("Tesoro " + NP.getHiddenTreasures().get(index).getName() + " equipado.");
+                        NP.makeTreasureVisible(NP.getHiddenTreasures().get(index));
+                    }
+                    else {
+                        System.out.println("No puedes equiparte " + NP.getHiddenTreasures().get(index));
+                    }
+                }
+                else {
+                    System.out.println("Índice inválido.");
+                }
+            }
+        } while (read_index != 'x');
+    }
 }
