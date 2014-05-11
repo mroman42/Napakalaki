@@ -297,7 +297,6 @@ public class Player {
     
     /**
      * @brief Calcula el nivel de combate del jugados a partir de una lista de tesoros visibles. 
-     * @param visible Lista de tesoros visibles. 
      * @return Nivel de combate. 
      */
     public int getCombatLevel(){

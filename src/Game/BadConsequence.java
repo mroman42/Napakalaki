@@ -119,7 +119,7 @@ public class BadConsequence {
      * @return Mal rollo ajustado
      */
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
-            BadConsequence adjustedBC = null;
+            BadConsequence adjustedBC;
             
             // Si no conoce los tesoros específicos, trabaja con las cantidades, tomando el menor número
             // de tesoros a eliminar, entre los que indica el mal rollo y los que tiene el jugador. 
