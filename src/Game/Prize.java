@@ -30,7 +30,7 @@ public class Prize {
     // Métodos auxiliares
     @Override
     public String toString() {
-        return Integer.toString(treasures) + " treasures and "   + 
-               Integer.toString(levels)    + " levels.";
+        return Integer.toString(treasures) + " tesoros y "   + 
+               Integer.toString(levels)    + " niveles.";
     }
 }
