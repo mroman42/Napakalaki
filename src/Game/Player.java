@@ -2,7 +2,6 @@ package Game;
 
 import static java.lang.Math.min;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @date 19/3/14
@@ -16,8 +15,8 @@ public class Player {
     private final String name;
     private int level;
     private BadConsequence pendingBadConsequence;
-    private ArrayList<Treasure> hiddenTreasures;
-    private ArrayList<Treasure> visibleTreasures;
+    private final ArrayList<Treasure> hiddenTreasures;
+    private final ArrayList<Treasure> visibleTreasures;
 
     // Constructor.
     public Player(String name) {
@@ -25,8 +24,8 @@ public class Player {
         this.name = name;
         level = 1; //¿Necesario? Lo hace bringToLife
         pendingBadConsequence = new BadConsequence("",0,0,0);
-        hiddenTreasures = new ArrayList<Treasure>();
-        visibleTreasures = new ArrayList<Treasure>();
+        hiddenTreasures = new ArrayList<>();
+        visibleTreasures = new ArrayList<>();
 
         initTreasures();
     }
