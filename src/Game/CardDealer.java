@@ -19,8 +19,6 @@ public class CardDealer {
     // Patrón Singleton.
     // El constructor privado nos asegura que no se puede instanciar desde otras clases
     private CardDealer() {
-        initTreasureCardDeck();
-        initMonsterCardDeck();
     }
     
     public static CardDealer getInstance() {
