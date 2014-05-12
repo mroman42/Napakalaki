@@ -22,6 +22,7 @@ public class Player {
     public Player(String name) {
         dead = true;
         this.name = name;
+        level = 1; 
         pendingBadConsequence = new BadConsequence("",0,0,0);
         hiddenTreasures = new ArrayList<>();
         visibleTreasures = new ArrayList<>();
@@ -34,7 +35,6 @@ public class Player {
     
     private void bringToLife(){
         dead = false;
-        level = 1;
     }
     
     private void incrementLevels(int nlevels){
@@ -67,6 +67,7 @@ public class Player {
         visibleTreasures.clear();
 
         dead = true;
+        level = 1; 
     }
     
     /** 
@@ -89,7 +90,7 @@ public class Player {
      */
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
-            dead = true; 
+            this.die();
     }
     
     /**
