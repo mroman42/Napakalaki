@@ -73,11 +73,13 @@ public class Player {
      * @brief Busca el tesoro de tipo collar, y si lo encuentra, lo elimina. 
      */
     private void discardNecklaceIfVisible() {
-        
-        for (Treasure t : visibleTreasures){
-            if (t.getType() == TreasureKind.NECKLACE){
-                CardDealer.getInstance().giveTreasureBack(t);
-                visibleTreasures.remove(t);
+        boolean found = false; 
+        int size = visibleTreasures.size(); 
+        for (int i = 0; i < size && !found; i++){
+            if (visibleTreasures.get(i).getType() == TreasureKind.NECKLACE){
+                CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(i));
+                visibleTreasures.remove(i);
+                found = true; 
             }
         }
     }	
