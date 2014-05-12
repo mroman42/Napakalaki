@@ -44,8 +44,8 @@ public class Monster {
     @Override
     public String toString() {
         return name + " (lv. " + Integer.toString(level) + ")" + 
-               "\nPrize: " + prize.toString() + 
-               "\nBad: " + bad.toString() + 
+               "\nBuen rollo: " + prize.toString() + 
+               "\nMal rollo: " + bad.toString() + 
                "\n";
     }
 }
