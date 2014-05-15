@@ -6,7 +6,7 @@ package Game;
  * @author Mario Román
  * @author Óscar Bermúdez
  */
-public class Cultist {
+public class Cultist implements Card{
     private final int gainedLevels;
     private final String name;
     
@@ -21,5 +21,15 @@ public class Cultist {
     
     public String getName () {
         return name;
+    }
+    
+    @Override
+    public int getBasicValue(){
+        return getGainedLevels(); 
+    }
+    
+    @Override 
+    public int getSpecialValue(){
+        return getBasicValue() * CultistPlayer.getTotalCultistPlayers(); 
     }
 }

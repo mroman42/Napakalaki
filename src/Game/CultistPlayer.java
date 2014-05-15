@@ -41,7 +41,7 @@ public class CultistPlayer extends Player {
     }
     
     public int getCombatLevel(){
-        return super.getCombatLevel() + myCultistCard.getGainedLevels(); 
+        return super.getCombatLevel() + myCultistCard.getSpecialValue(); 
     }
  
     public static int getTotalCultistPlayers(){
