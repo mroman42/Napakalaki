@@ -281,6 +281,51 @@ public class CardDealer {
         tvp.clear();
         prize = new Prize(1,1); 
         unusedMonsters.add(new Monster("Bicéfalo", 20, bad, prize));
+        
+        // El mal indecible impronunciable
+        tvp.add(TreasureKind.ONEHAND);
+        bad = new BadConsequence("Pierdes 1 mano visible.", 0, tvp, thp);
+        tvp.clear();
+        prize = new Prize(3,1); 
+        unusedMonsters.add(new Monster("El mal indecible impronunciable", 10, bad, prize, -2));
+        
+        // Testigos oculares
+        bad = new BadConsequence("Pierdes tus tesoros visibles. Jajaja", 0, 99, 0);
+        prize = new Prize(2,1); 
+        unusedMonsters.add(new Monster("Testigos oculares", 6, bad, prize, 2));
+        
+        // El gran Cthulhu
+        bad = new BadConsequence("Hoy no es tu día de suerte. Mueres", true);
+        prize = new Prize(2,5); 
+        unusedMonsters.add(new Monster("El gran Cthulhu", 20, bad, prize, 4));
+        
+        // Serpiente Político
+        bad = new BadConsequence("Tu gobierno te recorta 2 niveles.", 2, 0, 0);
+        prize = new Prize(2,1); 
+        unusedMonsters.add(new Monster("Serpiente Político", 8, bad, prize, -2));
+        
+        // Felpuggoth
+        tvp.add(TreasureKind.HELMET);
+        tvp.add(TreasureKind.ARMOR);
+        for(int i = 0; i < 4; i++){
+            thp.add(TreasureKind.BOTHHANDS);
+            thp.add(TreasureKind.ONEHAND);
+        }
+        bad = new BadConsequence("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas", 0, tvp, thp);
+        tvp.clear();
+        thp.clear();
+        prize = new Prize(1,1); 
+        unusedMonsters.add(new Monster("Felpuggoth", 2, bad, prize, 5));
+        
+        // Shoggoth
+        bad = new BadConsequence("Pierdes 2 niveles.", 2, 0, 0);
+        prize = new Prize(4,2); 
+        unusedMonsters.add(new Monster("Shoggoth", 16, bad, prize, -4));
+        
+        // Lolitagooth
+        bad = new BadConsequence("Puntalabios negro. Pierdes 2 niveles", 2, 0, 0);
+        prize = new Prize(1,1);
+        unusedMonsters.add(new Monster("Bicéfalo", 2, bad, prize, 3));
     }
     
     private void shuffleTreasures() {
