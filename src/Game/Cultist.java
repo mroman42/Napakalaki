@@ -15,17 +15,13 @@ public class Cultist implements Card{
         this.gainedLevels = gainedLevels;
     }
     
-    public int getGainedLevels () {
-        return gainedLevels;
-    }
-    
     public String getName () {
         return name;
     }
     
     @Override
     public int getBasicValue(){
-        return getGainedLevels(); 
+        return gainedLevels;  
     }
     
     @Override 
