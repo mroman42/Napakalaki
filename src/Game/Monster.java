@@ -6,7 +6,7 @@
  * @author José Carlos Entrena
  * @author Óscar Bermúdez
  */
-public class Monster {
+public class Monster implements Card {
     private final String name;
     private final int level;
     private final BadConsequence bad; 
@@ -39,6 +39,15 @@ public class Monster {
         return bad;
     }
 
+    @Override
+    public int getBasicValue () {
+        return getLevel();
+    }
+    
+    @Override
+    public int getSpecialValue () {
+        return getLevel() + levelChangeAgainstCultistPlayer;
+    }
     
     // Métodos auxiliares
     @Override
