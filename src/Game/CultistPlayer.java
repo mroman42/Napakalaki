@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class CultistPlayer extends Player {
     
     private static int totalCultistPlayers = 0; 
-    private Cultist myCultistCard; 
+    private final Cultist myCultistCard; 
     
     public CultistPlayer(Player player, Cultist card){
         super(player); 
@@ -20,6 +20,7 @@ public class CultistPlayer extends Player {
         totalCultistPlayers++; 
     }
     
+    @Override
     public void applyPrize(Prize prize){
         super.applyPrize(prize);
     }
@@ -31,14 +32,17 @@ public class CultistPlayer extends Player {
         return (gold_coins / 1000); 
     }
     
+    @Override
     public boolean shouldConvert(){
         return false; 
     }
     
+    @Override
     public int getOponentLevel(Monster monster){
         return monster.getSpecialValue(); 
     }
     
+    @Override
     public int getCombatLevel(){
         return super.getCombatLevel() + myCultistCard.getSpecialValue(); 
     }
