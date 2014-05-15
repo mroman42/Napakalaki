@@ -15,6 +15,8 @@ public class CardDealer {
     private ArrayList<Treasure> unusedTreasures = new ArrayList<>(); 
     private ArrayList<Monster> usedMonsters = new ArrayList<>(); 
     private ArrayList<Monster> unusedMonsters = new ArrayList<>(); 
+    private ArrayList<Cultist> usedCultists = new ArrayList<>(); 
+    private ArrayList<Cultist> unusedCultists = new ArrayList<>(); 
     
     // Patrón Singleton.
     // El constructor privado nos asegura que no se puede instanciar desde otras clases
@@ -328,6 +330,13 @@ public class CardDealer {
         unusedMonsters.add(new Monster("Lolitagooth", 2, bad, prize, 3));
     }
     
+    private void initCultistCardDeck() {
+        for(int i = 0; i < 4; i++)
+            unusedCultists.add(new Cultist("Sectario", 1));
+        for(int i = 0; i < 2; i++)
+            unusedCultists.add(new Cultist("Sectario", 2));
+    }
+    
     private void shuffleTreasures() {
         long seed = System.nanoTime();
         Collections.shuffle(unusedTreasures, new Random(seed));
@@ -338,9 +347,14 @@ public class CardDealer {
         Collections.shuffle(unusedMonsters, new Random(seed));
     } 
     
+    private void shuffleCultists() {
+        long seed = System.nanoTime();
+        Collections.shuffle(unusedCultists, new Random(seed));
+    }
+    
     // Métodos públicos.
     /**
-     * Devuelve el siguiente tesoro. En caso de que se hayan usado todos, los vuelve a poner 
+     * @brief Devuelve el siguiente tesoro. En caso de que se hayan usado todos, los vuelve a poner 
      * como no usados y los vuelve a barajar. 
      * @return Treasure siguiente tesoro. 
      */
@@ -356,8 +370,9 @@ public class CardDealer {
         
         return next;
     }
+    
     /**
-     * Devuelve el siguiente monstruo. En caso de que hayan salido todos, los vuelve a poner 
+     * @brief Devuelve el siguiente monstruo. En caso de que hayan salido todos, los vuelve a poner 
      * como no usados y los vuelve a barajar. 
      * @return Monster siguiente monstruo. 
      */
@@ -374,6 +389,24 @@ public class CardDealer {
         return next;
     }
     
+    /**
+     * @brief Devuelve el siguiente sectario. En caso de que se hayan usado todos, los vuelve a poner 
+     * como no usados y los vuelve a barajar. 
+     * @return Cultist siguiente tesoro. 
+     */
+    public Cultist nextCultist() {    
+        if (unusedCultists.isEmpty()) {
+            ArrayList<Cultist> temp = unusedCultists;
+            unusedCultists = usedCultists;
+            usedCultists = temp;
+            shuffleCultists(); 
+        }
+        
+        Cultist next = unusedCultists.remove(0);
+        
+        return next;
+    }
+    
     public void giveTreasureBack(Treasure treasure) {
         usedTreasures.add(treasure);
     }
@@ -385,13 +418,16 @@ public class CardDealer {
     public void initCards() {
         initTreasureCardDeck();
         initMonsterCardDeck();
+        initCultistCardDeck();
         shuffleTreasures(); 
         shuffleMonsters(); 
+        shuffleCultists();
     }
     
     @Override
     public String toString() {
         return "Mazo de monstruos: (" + usedMonsters.size() + "/" + unusedMonsters.size()
-                + ")\nMazo de tesoros: (" + usedTreasures.size() + "/" + unusedTreasures.size() + ")";
+                + ")\nMazo de tesoros: (" + usedTreasures.size() + "/" + unusedTreasures.size()
+                + ")\nMazo de sectarios: (" + usedCultists.size() + "/" + unusedCultists.size() + ")";
     }
 }
