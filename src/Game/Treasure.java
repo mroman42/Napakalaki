@@ -6,7 +6,7 @@ package Game;
  * @author Mario Román
  * @author Óscar Bermúdez
  */
-public class Treasure {
+public class Treasure implements Card {
     private final String name;
     private final int goldCoins;
     private final int minBonus;
@@ -38,7 +38,17 @@ public class Treasure {
     public int getMaxBonus() {
         return maxBonus;
     }
+    
+    @Override
+    public int getBasicValue() {
+        return getMinBonus();
+    }
 
+    @Override
+    public int getSpecialValue() {
+        return getMaxBonus();
+    }
+    
     public TreasureKind getType() {
         return type;
     }
