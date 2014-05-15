@@ -55,7 +55,16 @@ public class Monster implements Card {
     // Métodos auxiliares
     @Override
     public String toString() {
-        return name + " (lv. " + Integer.toString(level) + ")" + 
+        String levelVsCultist = "";
+        
+        if(levelChangeAgainstCultistPlayer < 0){
+            levelVsCultist = " (" + levelChangeAgainstCultistPlayer + ")";
+        }
+        else if(levelChangeAgainstCultistPlayer > 0){
+            levelVsCultist = " (+" + levelChangeAgainstCultistPlayer + ")";
+        }
+        
+        return name + " (lv. " + Integer.toString(level) + levelVsCultist + ")" + 
                "\nBuen rollo: " + prize.toString() + 
                "\nMal rollo: " + bad.toString() + 
                "\n";
