@@ -1,4 +1,3 @@
-
 package Game;
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class CultistPlayer extends Player {
     }
  
     public static int getTotalCultistPlayers(){
-        return totalCultistPlayers; 
+        return totalCultistPlayers;
     }
     
 }
