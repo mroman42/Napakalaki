@@ -355,6 +355,10 @@ public class Player {
         return dead;
     }
     
+    public boolean shouldConvert() {
+        return Dice.getInstance().nextNumber() == 6;
+    }
+    
     public boolean hasVisibleTreasures(){
         return !visibleTreasures.isEmpty();
     }
