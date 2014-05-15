@@ -427,6 +427,7 @@ public class CardDealer {
     @Override
     public String toString() {
         return "Mazo de monstruos: (" + usedMonsters.size() + "/" + unusedMonsters.size()
-                + ")\nMazo de tesoros: (" + usedTreasures.size() + "/" + unusedTreasures.size() + ")";
+                + ")\nMazo de tesoros: (" + usedTreasures.size() + "/" + unusedTreasures.size()
+                + ")\nMazo de sectarios: (" + usedCultists.size() + "/" + unusedCultists.size() + ")";
     }
 }
