@@ -13,7 +13,7 @@ public class Monster implements Card {
     private final Prize prize;
     private final int levelChangeAgainstCultistPlayer;
 
-    public Monster(String name, int level, BadConsequence bad, Prize prize, int levelChangeAgainstCultistPlayer) {
+    public Monster(String name, int level, BadConsequence bad, Prize prize, int levelChangeAgainstCultistPlayer = 0) {
         this.name = name;
         this.level = level;
         this.bad = bad;
