@@ -13,9 +13,12 @@ import java.util.ArrayList;
 public class CultistPlayer extends Player {
     
     private static int totalCultistPlayers = 0; 
-    private Cultist myCultistCard; 
+    private Cultist myCultistCard = null; 
     
     public CultistPlayer(Player p, Cultist c){
+        myCultistCard = new Cultist(c.getName(), c.getGainedLevels());
+        
+        
         totalCultistPlayers++; 
     }
     
@@ -39,7 +42,7 @@ public class CultistPlayer extends Player {
     }
     
     public int getCombatLevel(){
-        return super.getCombatLevel() + myCultistPlayer.getSpecialValue(); 
+        return super.getCombatLevel() + myCultistPlayer.getGainedLevels(); 
     }
  
     public static int getTotalCultistPlayers(){
