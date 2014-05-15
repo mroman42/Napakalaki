@@ -22,6 +22,7 @@ public class Player {
     public Player(String name) {
         dead = true;
         this.name = name;
+        level = 1; 
         pendingBadConsequence = new BadConsequence("",0,0,0);
         hiddenTreasures = new ArrayList<>();
         visibleTreasures = new ArrayList<>();
@@ -34,7 +35,6 @@ public class Player {
     
     private void bringToLife(){
         dead = false;
-        level = 1;
     }
     
     private void incrementLevels(int nlevels){
@@ -67,17 +67,20 @@ public class Player {
         visibleTreasures.clear();
 
         dead = true;
+        level = 1; 
     }
     
     /** 
      * @brief Busca el tesoro de tipo collar, y si lo encuentra, lo elimina. 
      */
     private void discardNecklaceIfVisible() {
-        
-        for (Treasure t : visibleTreasures){
-            if (t.getType() == TreasureKind.NECKLACE){
-                CardDealer.getInstance().giveTreasureBack(t);
-                visibleTreasures.remove(t);
+        boolean found = false; 
+        int size = visibleTreasures.size(); 
+        for (int i = 0; i < size && !found; i++){
+            if (visibleTreasures.get(i).getType() == TreasureKind.NECKLACE){
+                CardDealer.getInstance().giveTreasureBack(visibleTreasures.get(i));
+                visibleTreasures.remove(i);
+                found = true; 
             }
         }
     }	
@@ -87,7 +90,7 @@ public class Player {
      */
     private void dieIfNoTreasures(){
         if (visibleTreasures.isEmpty() && hiddenTreasures.isEmpty())
-            dead = true; 
+            this.die();
     }
     
     /**
@@ -103,7 +106,7 @@ public class Player {
     }
     
     /**
-     * Comprueba si al comprar un número de niveles, no se supera el nivel 10.
+     * @brief Comprueba si al comprar un número de niveles, no se supera el nivel 10.
      * Hacemos esto porque no podemos alcanzar el nivel 10 en una compra de niveles. 
      */
     private boolean canIBuyLevels(int levels){
@@ -320,7 +323,7 @@ public class Player {
     }
     
     /**
-     * Comprueba que el estado del jugador es válido. 
+     * @brief Comprueba que el estado del jugador es válido. 
      * Para ello, comprueba que el BadConsequence asociado esté vacío. 
      * @return Validez del estado.
      */
