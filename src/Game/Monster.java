@@ -10,21 +10,24 @@ public class Monster implements Card {
     private final String name;
     private final int level;
     private final BadConsequence bad; 
-    private final Prize prize; 
-    
-    
-    // Constructores
-    public Monster(String name, int level, BadConsequence bad, Prize prize){
-        this.name = name; 
-        this.level = level; 
-        this.bad = bad; 
-        this.prize = prize; 
+    private final Prize prize;
+    private final int levelChangeAgainstCultistPlayer;
+
+    public Monster(String name, int level, BadConsequence bad, Prize prize, int levelChangeAgainstCultistPlayer) {
+        this.name = name;
+        this.level = level;
+        this.bad = bad;
+        this.prize = prize;
+        this.levelChangeAgainstCultistPlayer = levelChangeAgainstCultistPlayer;
     }
-    
     
     // Consultores
     public String getName() {
         return name; 
+    }
+
+    public int getLevelChangeAgainstCultistPlayer() {
+        return levelChangeAgainstCultistPlayer;
     }
     
     public int getLevel() {
