@@ -148,8 +148,9 @@ public class Player {
      */
     public CombatResult combat(Monster monster){
         int total_level = this.getCombatLevel();
-        int monster_level = monster.getLevel(); 
+        int monster_level = getOponentLevel(monster); 
         CombatResult result;
+        
         // Si ganamos el combate. 
         if (total_level > monster_level){
             Prize prize = monster.getPrize(); 
@@ -159,6 +160,7 @@ public class Player {
             else
                 result = CombatResult.WIN;
         }
+        
         // Si perdemos el combate, podemos escapar o no. 
         else {
         // Tiramos el dado.
@@ -331,6 +333,10 @@ public class Player {
         }
         
         return combat_level;
+    }
+    
+    public int getOponentLevel(Monster monster) {
+        return monster.getBasicValue();
     }
     
     /**
