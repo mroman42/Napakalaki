@@ -30,6 +30,17 @@ public class Player {
         initTreasures();
     }
     
+    // Constructor de copia para crear un sectario. 
+    
+    public Player(Player other){
+        this.dead = other.dead; 
+        this.level = other.level; 
+        this.name = other.name; 
+        this.pendingBadConsequence = other.pendingBadConsequence; 
+        this.hiddenTreasures = (ArrayList<Treasure>) other.hiddenTreasures.clone();
+        this.visibleTreasures = (ArrayList<Treasure>) other.visibleTreasures.clone();
+    }
+    
     
     // Métodos privados.
     
