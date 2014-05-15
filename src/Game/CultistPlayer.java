@@ -16,7 +16,7 @@ public class CultistPlayer extends Player {
     private Cultist myCultistCard; 
     
     public CultistPlayer(Player p, Cultist c){
-        
+        totalCultistPlayers++; 
     }
     
     public void applyPrize(Prize prize){
@@ -35,7 +35,7 @@ public class CultistPlayer extends Player {
     }
     
     public int getOponentLevel(Monster m){
-        return 0; 
+        return m.getSpecialValue(); 
     }
     
     public int getCombatLevel(){
