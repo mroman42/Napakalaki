@@ -325,7 +325,7 @@ public class CardDealer {
         // Lolitagooth
         bad = new BadConsequence("Puntalabios negro. Pierdes 2 niveles", 2, 0, 0);
         prize = new Prize(1,1);
-        unusedMonsters.add(new Monster("Bicéfalo", 2, bad, prize, 3));
+        unusedMonsters.add(new Monster("Lolitagooth", 2, bad, prize, 3));
     }
     
     private void shuffleTreasures() {
