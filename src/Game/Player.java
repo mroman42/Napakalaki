@@ -31,7 +31,6 @@ public class Player {
     }
     
     // Constructor de copia para crear un sectario. 
-    
     public Player(Player other){
         this.dead = other.dead; 
         this.level = other.level; 
@@ -175,7 +174,11 @@ public class Player {
                 }
                 else{
                     applyBadConsequence(bad); 
-                    result = CombatResult.LOSE; 
+                    
+                    if(shouldConvert())
+                        result = CombatResult.LOSEANDCONVERT;
+                    else
+                        result = CombatResult.LOSE; 
                 }
             }
         // Escapamos.
