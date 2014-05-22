@@ -42,8 +42,8 @@ public class CardDealer {
         // A prueba de babas verdes
         unusedTreasures.add(new Treasure("A prueba de babas verdes", 400, 3, 5, TreasureKind.ARMOR));
 
-        // Botas de lluvia  ́acida
-        unusedTreasures.add(new Treasure("Botas de lluvia  ́acida", 800, 1, 1, TreasureKind.BOTHHANDS));
+        // Botas de lluvia ́acida
+        unusedTreasures.add(new Treasure("Botas de lluvia ácida", 800, 1, 1, TreasureKind.BOTHHANDS));
 
         // Casco minero
         unusedTreasures.add(new Treasure("Casco minero", 400, 2, 4, TreasureKind.HELMET));
