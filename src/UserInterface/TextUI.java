@@ -152,6 +152,7 @@ public class TextUI {
         printHeader();
         System.out.println("Turno: " + turn);
         System.out.println(CardDealer.getInstance().toString());
+        System.out.println("Sectarios en juego: " + Game.CultistPlayer.getTotalCultistPlayers());
         printCurrentPlayerStatus();
         printCurrentMonsterStatus();
         
@@ -223,6 +224,8 @@ public class TextUI {
             case LOSEANDDIE:  System.out.println("Has sido derrotado y has muerto.");
                 break;
             case LOSEANDESCAPE:  System.out.println("Has logrado escapar del combate a salvo.");
+                break;
+            case LOSEANDCONVERT: System.out.println("Has sido derrotado y has muerto. ¡Ahora eres sectario!"); 
                 break;
             default: System.out.println("Error en el combate.");
                 break;

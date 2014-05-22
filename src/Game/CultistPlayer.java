@@ -50,4 +50,9 @@ public class CultistPlayer extends Player {
         return totalCultistPlayers;
     }
     
+    @Override
+    public String toString() {
+        return super.toString() + " [Sectario]";
+    }
+    
 }
