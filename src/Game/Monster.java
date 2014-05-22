@@ -62,10 +62,10 @@ public class Monster implements Card {
         String levelVsCultist = "";
         
         if(levelChangeAgainstCultistPlayer < 0){
-            levelVsCultist = " (" + levelChangeAgainstCultistPlayer + ")";
+            levelVsCultist = "(" + levelChangeAgainstCultistPlayer + ")";
         }
         else if(levelChangeAgainstCultistPlayer > 0){
-            levelVsCultist = " (+" + levelChangeAgainstCultistPlayer + ")";
+            levelVsCultist = "(+" + levelChangeAgainstCultistPlayer + ")";
         }
         
         return name + " (lv. " + Integer.toString(level) + levelVsCultist + ")" + 
