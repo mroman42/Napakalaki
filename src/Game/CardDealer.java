@@ -14,8 +14,7 @@ public class CardDealer {
     private ArrayList<Treasure> usedTreasures = new ArrayList<>(); 
     private ArrayList<Treasure> unusedTreasures = new ArrayList<>(); 
     private ArrayList<Monster> usedMonsters = new ArrayList<>(); 
-    private ArrayList<Monster> unusedMonsters = new ArrayList<>(); 
-    private ArrayList<Cultist> usedCultists = new ArrayList<>(); 
+    private ArrayList<Monster> unusedMonsters = new ArrayList<>();
     private ArrayList<Cultist> unusedCultists = new ArrayList<>(); 
     
     // Patrón Singleton.
@@ -394,14 +393,7 @@ public class CardDealer {
      * como no usados y los vuelve a barajar. 
      * @return Cultist siguiente tesoro. 
      */
-    public Cultist nextCultist() {    
-        if (unusedCultists.isEmpty()) {
-            ArrayList<Cultist> temp = unusedCultists;
-            unusedCultists = usedCultists;
-            usedCultists = temp;
-            shuffleCultists(); 
-        }
-        
+    public Cultist nextCultist() {        
         Cultist next = unusedCultists.remove(0);
         
         return next;

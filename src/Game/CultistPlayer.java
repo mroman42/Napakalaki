@@ -9,8 +9,7 @@ import java.util.ArrayList;
  * @author José Carlos Entrena
  * @author Óscar Bermúdez
  */
-public class CultistPlayer extends Player {
-    
+public class CultistPlayer extends Player {    
     private static int totalCultistPlayers = 0; 
     private final Cultist myCultistCard; 
     

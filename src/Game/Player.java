@@ -42,7 +42,6 @@ public class Player {
     
     
     // Métodos privados.
-    
     private void bringToLife(){
         dead = false;
     }
@@ -354,7 +353,7 @@ public class Player {
     /**
      * @brief Inicializa los tesoros de un jugador, dependiendo del número sacado al tirar del dado.
      */
-    public void initTreasures(){
+    public final void initTreasures(){
         bringToLife();
         int number = Dice.getInstance().nextNumber(); 
         

@@ -6,7 +6,7 @@ package Game;
  * @author Mario Román
  * @author Óscar Bermúdez
  */
-public class Cultist implements Card{
+public class Cultist implements Card {
     private final int gainedLevels;
     private final String name;
     
