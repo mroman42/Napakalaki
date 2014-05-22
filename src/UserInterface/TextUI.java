@@ -225,7 +225,7 @@ public class TextUI {
                 break;
             case LOSEANDESCAPE:  System.out.println("Has logrado escapar del combate a salvo.");
                 break;
-            case LOSEANDCONVERT: System.out.println("Has sido derrotado y has muerto. ¡Ahora eres sectario!"); 
+            case LOSEANDCONVERT: System.out.println("Has sido derrotado. ¡Ahora eres sectario!"); 
                 break;
             default: System.out.println("Error en el combate.");
                 break;
@@ -467,6 +467,10 @@ public class TextUI {
             sumavisibles += t.getGoldCoins();
         }
         
+        if (NP.getCurrentPlayer() instanceof CultistPlayer) {
+            sumavisibles *= 2;
+        }
+        
         System.out.println("\tSuma total: " + sumavisibles + "\n");
         System.out.println("Tesoros ocultos:\n");
         printTreasures(shidden);
@@ -475,6 +479,10 @@ public class TextUI {
         
         for(Treasure t : shidden){
             sumahidden += t.getGoldCoins();
+        }
+        
+        if (NP.getCurrentPlayer() instanceof CultistPlayer) {
+            sumahidden *= 2;
         }
         
         System.out.println("\tSuma total: " + sumahidden + "\n");
