@@ -107,7 +107,7 @@ public class Player {
      * @param treasure_list Lista de tesoros. 
      * @return Numero de niveles. 
      */
-    private int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
+    public int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
         int gold_coins = 0; 
         for (Treasure t : treasure_list)
             gold_coins += t.getGoldCoins(); 

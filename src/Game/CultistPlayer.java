@@ -24,6 +24,7 @@ public class CultistPlayer extends Player {
         super.applyPrize(prize);
     }
     
+    @Override
     public int computeGoldCoinsValue(ArrayList<Treasure> treasure_list){
         int gold_coins = 0; 
         for (Treasure t : treasure_list)
