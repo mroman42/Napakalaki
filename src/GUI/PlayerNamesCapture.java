@@ -69,8 +69,18 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         jScrollPane1.setViewportView(jTextArea1);
 
         buttonPlay.setText("Jugar");
+        buttonPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonPlayActionPerformed(evt);
+            }
+        });
 
         buttonExit.setText("Salir y vivir de verdad");
+        buttonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonExitActionPerformed(evt);
+            }
+        });
 
         labelP1.setText("Jugador 1");
 
@@ -139,6 +149,17 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
+        System.exit(0); 
+    }//GEN-LAST:event_buttonExitActionPerformed
+
+    private void buttonPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPlayActionPerformed
+        names.add (fieldP1.getText());
+        names.add (fieldP2.getText());
+        names.add (fieldP3.getText());
+        this.dispose();
+    }//GEN-LAST:event_buttonPlayActionPerformed
 
     public ArrayList<String> getNames() {
         this.setVisible(true);
