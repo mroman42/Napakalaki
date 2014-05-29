@@ -1,6 +1,7 @@
 package UserInterface;
 
 import Game.*;
+import GUI.*; 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,6 +17,7 @@ import java.util.Scanner;
  * @author Óscar Bermúdez
  */
 public class TextUI {
+    private static final NapakalakiView napakalakiView = new NapakalakiView(); 
     private static Scanner scanIn;
     private static final Reader reader = new InputStreamReader(System.in);
     private static final Napakalaki NP = Napakalaki.getInstance();
@@ -27,6 +29,9 @@ public class TextUI {
     
     // Método main.
     public static void main(String[] args) {
+        napakalakiView.setNapakalaki(NP);
+        napakalakiView.showView(); 
+        /*
         CombatResult result;
         
         // Presentación del juego
@@ -67,7 +72,7 @@ public class TextUI {
                 //Fin del juego.
                 System.out.println("¡El juego ha terminado! Ganador: " + NP.getCurrentPlayer());
             }
-        } while (!NP.endOfGame(result)); 
+        } while (!NP.endOfGame(result)); */
     }
 
     
