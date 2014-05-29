@@ -40,34 +40,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="287" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="labelText" pref="275" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="buttonPlay" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="buttonExit" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="buttonPlay" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="buttonExit" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelP2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelP3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelP1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="fieldP3" alignment="1" pref="103" max="32767" attributes="0"/>
-                                  <Component id="fieldP2" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="fieldP1" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="labelP2" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelP3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="labelP1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="fieldP3" alignment="1" pref="103" max="32767" attributes="0"/>
+                          <Component id="fieldP2" alignment="1" max="32767" attributes="0"/>
+                          <Component id="fieldP1" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -79,8 +71,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="25" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Component id="labelText" min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelP1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fieldP1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -106,22 +98,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="Introduce el nombre de los jugadores. "/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JButton" name="buttonPlay">
       <Properties>
         <Property name="text" type="java.lang.String" value="Jugar"/>
@@ -154,18 +130,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldP1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldP2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldP3">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelText">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre"/>
+        <Property name="text" type="java.lang.String" value="Introduce el nombre de los jugadores."/>
       </Properties>
     </Component>
   </SubComponents>
