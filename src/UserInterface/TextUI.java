@@ -29,10 +29,7 @@ public class TextUI {
     
     // Método main.
     public static void main(String[] args) {
-        napakalakiView.setNapakalaki(NP);
-        napakalakiView.showView(); 
-        //play(); 
-        
+        play();  
     }
 
 // EJECUCIÓN TEXTUI
