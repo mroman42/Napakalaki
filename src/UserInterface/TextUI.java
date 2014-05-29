@@ -1,7 +1,6 @@
 package UserInterface;
 
 import Game.*;
-import GUI.*; 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +16,6 @@ import java.util.Scanner;
  * @author Óscar Bermúdez
  */
 public class TextUI {
-    private static final NapakalakiView napakalakiView = new NapakalakiView(); 
     private static Scanner scanIn;
     private static final Reader reader = new InputStreamReader(System.in);
     private static final Napakalaki NP = Napakalaki.getInstance();

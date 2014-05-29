@@ -161,26 +161,26 @@ public class Player {
         
         // Si perdemos el combate, podemos escapar o no. 
         else {
-        // Tiramos el dado.
+            // Tiramos el dado.
             int escape = Dice.getInstance().nextNumber(); 
-        // No escapamos. 
+            // No escapamos. 
             if (escape < 5){
                 BadConsequence bad = monster.getBadConsequence();
                 
-                if (bad.kills()){
+                if (bad.kills()) {
                     die(); 
                     result = CombatResult.LOSEANDDIE;
                 }
-                else{
+                else {
                     applyBadConsequence(bad); 
                     
-                    if(shouldConvert())
+                    if (shouldConvert())
                         result = CombatResult.LOSEANDCONVERT;
                     else
                         result = CombatResult.LOSE; 
                 }
             }
-        // Escapamos.
+            // Escapamos.
             else
                 result = CombatResult.LOSEANDESCAPE; 
         }
