@@ -31,7 +31,13 @@ public class TextUI {
     public static void main(String[] args) {
         napakalakiView.setNapakalaki(NP);
         napakalakiView.showView(); 
-        /*
+        //play(); 
+        
+    }
+
+// EJECUCIÓN TEXTUI
+    
+    public static void play(){
         CombatResult result;
         
         // Presentación del juego
@@ -72,9 +78,9 @@ public class TextUI {
                 //Fin del juego.
                 System.out.println("¡El juego ha terminado! Ganador: " + NP.getCurrentPlayer());
             }
-        } while (!NP.endOfGame(result)); */
+        } while (!NP.endOfGame(result)); 
     }
-
+    
     
 // SECCIÓN LECTURA:
     
