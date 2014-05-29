@@ -3,7 +3,9 @@ import Game.*;
 
 /**
  *
- * @author mario
+ * @author Mario Román 
+ * @author José Carlos Entrena
+ * @author Óscar Bermúdez 
  */
 public class GUI {
     private static final NapakalakiView napakalakiView = new NapakalakiView();
