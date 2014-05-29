@@ -7,9 +7,9 @@ import Game.*;
  */
 public class GUI {
     private static final NapakalakiView napakalakiView = new NapakalakiView();
-    private static final Napakalaki NapakalakiModel = Napakalaki.getInstance();
+    private static final Napakalaki napakalakiModel = Napakalaki.getInstance();
     
     public static void main (String[] args) {
-
+        napakalakiView.showView(); 
     }
 }
