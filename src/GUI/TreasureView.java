@@ -18,12 +18,12 @@
 
 package GUI;
 
-/**
- *
- * @author oscarbg
- */
-public class TreasureView extends javax.swing.JPanel {
+import Game.Treasure;
 
+
+public class TreasureView extends javax.swing.JPanel {
+    Treasure treasureModel;
+    
     /**
      * Creates new form TreasureView
      */
