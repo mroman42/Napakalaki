@@ -216,6 +216,12 @@ public class PlayerView extends javax.swing.JPanel {
 
     private void buyLevelsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyLevelsButtonActionPerformed
         // TODO add your handling code here:
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasuresPanel);
+        ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasuresPanel);
+        
+        napakalakiModel.buyLevels(selVisible, selHidden);
+        
+        setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_buyLevelsButtonActionPerformed
 
 
