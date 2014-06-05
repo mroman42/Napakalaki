@@ -200,6 +200,18 @@ public class PlayerView extends javax.swing.JPanel {
 
     private void discardTreasuresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresButtonActionPerformed
         // TODO add your handling code here:
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasuresPanel);
+        ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasuresPanel);
+        
+        for(Treasure treasure : selHidden){
+            napakalakiModel.discardHiddenTreasure(treasure);
+        }
+        
+        for(Treasure treasure : selVisible){
+            napakalakiModel.discardVisibleTreasure(treasure);
+        }
+        
+        setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_discardTreasuresButtonActionPerformed
 
     private void buyLevelsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyLevelsButtonActionPerformed
