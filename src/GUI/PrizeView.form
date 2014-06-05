@@ -63,17 +63,17 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Ubuntu" size="15" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Prize:"/>
+        <Property name="text" type="java.lang.String" value="Premio:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="treasuresTextLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Treasures:"/>
+        <Property name="text" type="java.lang.String" value="Tesoros:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="levelsTextLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Levels:"/>
+        <Property name="text" type="java.lang.String" value="Niveles:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="treasuresLabel">
