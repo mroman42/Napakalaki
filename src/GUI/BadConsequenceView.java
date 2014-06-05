@@ -19,8 +19,8 @@ public class BadConsequenceView extends javax.swing.JPanel {
         initComponents();
     }
 
-    public void setBadConsequene(BadConsequence p){
-        badConsequenceModel = p; 
+    public void setBadConsequence(BadConsequence bad){
+        badConsequenceModel = bad; 
         badConsequenceTextLabel.setText(badConsequenceModel.getText());
         repaint();    
     }
