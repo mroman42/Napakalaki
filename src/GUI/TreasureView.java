@@ -8,7 +8,12 @@
 package GUI;
 import Game.Treasure;
 
-
+/**
+ *
+ * @author José Carlos Entrena
+ * @author Mario Román
+ * @author Óscar Bermúdez
+ */
 public class TreasureView extends javax.swing.JPanel {
     Treasure treasureModel;
     
