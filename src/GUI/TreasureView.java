@@ -55,9 +55,9 @@ public class TreasureView extends javax.swing.JPanel {
         minBonusLabel = new javax.swing.JLabel();
         maxBonusLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        minBonusTextLabel = new javax.swing.JLabel();
+        maxBonusTextLabel = new javax.swing.JLabel();
+        priceTextLabel = new javax.swing.JLabel();
 
         treasureNameLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         treasureNameLabel.setText("Treasure Name");
@@ -71,11 +71,11 @@ public class TreasureView extends javax.swing.JPanel {
 
         priceLabel.setText("0 $");
 
-        jLabel1.setText("Min Bonus:");
+        minBonusTextLabel.setText("Min Bonus:");
 
-        jLabel2.setText("Max Bonus:");
+        maxBonusTextLabel.setText("Max Bonus:");
 
-        jLabel3.setText("Price: ");
+        priceTextLabel.setText("Price: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -92,15 +92,15 @@ public class TreasureView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3)
+                        .addComponent(priceTextLabel)
                         .addGap(18, 18, 18)
                         .addComponent(priceLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
-                        .addComponent(jLabel1))
+                        .addComponent(minBonusTextLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2)))
+                        .addComponent(maxBonusTextLabel)))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(maxBonusLabel)
@@ -117,27 +117,27 @@ public class TreasureView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(minBonusLabel)
-                    .addComponent(jLabel1))
+                    .addComponent(minBonusTextLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(maxBonusTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(maxBonusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priceLabel)
-                    .addComponent(jLabel3))
+                    .addComponent(priceTextLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel maxBonusLabel;
+    private javax.swing.JLabel maxBonusTextLabel;
     private javax.swing.JLabel minBonusLabel;
+    private javax.swing.JLabel minBonusTextLabel;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel priceTextLabel;
     private javax.swing.JLabel treasureKindLabel;
     private javax.swing.JLabel treasureNameLabel;
     // End of variables declaration//GEN-END:variables
