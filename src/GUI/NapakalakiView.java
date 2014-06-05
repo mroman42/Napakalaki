@@ -1,14 +1,14 @@
-
-package GUI;
-
-import Game.*;
-
 /**
- *
+ * NapakalakiView.java
  * @author Jose Carlos Entrena
  * @author Mario Román 
   * @author Óscar Bermúdez
  */
+
+package GUI;
+import Game.*;
+
+
 public class NapakalakiView extends javax.swing.JFrame {
 
     Napakalaki napakalakiModel; 
