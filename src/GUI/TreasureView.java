@@ -30,6 +30,16 @@ public class TreasureView extends javax.swing.JPanel {
     public TreasureView() {
         initComponents();
     }
+    
+    public void setTreasure(Treasure t){
+        treasureModel = t; 
+        maxBonusLabel.setText(Integer.toString(treasureModel.getSpecialValue()));
+        minBonusLabel.setText(Integer.toString(treasureModel.getBasicValue()));
+        priceLabel.setText(Integer.toString(treasureModel.getGoldCoins()));
+        treasureKindLabel.setText(treasureModel.getType().toString());
+        treasureNameLabel.setText(treasureModel.getName()); 
+        repaint();    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
