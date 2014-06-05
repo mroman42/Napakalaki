@@ -32,7 +32,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="levelValue" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="levelVsCultistValue" min="-2" pref="54" max="-2" attributes="0"/>
+                              <Component id="levelVsCultistValue" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -54,12 +54,10 @@
                           <Component id="nameValue" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="levelVsCultistValue" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="levelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="levelValue" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="levelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="levelValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="levelVsCultistValue" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Component id="prizeView" min="-2" max="-2" attributes="0"/>
