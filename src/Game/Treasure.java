@@ -55,38 +55,7 @@ public class Treasure implements Card {
     // Métodos auxiliares
     @Override
     public String toString() {
-        String tipo;
-        
-        switch (type) {
-            case ARMOR: {
-                tipo = "Armadura";
-                break;
-            }
-            case BOTHHANDS: {
-                tipo = "Arma de dos manos";
-                break;
-            }
-            case ONEHAND: {
-                tipo = "Arma de una mano";
-                break;
-            }
-            case SHOE: {
-                tipo = "Calzado";
-                break;
-            }
-            case HELMET: {
-                tipo = "Casco";
-                break;
-            }
-            case NECKLACE: {
-                tipo = "Collar";
-                break;
-            }
-            default: {
-                tipo = "ERROR";
-                break;
-            }
-        }
+        String tipo = type.toString();        
 
         return name + "  (" + tipo + ") [+" + minBonus + ",++" + maxBonus + "] (" + goldCoins + "$)";
     }
