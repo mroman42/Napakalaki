@@ -19,28 +19,35 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="visibleTreasuresPanel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="nivelCombate" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="combatLevelLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="buyLevelsButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="visibleTreasuresPanel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="makeTreasuresVisibleButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="nivelCombate" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="combatLevelLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                      <Component id="hiddenTreasuresPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="discardTreasuresButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="nivel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="levelLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="nameLabel" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="hiddenTreasuresPanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="cultistView" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -60,7 +67,7 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Component id="cultistView" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -69,12 +76,19 @@
                   <Component id="nivelCombate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="combatLevelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="166" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="hiddenTreasuresPanel" max="32767" attributes="0"/>
-                  <Component id="visibleTreasuresPanel" max="32767" attributes="0"/>
+              <EmptySpace pref="207" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="hiddenTreasuresPanel" max="32767" attributes="0"/>
+                      <Component id="visibleTreasuresPanel" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="buyLevelsButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="makeTreasuresVisibleButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="discardTreasuresButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -114,6 +128,21 @@
       </Properties>
     </Component>
     <Component class="GUI.CultistView" name="cultistView">
+    </Component>
+    <Component class="javax.swing.JButton" name="buyLevelsButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comprar Niveles"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="makeTreasuresVisibleButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hacer Tesoros Visibles"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="discardTreasuresButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Eliminar Tesoros"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
