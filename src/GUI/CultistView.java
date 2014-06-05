@@ -18,11 +18,14 @@
 
 package GUI;
 
+import Game.Cultist;
+
 /**
  *
  * @author mario
  */
 public class CultistView extends javax.swing.JPanel {
+    Cultist cultistModel;
 
     /**
      * Creates new form CultistView
@@ -30,6 +33,13 @@ public class CultistView extends javax.swing.JPanel {
     public CultistView() {
         initComponents();
     }
+    
+        public void setCultist(Cultist c){
+        cultistModel = c; 
+        gainedLevelValue.setText("+" + Integer.toString(c.getBasicValue())); 
+        repaint();    
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,19 +50,38 @@ public class CultistView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        gainedLevelLabel = new javax.swing.JLabel();
+        gainedLevelValue = new javax.swing.JLabel();
+
+        gainedLevelLabel.setText("Gained levels:");
+
+        gainedLevelValue.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(gainedLevelLabel)
+                .addGap(18, 18, 18)
+                .addComponent(gainedLevelValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(gainedLevelValue, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                    .addComponent(gainedLevelLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel gainedLevelLabel;
+    private javax.swing.JLabel gainedLevelValue;
     // End of variables declaration//GEN-END:variables
 }
