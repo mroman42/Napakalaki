@@ -19,6 +19,10 @@ public class CultistPlayer extends Player {
         totalCultistPlayers++; 
     }
     
+    public Cultist getCultistCard(){
+        return myCultistCard; 
+    }
+    
     @Override
     public void applyPrize(Prize prize){
         super.applyPrize(prize);
