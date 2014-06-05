@@ -1,5 +1,11 @@
-package GUI;
+/**
+ * TreasureView.java
+ * @author Jose Carlos Entrena
+ * @author Mario Román 
+ * @author Óscar Bermúdez
+ */
 
+package GUI;
 import Game.Treasure;
 
 /**
