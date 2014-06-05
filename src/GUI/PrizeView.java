@@ -40,11 +40,11 @@ public class PrizeView extends javax.swing.JPanel {
         levelsLabel = new javax.swing.JLabel();
 
         prizeTextLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        prizeTextLabel.setText("Prize:");
+        prizeTextLabel.setText("Premio:");
 
-        treasuresTextLabel.setText("Treasures:");
+        treasuresTextLabel.setText("Tesoros:");
 
-        levelsTextLabel.setText("Levels:");
+        levelsTextLabel.setText("Niveles:");
 
         treasuresLabel.setText("0");
 
