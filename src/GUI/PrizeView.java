@@ -1,36 +1,29 @@
-/*
- * Copyright (C) 2014 oscarbg
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
- */
-
-package GUI;
-
 /**
- *
- * @author oscarbg
+ * PrizeView.java
+ * @author Jose Carlos Entrena
+ * @author Mario Román 
+ * @author Óscar Bermúdez
  */
-public class PrizeView extends javax.swing.JPanel {
+package GUI;
+import Game.Prize;
 
+public class PrizeView extends javax.swing.JPanel {
+    Prize prizeModel;
+    
     /**
      * Creates new form PrizeView
      */
     public PrizeView() {
         initComponents();
     }
-
+    
+    public void setPrize(Prize p){
+        prizeModel = p; 
+        treasuresLabel.setText(Integer.toString(prizeModel.getTreasures()));
+        levelsLabel.setText(Integer.toString(prizeModel.getLevels()));
+        repaint();    
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,20 +35,20 @@ public class PrizeView extends javax.swing.JPanel {
 
         prizeTextLabel = new javax.swing.JLabel();
         treasuresTextLabel = new javax.swing.JLabel();
-        levelsTextName = new javax.swing.JLabel();
+        levelsTextLabel = new javax.swing.JLabel();
         treasuresLabel = new javax.swing.JLabel();
-        levelsName = new javax.swing.JLabel();
+        levelsLabel = new javax.swing.JLabel();
 
         prizeTextLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         prizeTextLabel.setText("Prize:");
 
         treasuresTextLabel.setText("Treasures:");
 
-        levelsTextName.setText("Levels:");
+        levelsTextLabel.setText("Levels:");
 
         treasuresLabel.setText("0");
 
-        levelsName.setText("0");
+        levelsLabel.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,11 +62,11 @@ public class PrizeView extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(treasuresTextLabel)
-                            .addComponent(levelsTextName))
+                            .addComponent(levelsTextLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(treasuresLabel)
-                            .addComponent(levelsName))))
+                            .addComponent(levelsLabel))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -87,16 +80,16 @@ public class PrizeView extends javax.swing.JPanel {
                     .addComponent(treasuresLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(levelsTextName)
-                    .addComponent(levelsName))
+                    .addComponent(levelsTextLabel)
+                    .addComponent(levelsLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel levelsName;
-    private javax.swing.JLabel levelsTextName;
+    private javax.swing.JLabel levelsLabel;
+    private javax.swing.JLabel levelsTextLabel;
     private javax.swing.JLabel prizeTextLabel;
     private javax.swing.JLabel treasuresLabel;
     private javax.swing.JLabel treasuresTextLabel;
