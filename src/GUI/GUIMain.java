@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author José Carlos Entrena
  * @author Óscar Bermúdez 
  */
-public class GUI {
+public class GUIMain {
     private static final NapakalakiView napakalakiView = new NapakalakiView();
     private static final Napakalaki napakalakiModel = Napakalaki.getInstance();
     
