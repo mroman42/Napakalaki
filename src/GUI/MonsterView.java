@@ -35,6 +35,7 @@ public class MonsterView extends javax.swing.JPanel {
         nameValue.setText(monsterModel.getName());
         levelValue.setText(Integer.toString(monsterModel.getLevel()));
         levelVsCultistValue.setText(cadena);
+        badConsequenceView.setBadConsequence(monsterModel.getBadConsequence());
         repaint();    
     }
 
@@ -52,8 +53,8 @@ public class MonsterView extends javax.swing.JPanel {
         nameValue = new javax.swing.JLabel();
         levelValue = new javax.swing.JLabel();
         levelVsCultistValue = new javax.swing.JLabel();
-        prizeView1 = new GUI.PrizeView();
-        badConsequenceView1 = new GUI.BadConsequenceView();
+        prizeView = new GUI.PrizeView();
+        badConsequenceView = new GUI.BadConsequenceView();
 
         nameLabel.setText("Nombre:");
 
@@ -63,6 +64,7 @@ public class MonsterView extends javax.swing.JPanel {
 
         levelValue.setText("0");
 
+        levelVsCultistValue.setText("(+0)");
         levelVsCultistValue.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -72,7 +74,7 @@ public class MonsterView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(badConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(badConsequenceView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -83,16 +85,16 @@ public class MonsterView extends javax.swing.JPanel {
                                 .addComponent(levelLabel)
                                 .addGap(18, 18, 18)
                                 .addComponent(levelValue)
-                                .addGap(18, 18, 18)
-                                .addComponent(levelVsCultistValue)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(levelVsCultistValue, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(prizeView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(prizeView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -102,21 +104,21 @@ public class MonsterView extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(levelLabel)
                             .addComponent(levelValue)
-                            .addComponent(levelVsCultistValue)))
-                    .addComponent(prizeView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(levelVsCultistValue, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(prizeView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(badConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(badConsequenceView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private GUI.BadConsequenceView badConsequenceView1;
+    private GUI.BadConsequenceView badConsequenceView;
     private javax.swing.JLabel levelLabel;
     private javax.swing.JLabel levelValue;
     private javax.swing.JLabel levelVsCultistValue;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nameValue;
-    private GUI.PrizeView prizeView1;
+    private GUI.PrizeView prizeView;
     // End of variables declaration//GEN-END:variables
 }

@@ -19,7 +19,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="badConsequenceView1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="badConsequenceView" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -31,12 +31,12 @@
                               <Component id="levelLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="levelValue" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="levelVsCultistValue" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="levelVsCultistValue" min="-2" pref="54" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="prizeView1" min="-2" max="-2" attributes="0"/>
+                      <Component id="prizeView" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -46,7 +46,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -57,13 +57,13 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="levelLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="levelValue" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="levelVsCultistValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="levelVsCultistValue" alignment="1" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="prizeView1" min="-2" max="-2" attributes="0"/>
+                  <Component id="prizeView" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="badConsequenceView1" min="-2" max="-2" attributes="0"/>
+              <Component id="badConsequenceView" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -91,12 +91,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="levelVsCultistValue">
       <Properties>
+        <Property name="text" type="java.lang.String" value="(+0)"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
-    <Component class="GUI.PrizeView" name="prizeView1">
+    <Component class="GUI.PrizeView" name="prizeView">
     </Component>
-    <Component class="GUI.BadConsequenceView" name="badConsequenceView1">
+    <Component class="GUI.BadConsequenceView" name="badConsequenceView">
     </Component>
   </SubComponents>
 </Form>
