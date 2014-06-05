@@ -35,6 +35,9 @@ public class MonsterView extends javax.swing.JPanel {
         nameValue.setText(monsterModel.getName());
         levelValue.setText(Integer.toString(monsterModel.getLevel()));
         levelVsCultistValue.setText(cadena);
+
+        prizeView1.setPrize(monsterModel.getPrize());
+        badConsequenceView1.setBadConsequence(monsterModel.getBadConsequence());
         repaint();    
     }
 
