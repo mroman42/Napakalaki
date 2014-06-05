@@ -1,26 +1,14 @@
-/*
- * Copyright (C) 2014 oscarbg
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
- */
-
 package GUI;
+import Game.Treasure;
+import Game.Player;
+import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  *
- * @author oscarbg
+ * @author José Carlos Entrena
+ * @author Mario Román
+ * @author Óscar Bermúdez
  */
 public class PlayerView extends javax.swing.JPanel {
 
@@ -31,6 +19,20 @@ public class PlayerView extends javax.swing.JPanel {
         initComponents();
     }
 
+    public void fillTreasurePanel (JPanel aPanel, ArrayList<Treasure> treasureList) {
+        // Se eliminan los elementos y se añaden los nuevos. 
+        aPanel.removeAll(); 
+        for (Treasure t : treasureList){
+            TreasureView treasureView = new TreasureView(); 
+            treasureView.setTreasure(t); 
+            treasureView.setVisible(true);
+            aPanel.add(treasureView); 
+        }
+        
+        aPanel.repaint(); 
+        aPanel.revalidate(); 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,19 +42,84 @@ public class PlayerView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nameLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        levelLabel = new javax.swing.JLabel();
+        visibleTreasuresPanel = new javax.swing.JPanel();
+        hiddenTreasuresPanel = new javax.swing.JPanel();
+
+        nameLabel.setText("Nombre");
+
+        jLabel2.setText("Nivel");
+
+        levelLabel.setText("Nº nivel");
+
+        javax.swing.GroupLayout visibleTreasuresPanelLayout = new javax.swing.GroupLayout(visibleTreasuresPanel);
+        visibleTreasuresPanel.setLayout(visibleTreasuresPanelLayout);
+        visibleTreasuresPanelLayout.setHorizontalGroup(
+            visibleTreasuresPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        visibleTreasuresPanelLayout.setVerticalGroup(
+            visibleTreasuresPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout hiddenTreasuresPanelLayout = new javax.swing.GroupLayout(hiddenTreasuresPanel);
+        hiddenTreasuresPanel.setLayout(hiddenTreasuresPanelLayout);
+        hiddenTreasuresPanelLayout.setHorizontalGroup(
+            hiddenTreasuresPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 97, Short.MAX_VALUE)
+        );
+        hiddenTreasuresPanelLayout.setVerticalGroup(
+            hiddenTreasuresPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
+                                .addComponent(levelLabel))
+                            .addComponent(nameLabel))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(visibleTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                        .addComponent(hiddenTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(nameLabel)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(levelLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(hiddenTreasuresPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(visibleTreasuresPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(32, 32, 32))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel hiddenTreasuresPanel;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel levelLabel;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JPanel visibleTreasuresPanel;
     // End of variables declaration//GEN-END:variables
 }
