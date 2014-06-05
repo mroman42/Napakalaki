@@ -49,9 +49,8 @@ public class NapakalakiView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+
+    
     public void showView() {
         this.setVisible(true);
     }

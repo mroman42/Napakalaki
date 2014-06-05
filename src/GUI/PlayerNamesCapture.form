@@ -108,7 +108,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonExit">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salir y vivir de verdad"/>
+        <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonExitActionPerformed"/>
@@ -130,10 +130,19 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldP1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alice"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldP2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bob"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="fieldP3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Carol"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelText">
       <Properties>

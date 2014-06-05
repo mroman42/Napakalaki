@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 
 public class PlayerNamesCapture extends javax.swing.JDialog {
-    private static ArrayList<String> names;
+    private static ArrayList<String> names = new ArrayList<>();
     
     /**
      * Creates new form PlayerNamesCapture
@@ -69,7 +69,7 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
             }
         });
 
-        buttonExit.setText("Salir y vivir de verdad");
+        buttonExit.setText("Salir");
         buttonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonExitActionPerformed(evt);
@@ -81,6 +81,12 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         labelP2.setText("Jugador 2");
 
         labelP3.setText("Jugador 3");
+
+        fieldP1.setText("Alice");
+
+        fieldP2.setText("Bob");
+
+        fieldP3.setText("Carol");
 
         labelText.setText("Introduce el nombre de los jugadores.");
 
