@@ -16,12 +16,14 @@ import Game.Treasure;
  */
 public class TreasureView extends javax.swing.JPanel {
     Treasure treasureModel;
+    boolean selected = false;
     
     /**
      * Creates new form TreasureView
      */
     public TreasureView() {
         initComponents();
+        setOpaque(selected);
     }
     
     public void setTreasure(Treasure t){
@@ -33,7 +35,15 @@ public class TreasureView extends javax.swing.JPanel {
         treasureNameLabel.setText(treasureModel.getName()); 
         repaint();    
     }
+    
+    public Treasure getTreasure(){
+        return treasureModel;
+    }
 
+    public boolean isSelected(){
+        return selected;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,6 +61,13 @@ public class TreasureView extends javax.swing.JPanel {
         minBonusTextLabel = new javax.swing.JLabel();
         maxBonusTextLabel = new javax.swing.JLabel();
         priceTextLabel = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(236, 204, 172));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
 
         treasureNameLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         treasureNameLabel.setText("Treasure Name");
@@ -122,6 +139,12 @@ public class TreasureView extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        selected = !selected;
+        setOpaque(selected);
+        repaint();
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

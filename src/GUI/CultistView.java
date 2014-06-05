@@ -59,7 +59,7 @@ public class CultistView extends javax.swing.JPanel {
         gainedLevelValue.setText("0");
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel1.setText("Cultist:");
+        jLabel1.setText("Sectario:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
