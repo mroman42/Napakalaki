@@ -1,34 +1,41 @@
-/*
- * Copyright (C) 2014 oscarbg
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+/**
+ * PrizeView.java
+ * @author Jose Carlos Entrena
+ * @author Mario Román 
+ * @author Óscar Bermúdez
  */
 
 package GUI;
 
-/**
- *
- * @author oscarbg
- */
-public class MonsterView extends javax.swing.JPanel {
+import Game.Monster;
 
+public class MonsterView extends javax.swing.JPanel {
+    Monster monsterModel;
+    
     /**
      * Creates new form MonsterView
      */
     public MonsterView() {
         initComponents();
+    }
+
+    public void setMonster(Monster m){
+        String cadena = "";
+        monsterModel = m;
+        
+        int levelVSCultist = monsterModel.getLevelChangeAgainstCultistPlayer();
+        
+        if(levelVSCultist > 0){
+            cadena = "(+" + Integer.toString(levelVSCultist) + ")";
+        }
+        else if(levelVSCultist < 0){
+            cadena = "(" + Integer.toString(levelVSCultist) + ")";
+        }
+        
+        nameValue.setText(monsterModel.getName());
+        levelValue.setText(Integer.toString(monsterModel.getLevel()));
+        levelVsCultistValue.setText(cadena);
+        repaint();    
     }
 
     /**
@@ -40,19 +47,76 @@ public class MonsterView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nameLabel = new javax.swing.JLabel();
+        levelLabel = new javax.swing.JLabel();
+        nameValue = new javax.swing.JLabel();
+        levelValue = new javax.swing.JLabel();
+        levelVsCultistValue = new javax.swing.JLabel();
+        prizeView1 = new GUI.PrizeView();
+        badConsequenceView1 = new GUI.BadConsequenceView();
+
+        nameLabel.setText("Nombre:");
+
+        levelLabel.setText("Nivel:");
+
+        nameValue.setText("Desconocido");
+
+        levelValue.setText("0");
+
+        levelVsCultistValue.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(badConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nameLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(nameValue))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(levelLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(levelValue)
+                                .addGap(18, 18, 18)
+                                .addComponent(levelVsCultistValue)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(prizeView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameLabel)
+                            .addComponent(nameValue))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(levelLabel)
+                            .addComponent(levelValue)
+                            .addComponent(levelVsCultistValue)))
+                    .addComponent(prizeView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(badConsequenceView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private GUI.BadConsequenceView badConsequenceView1;
+    private javax.swing.JLabel levelLabel;
+    private javax.swing.JLabel levelValue;
+    private javax.swing.JLabel levelVsCultistValue;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel nameValue;
+    private GUI.PrizeView prizeView1;
     // End of variables declaration//GEN-END:variables
 }
