@@ -35,7 +35,7 @@ public class TreasureView extends javax.swing.JPanel {
         treasureModel = t; 
         maxBonusLabel.setText(Integer.toString(treasureModel.getSpecialValue()));
         minBonusLabel.setText(Integer.toString(treasureModel.getBasicValue()));
-        priceLabel.setText(Integer.toString(treasureModel.getGoldCoins()));
+        priceLabel.setText(Integer.toString(treasureModel.getGoldCoins()) + " $");
         treasureKindLabel.setText(treasureModel.getType().toString());
         treasureNameLabel.setText(treasureModel.getName()); 
         repaint();    
@@ -55,6 +55,9 @@ public class TreasureView extends javax.swing.JPanel {
         minBonusLabel = new javax.swing.JLabel();
         maxBonusLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         treasureNameLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         treasureNameLabel.setText("Treasure Name");
@@ -62,11 +65,17 @@ public class TreasureView extends javax.swing.JPanel {
         treasureKindLabel.setFont(new java.awt.Font("Ubuntu", 2, 15)); // NOI18N
         treasureKindLabel.setText("Treasure Kind");
 
-        minBonusLabel.setText("Min Bonus:  0");
+        minBonusLabel.setText("0");
 
-        maxBonusLabel.setText("Max Bonus: 0");
+        maxBonusLabel.setText("0");
 
-        priceLabel.setText("Price: 0 $");
+        priceLabel.setText("0 $");
+
+        jLabel1.setText("Min Bonus:");
+
+        jLabel2.setText("Max Bonus:");
+
+        jLabel3.setText("Price: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,21 +83,29 @@ public class TreasureView extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(treasureKindLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(maxBonusLabel)
-                                    .addComponent(minBonusLabel)))
-                            .addComponent(priceLabel))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(treasureKindLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(treasureNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(priceLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(maxBonusLabel)
+                    .addComponent(minBonusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,17 +115,26 @@ public class TreasureView extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(treasureKindLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(minBonusLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(minBonusLabel)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(maxBonusLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(priceLabel)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(maxBonusLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceLabel)
+                    .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel maxBonusLabel;
     private javax.swing.JLabel minBonusLabel;
     private javax.swing.JLabel priceLabel;
