@@ -1,4 +1,5 @@
 package GUI;
+import Game.CultistPlayer;
 import Game.Treasure;
 import Game.Player;
 import java.util.ArrayList;
@@ -39,7 +40,14 @@ public class PlayerView extends javax.swing.JPanel {
         nameLabel.setText(playerModel.getName());
         levelLabel.setText(Integer.toString(playerModel.getLevel()));
         combatLevelLabel.setText(Integer.toString(playerModel.getCombatLevel()));
+        // Si es un sectario actualizamos su carta de sectario. 
+        if (playerModel.getClass() == CultistPlayer.class)
+            cultistView.setCultist(((CultistPlayer) playerModel).getCultistCard());
         
+        fillTreasurePanel(visibleTreasuresPanel, playerModel.getVisibleTreasures());
+        fillTreasurePanel(hiddenTreasuresPanel, playerModel.getHiddenTreasures());
+        repaint();
+        revalidate();
     }
     
     /**
