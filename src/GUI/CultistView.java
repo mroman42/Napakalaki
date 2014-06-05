@@ -34,9 +34,9 @@ public class CultistView extends javax.swing.JPanel {
         initComponents();
     }
     
-        public void setCultist(Cultist c){
+    public void setCultist(Cultist c){
         cultistModel = c; 
-        gainedLevelValue.setText("+" + Integer.toString(c.getBasicValue())); 
+        gainedLevelValue.setText("+" + Integer.toString(cultistModel.getBasicValue())); 
         repaint();    
     }
 

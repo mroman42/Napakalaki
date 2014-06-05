@@ -199,7 +199,7 @@ public class Player {
         setPendingBadConsequence(bad.adjustToFitTreasureLists(visibleTreasures, hiddenTreasures)); 
     }
     
-    /**
+    /**     
      * @brief Hace visible un tesoro, comprobando previamente si puede hacerse. 
      * @param treasure Tesoro a hacer visible. 
      * @return Valor booleano, que nos dice si el tesoro se ha hecho visible. 
@@ -388,6 +388,14 @@ public class Player {
 
     public ArrayList<Treasure> getVisibleTreasures() {
         return visibleTreasures;
+    }
+    
+    public String getName(){
+        return name; 
+    }
+    
+    public int getLevel(){
+        return level; 
     }
     
     @Override
