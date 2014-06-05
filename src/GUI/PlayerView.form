@@ -129,16 +129,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Comprar Niveles"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyLevelsButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="makeTreasuresVisibleButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hacer Tesoros Visibles"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="makeTreasuresVisibleButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="discardTreasuresButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminar Tesoros"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="discardTreasuresButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

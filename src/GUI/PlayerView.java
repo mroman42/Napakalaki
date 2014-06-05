@@ -1,7 +1,9 @@
 package GUI;
 import Game.CultistPlayer;
+import Game.Napakalaki;
 import Game.Treasure;
 import Game.Player;
+import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -13,6 +15,7 @@ import javax.swing.JPanel;
  */
 public class PlayerView extends javax.swing.JPanel {
     Player playerModel; 
+    private Napakalaki napakalakiModel;
 
     /**
      * Creates new form PlayerView
@@ -50,6 +53,27 @@ public class PlayerView extends javax.swing.JPanel {
         revalidate();
     }
     
+    /* Ni idea de qué tenemos que hacer aquí.
+    Punto K-2, del guión.
+    
+    public void setNapakalaki(Napakalaki nueva) {
+        napakalakiModel = nueva; 
+        napakalakiModel = null;
+        repaint(); 
+    }*/
+    
+    public ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
+        TreasureView treasureView;
+        ArrayList<Treasure> selected = new ArrayList();
+        
+        for(Component treasure : aPanel.getComponents()) {
+            treasureView = (TreasureView) treasure;
+            
+            if(treasureView.isSelected())
+                selected.add (treasureView.getTreasure());
+            }
+        return selected;
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -82,10 +106,25 @@ public class PlayerView extends javax.swing.JPanel {
         combatLevelLabel.setText("CombatLevel");
 
         buyLevelsButton.setText("Comprar Niveles");
+        buyLevelsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buyLevelsButtonActionPerformed(evt);
+            }
+        });
 
         makeTreasuresVisibleButton.setText("Hacer Tesoros Visibles");
+        makeTreasuresVisibleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                makeTreasuresVisibleButtonActionPerformed(evt);
+            }
+        });
 
         discardTreasuresButton.setText("Eliminar Tesoros");
+        discardTreasuresButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                discardTreasuresButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -147,6 +186,25 @@ public class PlayerView extends javax.swing.JPanel {
                 .addGap(13, 13, 13))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void makeTreasuresVisibleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeTreasuresVisibleButtonActionPerformed
+        // TODO add your handling code here:
+        ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasuresPanel);
+        
+        for(Treasure treasure : selHidden){
+            napakalakiModel.makeTreasureVisible(treasure);
+        }
+        
+        setPlayer(napakalakiModel.getCurrentPlayer());
+    }//GEN-LAST:event_makeTreasuresVisibleButtonActionPerformed
+
+    private void discardTreasuresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_discardTreasuresButtonActionPerformed
+
+    private void buyLevelsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyLevelsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buyLevelsButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
