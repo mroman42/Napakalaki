@@ -64,6 +64,34 @@ public class PlayerView extends javax.swing.JPanel {
         repaint(); 
     }
     
+    // Métodos para desactivar y activar botones desde NapakalakiView
+    
+    public void disableBuy(){
+        buyLevelsButton.setEnabled(false);
+    }
+    
+    public void enableBuy(){
+        buyLevelsButton.setEnabled(true); 
+    }
+    
+    public void disableDiscard(){
+        discardTreasuresButton.setEnabled(false); 
+    }
+    
+    public void enableDiscard(){
+        discardTreasuresButton.setEnabled(true); 
+    }
+    
+    public void disableMakeVisible(){
+        makeTreasuresVisibleButton.setEnabled(false); 
+    }
+    
+    public void enableMakeVisible(){
+        makeTreasuresVisibleButton.setEnabled(true); 
+    }
+    
+    
+    
     public ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
         TreasureView treasureView;
         ArrayList<Treasure> selected = new ArrayList();
