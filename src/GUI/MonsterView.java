@@ -25,6 +25,7 @@ public class MonsterView extends javax.swing.JPanel {
         
         int levelVSCultist = monsterModel.getLevelChangeAgainstCultistPlayer();
         
+        //Comprobar si es negativo, nulo o positivo para mostrarla variable de forma distinta
         if(levelVSCultist > 0){
             cadena = "(+" + Integer.toString(levelVSCultist) + ")";
         }
