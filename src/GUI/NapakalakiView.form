@@ -75,8 +75,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonNextTurn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="SIguente Turno"/>
+        <Property name="text" type="java.lang.String" value="Siguente Turno"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonNextTurnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="GUI.MonsterView" name="monsterView">
     </Component>
