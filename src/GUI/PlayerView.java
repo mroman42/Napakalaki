@@ -94,6 +94,8 @@ public class PlayerView extends javax.swing.JPanel {
         buyLevelsButton = new javax.swing.JButton();
         makeTreasuresVisibleButton = new javax.swing.JButton();
         discardTreasuresButton = new javax.swing.JButton();
+        visibleTreasureLabel = new javax.swing.JLabel();
+        hiddenTreasuresLabel = new javax.swing.JLabel();
 
         nameLabel.setText("Nombre");
 
@@ -126,6 +128,10 @@ public class PlayerView extends javax.swing.JPanel {
             }
         });
 
+        visibleTreasureLabel.setText("Visibles:");
+
+        hiddenTreasuresLabel.setText("Ocultos:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -134,30 +140,35 @@ public class PlayerView extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(buyLevelsButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(visibleTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(makeTreasuresVisibleButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nivelCombate)
-                                .addGap(30, 30, 30)
-                                .addComponent(combatLevelLabel))
-                            .addComponent(nameLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                        .addComponent(hiddenTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
+                        .addComponent(nivelCombate)
+                        .addGap(30, 30, 30)
+                        .addComponent(combatLevelLabel))
+                    .addComponent(nameLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nivel)
                         .addGap(18, 18, 18)
-                        .addComponent(levelLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(levelLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(visibleTreasureLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(visibleTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(hiddenTreasuresLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(hiddenTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(buyLevelsButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(makeTreasuresVisibleButton)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(discardTreasuresButton)
-                    .addComponent(cultistView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addComponent(cultistView, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(discardTreasuresButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,15 +185,17 @@ public class PlayerView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nivelCombate)
                     .addComponent(combatLevelLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 186, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(hiddenTreasuresPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(visibleTreasuresPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buyLevelsButton)
-                        .addComponent(makeTreasuresVisibleButton)
-                        .addComponent(discardTreasuresButton)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(visibleTreasureLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(hiddenTreasuresLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(visibleTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(hiddenTreasuresPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buyLevelsButton)
+                    .addComponent(makeTreasuresVisibleButton)
+                    .addComponent(discardTreasuresButton))
                 .addGap(13, 13, 13))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -230,12 +243,14 @@ public class PlayerView extends javax.swing.JPanel {
     private javax.swing.JLabel combatLevelLabel;
     private GUI.CultistView cultistView;
     private javax.swing.JButton discardTreasuresButton;
+    private javax.swing.JLabel hiddenTreasuresLabel;
     private javax.swing.JPanel hiddenTreasuresPanel;
     private javax.swing.JLabel levelLabel;
     private javax.swing.JButton makeTreasuresVisibleButton;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel nivel;
     private javax.swing.JLabel nivelCombate;
+    private javax.swing.JLabel visibleTreasureLabel;
     private javax.swing.JPanel visibleTreasuresPanel;
     // End of variables declaration//GEN-END:variables
 }
