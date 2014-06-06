@@ -1,5 +1,6 @@
 package GUI;
 import Game.*;
+import java.awt.Frame;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +19,9 @@ public class GUIMain {
         PlayerNamesCapture namesCapture = new PlayerNamesCapture(napakalakiView, true);
         names = namesCapture.getNames();
         
-        // Ventana de inicio del juego
+        // Ventana maximizada de inicio del juego
         napakalakiModel.initGame(names);
+        napakalakiView.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
         napakalakiView.setNapakalaki(napakalakiModel);
         napakalakiView.showView(); 
     }
