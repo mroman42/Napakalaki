@@ -18,6 +18,8 @@ public class NapakalakiView extends javax.swing.JFrame {
      */
     public NapakalakiView() {
         initComponents();
+        playerView.disableMakeVisible();
+        playerView.disableDiscard();
     }
     
     public void setNapakalaki(Napakalaki nueva) {
@@ -122,6 +124,9 @@ public class NapakalakiView extends javax.swing.JFrame {
         buttonCombat.setEnabled(false); 
         repaint();
         // Necesario para ver los tesoros que se ganan en el combate. 
+        playerView.enableMakeVisible();
+        playerView.enableDiscard();
+        playerView.disableBuyLevels();
         playerView.paint();
     }//GEN-LAST:event_buttonCombatActionPerformed
 
@@ -132,6 +137,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         }
         repaint(); 
         playerView.setPlayer(napakalakiModel.getCurrentPlayer());
+        playerView.enableBuyLevels();
         monsterView.setMonster(napakalakiModel.getCurrentMonster()); 
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
