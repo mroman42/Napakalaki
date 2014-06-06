@@ -43,9 +43,9 @@ public class NapakalakiView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        buttonCombat.setText("Combat");
+        buttonCombat.setText("Combatir");
 
-        buttonNextTurn.setText("Next Turn");
+        buttonNextTurn.setText("SIguente Turno");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

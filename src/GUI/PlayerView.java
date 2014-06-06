@@ -208,7 +208,7 @@ public class PlayerView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void makeTreasuresVisibleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_makeTreasuresVisibleButtonActionPerformed
-        // TODO add your handling code here:
+        
         ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasuresPanel);
         
         for(Treasure treasure : selHidden){
@@ -219,7 +219,7 @@ public class PlayerView extends javax.swing.JPanel {
     }//GEN-LAST:event_makeTreasuresVisibleButtonActionPerformed
 
     private void discardTreasuresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresButtonActionPerformed
-        // TODO add your handling code here:
+        
         ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasuresPanel);
         ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasuresPanel);
         
@@ -235,7 +235,7 @@ public class PlayerView extends javax.swing.JPanel {
     }//GEN-LAST:event_discardTreasuresButtonActionPerformed
 
     private void buyLevelsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyLevelsButtonActionPerformed
-        // TODO add your handling code here:
+        
         ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasuresPanel);
         ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasuresPanel);
         

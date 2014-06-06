@@ -63,12 +63,12 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="buttonCombat">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Combat"/>
+        <Property name="text" type="java.lang.String" value="Combatir"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="buttonNextTurn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Next Turn"/>
+        <Property name="text" type="java.lang.String" value="SIguente Turno"/>
       </Properties>
     </Component>
     <Component class="GUI.MonsterView" name="monsterView">
