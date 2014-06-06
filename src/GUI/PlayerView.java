@@ -58,6 +58,12 @@ public class PlayerView extends javax.swing.JPanel {
         repaint(); 
     }
     
+    
+    // Nos permite reimprimir desde NapakalakiView
+    public void paint(){
+        repaint(); 
+    }
+    
     public ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
         TreasureView treasureView;
         ArrayList<Treasure> selected = new ArrayList();
