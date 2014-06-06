@@ -66,11 +66,11 @@ public class PlayerView extends javax.swing.JPanel {
     
     // Métodos para desactivar y activar botones desde NapakalakiView
     
-    public void disableBuy(){
+    public void disableBuyLevels(){
         buyLevelsButton.setEnabled(false);
     }
     
-    public void enableBuy(){
+    public void enableBuyLevels(){
         buyLevelsButton.setEnabled(true); 
     }
     
