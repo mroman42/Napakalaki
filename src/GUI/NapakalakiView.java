@@ -122,23 +122,30 @@ public class NapakalakiView extends javax.swing.JFrame {
         }
         
         buttonCombat.setEnabled(false); 
+        buttonNextTurn.setEnabled(true); 
         repaint();
-        // Necesario para ver los tesoros que se ganan en el combate. 
+        
+        // Necesario retocar aquí: interferencias con el mal rollo
+        
         playerView.enableMakeVisible();
         playerView.enableDiscard();
         playerView.disableBuyLevels();
-        playerView.paint();
+        // Necesario para ver los tesoros que se ganan en el combate, o si se pierden al morir. 
+        playerView.setPlayer(napakalakiModel.getCurrentPlayer());
     }//GEN-LAST:event_buttonCombatActionPerformed
 
     private void buttonNextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextTurnActionPerformed
         if (napakalakiModel.nextTurnAllowed()){
             napakalakiModel.nextTurn();
             buttonCombat.setEnabled(true);
+            buttonNextTurn.setEnabled(false); 
+            playerView.setPlayer(napakalakiModel.getCurrentPlayer());
+            playerView.enableBuyLevels();
+            playerView.disableMakeVisible();
+            playerView.disableDiscard();
+            monsterView.setMonster(napakalakiModel.getCurrentMonster()); 
         }
         repaint(); 
-        playerView.setPlayer(napakalakiModel.getCurrentPlayer());
-        playerView.enableBuyLevels();
-        monsterView.setMonster(napakalakiModel.getCurrentMonster()); 
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
 
