@@ -216,6 +216,7 @@ public class PlayerView extends javax.swing.JPanel {
         }
         
         setPlayer(napakalakiModel.getCurrentPlayer());
+        repaint(); 
     }//GEN-LAST:event_makeTreasuresVisibleButtonActionPerformed
 
     private void discardTreasuresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresButtonActionPerformed
@@ -232,6 +233,7 @@ public class PlayerView extends javax.swing.JPanel {
         }
         
         setPlayer(napakalakiModel.getCurrentPlayer());
+        repaint(); 
     }//GEN-LAST:event_discardTreasuresButtonActionPerformed
 
     private void buyLevelsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyLevelsButtonActionPerformed
@@ -242,6 +244,7 @@ public class PlayerView extends javax.swing.JPanel {
         napakalakiModel.buyLevels(selVisible, selHidden);
         
         setPlayer(napakalakiModel.getCurrentPlayer());
+        repaint(); 
     }//GEN-LAST:event_buyLevelsButtonActionPerformed
 
 
