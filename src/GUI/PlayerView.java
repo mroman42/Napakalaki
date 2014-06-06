@@ -53,14 +53,10 @@ public class PlayerView extends javax.swing.JPanel {
         revalidate();
     }
     
-    /* Ni idea de qué tenemos que hacer aquí.
-    Punto K-2, del guión.
-    
     public void setNapakalaki(Napakalaki nueva) {
         napakalakiModel = nueva; 
-        napakalakiModel = null;
         repaint(); 
-    }*/
+    }
     
     public ArrayList<Treasure> getSelectedTreasures(JPanel aPanel) {
         TreasureView treasureView;
