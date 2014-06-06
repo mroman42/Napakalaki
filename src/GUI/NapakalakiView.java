@@ -51,7 +51,12 @@ public class NapakalakiView extends javax.swing.JFrame {
             }
         });
 
-        buttonNextTurn.setText("SIguente Turno");
+        buttonNextTurn.setText("Siguente Turno");
+        buttonNextTurn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNextTurnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -95,7 +100,14 @@ public class NapakalakiView extends javax.swing.JFrame {
         CombatResult result = napakalakiModel.combat(); 
         if (result == CombatResult.WINANDWINGAME)
             labelCombatResult.setText("¡Enhorabuena, has ganado!");
+        repaint(); 
     }//GEN-LAST:event_buttonCombatActionPerformed
+
+    private void buttonNextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextTurnActionPerformed
+        if (napakalakiModel.nextTurnAllowed())
+            napakalakiModel.nextTurn();
+        repaint(); 
+    }//GEN-LAST:event_buttonNextTurnActionPerformed
 
 
     
