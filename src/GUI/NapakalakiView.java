@@ -123,8 +123,10 @@ public class NapakalakiView extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCombatActionPerformed
 
     private void buttonNextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextTurnActionPerformed
-        if (napakalakiModel.nextTurnAllowed())
+        if (napakalakiModel.nextTurnAllowed()){
             napakalakiModel.nextTurn();
+            buttonCombat.setEnabled(true);
+        }
         repaint(); 
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
