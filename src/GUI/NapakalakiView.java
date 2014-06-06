@@ -93,8 +93,25 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     private void buttonCombatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCombatActionPerformed
         CombatResult result = napakalakiModel.combat(); 
-        if (result == CombatResult.WINANDWINGAME)
-            labelCombatResult.setText("¡Enhorabuena, has ganado!");
+        
+        switch (result) {
+            case WIN:  labelCombatResult.setText("Has derrotado al monstruo.");
+                break;
+            case WINANDWINGAME:  labelCombatResult.setText("Has ganado el combate y el juego. ¡Enhorabuena!");
+                break;
+            case LOSE:  labelCombatResult.setText("Has sido derrotado. Ahora se te aplicará el mal rollo del monstruo.");
+                break;
+            case LOSEANDDIE:  labelCombatResult.setText("Has sido derrotado y has muerto.");
+                break;
+            case LOSEANDESCAPE:  labelCombatResult.setText("Has logrado escapar del combate a salvo.");
+                break;
+            case LOSEANDCONVERT: labelCombatResult.setText("Has sido derrotado. ¡Ahora eres sectario!"); 
+                break;
+            default: labelCombatResult.setText("Error en el combate.");
+                break;
+        }
+        
+        repaint();
     }//GEN-LAST:event_buttonCombatActionPerformed
 
 
