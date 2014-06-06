@@ -41,7 +41,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         monsterView = new GUI.MonsterView();
         playerView = new GUI.PlayerView();
         labelCombatResult = new javax.swing.JLabel();
-        buttonExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,13 +55,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         buttonNextTurn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonNextTurnActionPerformed(evt);
-            }
-        });
-
-        buttonExit.setText("Salir del Juego");
-        buttonExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonExitActionPerformed(evt);
             }
         });
 
@@ -82,11 +74,8 @@ public class NapakalakiView extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(buttonCombat)
-                        .addGap(102, 102, 102)
-                        .addComponent(buttonNextTurn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonExit)
-                        .addGap(17, 17, 17)))
+                        .addComponent(buttonNextTurn)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -101,8 +90,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonCombat)
-                    .addComponent(buttonNextTurn)
-                    .addComponent(buttonExit))
+                    .addComponent(buttonNextTurn))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -116,6 +104,7 @@ public class NapakalakiView extends javax.swing.JFrame {
             case WIN:  labelCombatResult.setText("Has derrotado al monstruo.");
                 break;
             case WINANDWINGAME:  labelCombatResult.setText("Has ganado el combate y el juego. ¡Enhorabuena!");
+                                 buttonNextTurn.setEnabled(false);
                 break;
             case LOSE:  labelCombatResult.setText("Has sido derrotado. Ahora se te aplicará el mal rollo del monstruo.");
                 break;
@@ -129,6 +118,7 @@ public class NapakalakiView extends javax.swing.JFrame {
                 break;
         }
         
+        buttonCombat.setEnabled(false); 
         repaint();
     }//GEN-LAST:event_buttonCombatActionPerformed
 
@@ -138,10 +128,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         repaint(); 
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
-    private void buttonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonExitActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_buttonExitActionPerformed
-
 
     
     public void showView() {
@@ -150,7 +136,6 @@ public class NapakalakiView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonCombat;
-    private javax.swing.JButton buttonExit;
     private javax.swing.JButton buttonNextTurn;
     private javax.swing.JLabel labelCombatResult;
     private GUI.MonsterView monsterView;

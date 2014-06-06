@@ -37,11 +37,8 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="buttonCombat" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
-                      <Component id="buttonNextTurn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="buttonExit" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Component id="buttonNextTurn" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -62,7 +59,6 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonCombat" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="buttonNextTurn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonExit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -91,14 +87,6 @@
     <Component class="GUI.PlayerView" name="playerView">
     </Component>
     <Component class="javax.swing.JLabel" name="labelCombatResult">
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonExit">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Salir del Juego"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonExitActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>
