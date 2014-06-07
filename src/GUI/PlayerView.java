@@ -1,8 +1,5 @@
 package GUI;
-import Game.CultistPlayer;
-import Game.Napakalaki;
-import Game.Treasure;
-import Game.Player;
+import Game.*;
 import java.awt.Component;
 import java.util.ArrayList;
 import javax.swing.JPanel;
