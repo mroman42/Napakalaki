@@ -144,6 +144,7 @@ public class NapakalakiView extends javax.swing.JFrame {
             playerView.setPlayer(napakalakiModel.getCurrentPlayer());
             
             //Ajuste de botones
+            buttonNextTurn.setEnabled(false);
             buttonCombat.setEnabled(true);
             playerView.enableBuyLevels();
             
