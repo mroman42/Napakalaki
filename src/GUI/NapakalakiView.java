@@ -2,11 +2,13 @@
  * NapakalakiView.java
  * @author Jose Carlos Entrena
  * @author Mario Román 
-  * @author Óscar Bermúdez
+ * @author Óscar Bermúdez
  */
 
 package GUI;
 import Game.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class NapakalakiView extends javax.swing.JFrame {
@@ -20,14 +22,15 @@ public class NapakalakiView extends javax.swing.JFrame {
         initComponents();
         playerView.disableMakeVisible();
         playerView.disableDiscard();
+        buttonNextTurn.setEnabled(false);
     }
     
     public void setNapakalaki(Napakalaki nueva) {
-        playerView.setNapakalaki(nueva);
-        napakalakiModel = nueva; 
+        napakalakiModel = nueva;
+        playerView.setNapakalaki(napakalakiModel); 
         monsterView.setMonster(nueva.getCurrentMonster());
         playerView.setPlayer(nueva.getCurrentPlayer());
-        repaint(); 
+        repaint();
     }
 
     /**
@@ -121,35 +124,42 @@ public class NapakalakiView extends javax.swing.JFrame {
                 break;
         }
         
-        buttonCombat.setEnabled(false); 
-        buttonNextTurn.setEnabled(true); 
+        buttonCombat.setEnabled(false);
+        buttonNextTurn.setEnabled(true);
         repaint();
         
-        // Necesario retocar aquí: interferencias con el mal rollo
-        
-        playerView.enableMakeVisible();
+        // Necesario para ver los tesoros que se ganan en el combate. 
+        if(napakalakiModel.nextTurn()){
+            playerView.enableMakeVisible();
+            buttonNextTurn.setEnabled(true);
+        }
         playerView.enableDiscard();
         playerView.disableBuyLevels();
-        // Necesario para ver los tesoros que se ganan en el combate, o si se pierden al morir. 
-        playerView.setPlayer(napakalakiModel.getCurrentPlayer());
+        playerView.paint();
+        
+        buttonCombat.setEnabled(false); 
+        repaint();
     }//GEN-LAST:event_buttonCombatActionPerformed
 
     private void buttonNextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextTurnActionPerformed
+        // Si no se puede pasar turno, nada cambia.
         if (napakalakiModel.nextTurnAllowed()){
             napakalakiModel.nextTurn();
-            buttonCombat.setEnabled(true);
-            buttonNextTurn.setEnabled(false); 
-            playerView.setPlayer(napakalakiModel.getCurrentPlayer());
-            playerView.enableBuyLevels();
-            playerView.disableMakeVisible();
-            playerView.disableDiscard();
+            
+            labelCombatResult.setText("");
             monsterView.setMonster(napakalakiModel.getCurrentMonster()); 
+            playerView.setPlayer(napakalakiModel.getCurrentPlayer());
+            
+            //Ajuste de botones
+            buttonNextTurn.setEnabled(false);
+            buttonCombat.setEnabled(true);
+            playerView.enableBuyLevels();
+            
+            //Actualizando pantalla
+            repaint();
         }
-        repaint(); 
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
-
-    
     public void showView() {
         this.setVisible(true);
     }
