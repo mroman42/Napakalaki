@@ -127,6 +127,7 @@ public class PlayerView extends javax.swing.JPanel {
         visibleTreasureLabel = new javax.swing.JLabel();
         hiddenTreasuresLabel = new javax.swing.JLabel();
 
+        nameLabel.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         nameLabel.setText("Nombre");
 
         nivel.setText("Nivel");
