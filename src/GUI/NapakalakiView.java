@@ -2,11 +2,13 @@
  * NapakalakiView.java
  * @author Jose Carlos Entrena
  * @author Mario Román 
-  * @author Óscar Bermúdez
+ * @author Óscar Bermúdez
  */
 
 package GUI;
 import Game.*;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class NapakalakiView extends javax.swing.JFrame {
@@ -23,11 +25,11 @@ public class NapakalakiView extends javax.swing.JFrame {
     }
     
     public void setNapakalaki(Napakalaki nueva) {
-        playerView.setNapakalaki(nueva);
-        napakalakiModel = nueva; 
+        napakalakiModel = nueva;
+        playerView.setNapakalaki(napakalakiModel); 
         monsterView.setMonster(nueva.getCurrentMonster());
         playerView.setPlayer(nueva.getCurrentPlayer());
-        repaint(); 
+        repaint();
     }
 
     /**
@@ -123,6 +125,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         
         buttonCombat.setEnabled(false); 
         repaint();
+        
         // Necesario para ver los tesoros que se ganan en el combate. 
         playerView.enableMakeVisible();
         playerView.enableDiscard();
@@ -135,10 +138,13 @@ public class NapakalakiView extends javax.swing.JFrame {
             napakalakiModel.nextTurn();
             buttonCombat.setEnabled(true);
         }
-        repaint(); 
+        
         playerView.setPlayer(napakalakiModel.getCurrentPlayer());
         playerView.enableBuyLevels();
         monsterView.setMonster(napakalakiModel.getCurrentMonster()); 
+        labelCombatResult.setText("");
+        
+        repaint();
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
 
