@@ -142,7 +142,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="makeTreasuresVisibleButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Hacer Tesoros Visibles"/>
+        <Property name="text" type="java.lang.String" value="Equipar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="makeTreasuresVisibleButtonActionPerformed"/>

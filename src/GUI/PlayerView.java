@@ -144,7 +144,7 @@ public class PlayerView extends javax.swing.JPanel {
             }
         });
 
-        makeTreasuresVisibleButton.setText("Hacer Tesoros Visibles");
+        makeTreasuresVisibleButton.setText("Equipar");
         makeTreasuresVisibleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 makeTreasuresVisibleButtonActionPerformed(evt);
