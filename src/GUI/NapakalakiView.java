@@ -22,6 +22,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         initComponents();
         playerView.disableMakeVisible();
         playerView.disableDiscard();
+        buttonNextTurn.setEnabled(false);
     }
     
     public void setNapakalaki(Napakalaki nueva) {
@@ -134,17 +135,21 @@ public class NapakalakiView extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonCombatActionPerformed
 
     private void buttonNextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextTurnActionPerformed
+        // Si no se puede pasar turno, nada cambia.
         if (napakalakiModel.nextTurnAllowed()){
             napakalakiModel.nextTurn();
+            
+            labelCombatResult.setText("");
+            monsterView.setMonster(napakalakiModel.getCurrentMonster()); 
+            playerView.setPlayer(napakalakiModel.getCurrentPlayer());
+            
+            //Ajuste de botones
             buttonCombat.setEnabled(true);
+            playerView.enableBuyLevels();
+            
+            //Actualizando pantalla
+            repaint();
         }
-        
-        playerView.setPlayer(napakalakiModel.getCurrentPlayer());
-        playerView.enableBuyLevels();
-        monsterView.setMonster(napakalakiModel.getCurrentMonster()); 
-        labelCombatResult.setText("");
-        
-        repaint();
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
     public void showView() {
