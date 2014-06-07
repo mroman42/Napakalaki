@@ -22,6 +22,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         initComponents();
         playerView.disableMakeVisible();
         playerView.disableDiscard();
+        buttonNextTurn.setEnabled(false);
     }
     
     public void setNapakalaki(Napakalaki nueva) {
