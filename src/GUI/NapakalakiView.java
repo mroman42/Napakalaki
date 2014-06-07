@@ -136,6 +136,8 @@ public class NapakalakiView extends javax.swing.JFrame {
         playerView.disableBuyLevels();
         playerView.paint();
         
+        // Ajuste de botones. 
+        buttonNextTurn.setEnabled(true);
         buttonCombat.setEnabled(false); 
         repaint();
     }//GEN-LAST:event_buttonCombatActionPerformed
