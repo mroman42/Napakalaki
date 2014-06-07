@@ -128,11 +128,16 @@ public class NapakalakiView extends javax.swing.JFrame {
         buttonNextTurn.setEnabled(true);
         
         // Necesario para ver los tesoros que se ganan en el combate. 
-        playerView.enableMakeVisible();   
+        if(napakalakiModel.nextTurn()){
+            playerView.enableMakeVisible();
+        }
         playerView.enableDiscard();
         playerView.disableBuyLevels();
         playerView.paint();
-         
+        
+        // Ajuste de botones. 
+        buttonNextTurn.setEnabled(true);
+        buttonCombat.setEnabled(false); 
         repaint();
     }//GEN-LAST:event_buttonCombatActionPerformed
 
