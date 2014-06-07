@@ -19,26 +19,18 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="visibleTreasuresPanel" min="-2" pref="210" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="hiddenTreasuresPanel" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="hiddenTreasuresPanel" max="32767" attributes="0"/>
+                  <Component id="visibleTreasuresPanel" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="buyLevelsButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="makeTreasuresVisibleButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="visibleTreasureLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="hiddenTreasuresLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="visibleTreasureLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="discardTreasuresButton" min="-2" max="-2" attributes="0"/>
@@ -57,12 +49,13 @@
                                           <Component id="combatLevelLabel" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="hiddenTreasuresLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cultistView" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -90,16 +83,14 @@
                   <Component id="cultistView" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="visibleTreasureLabel" min="-2" max="-2" attributes="0"/>
-                  <Component id="hiddenTreasuresLabel" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="visibleTreasureLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="visibleTreasuresPanel" pref="205" max="32767" attributes="0"/>
-                  <Component id="hiddenTreasuresPanel" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="visibleTreasuresPanel" min="-2" pref="220" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="hiddenTreasuresLabel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="hiddenTreasuresPanel" min="-2" pref="187" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buyLevelsButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="makeTreasuresVisibleButton" alignment="3" min="-2" max="-2" attributes="0"/>
