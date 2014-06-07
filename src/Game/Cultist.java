@@ -10,7 +10,7 @@ public class Cultist implements Card {
     private final int gainedLevels;
     private final String name;
     
-    Cultist (String name, int gainedLevels) {
+    public Cultist (String name, int gainedLevels) {
         this.name = name;
         this.gainedLevels = gainedLevels;
     }
