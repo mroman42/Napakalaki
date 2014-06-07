@@ -246,6 +246,7 @@ public class PlayerView extends javax.swing.JPanel {
 
     private void discardTreasuresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discardTreasuresButtonActionPerformed
         
+        // Eliminación de tesoros. 
         ArrayList<Treasure> selHidden = getSelectedTreasures(hiddenTreasuresPanel);
         ArrayList<Treasure> selVisible = getSelectedTreasures(visibleTreasuresPanel);
         
@@ -258,6 +259,12 @@ public class PlayerView extends javax.swing.JPanel {
         }
         
         setPlayer(napakalakiModel.getCurrentPlayer());
+        
+        // Si el mal rollo es vacío, activamos el botón de equipar tesoros. 
+        if (playerModel.validState()){
+            this.enableMakeVisible();
+        }
+        
         repaint(); 
     }//GEN-LAST:event_discardTreasuresButtonActionPerformed
 
