@@ -39,9 +39,11 @@ public class PlayerView extends javax.swing.JPanel {
         nameLabel.setText(playerModel.getName());
         levelLabel.setText(Integer.toString(playerModel.getLevel()));
         combatLevelLabel.setText(Integer.toString(playerModel.getCombatLevel()));
-        // Si es un sectario actualizamos su carta de sectario. 
-        if (playerModel.getClass() == CultistPlayer.class)
+        // Actualizamos, la información de sectario. 
+        if(playerModel.getClass() == CultistPlayer.class)
             cultistView.setCultist(((CultistPlayer) playerModel).getCultistCard());
+        else
+            cultistView.setCultist(new Game.Cultist("", 0));
         
         fillTreasurePanel(visibleTreasuresPanel, playerModel.getVisibleTreasures());
         fillTreasurePanel(hiddenTreasuresPanel, playerModel.getHiddenTreasures());
