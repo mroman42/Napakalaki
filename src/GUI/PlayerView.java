@@ -158,9 +158,9 @@ public class PlayerView extends javax.swing.JPanel {
             }
         });
 
-        visibleTreasureLabel.setText("Visibles:");
+        visibleTreasureLabel.setText("Tesoros Visibles:");
 
-        hiddenTreasuresLabel.setText("Ocultos:");
+        hiddenTreasuresLabel.setText("Tesoros Ocultos:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -161,12 +161,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="visibleTreasureLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Visibles:"/>
+        <Property name="text" type="java.lang.String" value="Tesoros Visibles:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="hiddenTreasuresLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ocultos:"/>
+        <Property name="text" type="java.lang.String" value="Tesoros Ocultos:"/>
       </Properties>
     </Component>
   </SubComponents>
