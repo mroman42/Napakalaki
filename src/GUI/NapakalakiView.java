@@ -146,6 +146,10 @@ public class NapakalakiView extends javax.swing.JFrame {
         if(result != CombatResult.WINANDWINGAME){
             buttonNextTurn.setEnabled(true);
         }
+        else{
+            playerView.disableDiscard();
+            playerView.disableMakeVisible();
+        }
         repaint();
     }//GEN-LAST:event_buttonCombatActionPerformed
 
