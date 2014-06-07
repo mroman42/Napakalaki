@@ -112,7 +112,6 @@ public class NapakalakiView extends javax.swing.JFrame {
             case WIN:  labelCombatResult.setText("Has derrotado al monstruo.");
                 break;
             case WINANDWINGAME:  labelCombatResult.setText("Has ganado el combate y el juego. ¡Enhorabuena!");
-                                 buttonNextTurn.setEnabled(false);
                 break;
             case LOSE:  labelCombatResult.setText("Has sido derrotado. Ahora se te aplicará el mal rollo del monstruo.");
                 break;
@@ -127,7 +126,9 @@ public class NapakalakiView extends javax.swing.JFrame {
         }
         
         buttonCombat.setEnabled(false);
-        buttonNextTurn.setEnabled(true);
+        if(result != CombatResult.WINANDWINGAME){
+            buttonNextTurn.setEnabled(true);
+        }
         
         // Necesario para ver los tesoros que se ganan en el combate. 
         if(napakalakiModel.nextTurnAllowed()){
