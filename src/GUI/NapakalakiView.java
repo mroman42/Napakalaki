@@ -124,7 +124,8 @@ public class NapakalakiView extends javax.swing.JFrame {
                 break;
         }
         
-        buttonCombat.setEnabled(false); 
+        buttonCombat.setEnabled(false);
+        buttonNextTurn.setEnabled(true);
         repaint();
         
         // Necesario para ver los tesoros que se ganan en el combate. 
@@ -145,6 +146,7 @@ public class NapakalakiView extends javax.swing.JFrame {
             
             //Ajuste de botones
             buttonCombat.setEnabled(true);
+            buttonNextTurn.setEnabled(false);
             playerView.enableBuyLevels();
             
             //Actualizando pantalla
