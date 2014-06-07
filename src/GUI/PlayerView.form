@@ -81,12 +81,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="visibleTreasureLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="visibleTreasuresPanel" min="-2" pref="156" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <Component id="visibleTreasuresPanel" min="-2" pref="130" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Component id="hiddenTreasuresLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="hiddenTreasuresPanel" min="-2" pref="187" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+              <Component id="hiddenTreasuresPanel" min="-2" pref="130" max="-2" attributes="0"/>
+              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="discardTreasuresButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="makeTreasuresVisibleButton" alignment="3" min="-2" max="-2" attributes="0"/>
