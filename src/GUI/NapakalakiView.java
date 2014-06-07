@@ -122,11 +122,6 @@ public class NapakalakiView extends javax.swing.JFrame {
                 break;
         }
         
-        buttonCombat.setEnabled(false);
-        if(result != CombatResult.WINANDWINGAME){
-            buttonNextTurn.setEnabled(true);
-        }
-        
         // Necesario para ver los tesoros que se ganan en el combate. 
         if(napakalakiModel.nextTurnAllowed()){
             playerView.enableMakeVisible();
@@ -136,8 +131,10 @@ public class NapakalakiView extends javax.swing.JFrame {
         playerView.setPlayer(napakalakiModel.getCurrentPlayer());
         
         // Ajuste de botones. 
-        buttonNextTurn.setEnabled(true);
-        buttonCombat.setEnabled(false); 
+        buttonCombat.setEnabled(false);
+        if(result != CombatResult.WINANDWINGAME){
+            buttonNextTurn.setEnabled(true);
+        }
         repaint();
     }//GEN-LAST:event_buttonCombatActionPerformed
 
