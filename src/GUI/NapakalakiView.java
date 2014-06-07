@@ -147,8 +147,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         repaint();
     }//GEN-LAST:event_buttonNextTurnActionPerformed
 
-
-    
     public void showView() {
         this.setVisible(true);
     }
