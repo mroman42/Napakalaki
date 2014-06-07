@@ -53,7 +53,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="treasureKindLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="treasureNameLabel" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="treasureNameLabel" min="-2" pref="180" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
