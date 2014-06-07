@@ -131,7 +131,6 @@ public class NapakalakiView extends javax.swing.JFrame {
         // Necesario para ver los tesoros que se ganan en el combate. 
         if(napakalakiModel.nextTurn()){
             playerView.enableMakeVisible();
-            buttonNextTurn.setEnabled(true);
         }
         playerView.enableDiscard();
         playerView.disableBuyLevels();
